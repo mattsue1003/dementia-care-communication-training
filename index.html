@@ -1,0 +1,1484 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>失智症溝通與照顧技巧</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>
+/* Layout concept: 每張投影片像一頁「訪視個案夾」——左上分類標籤、內容以寬格線撐滿版面，垂直置中、可在小螢幕內捲動 */
+:root{
+  --paper:#F3F6F5; --surface:#FFFFFF; --ink:#12343B; --muted:#4A6166;
+  --teal:#028090; --teal-d:#01606C; --teal-soft:#DDEFEF;
+  --orange:#E8552D; --orange-soft:#FCE6DF; --amber:#F4A93C; --amber-soft:#FDF1DC;
+  --line:#D3DFDE; --green:#2E7D4F; --green-soft:#E1F1E7; --grey-soft:#ECEFEF;
+  --f-display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --f-body:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;
+  --navh:58px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);
+  font-size:clamp(16px, calc(0.85vw + 0.75vh), 26px);line-height:1.6;overflow:hidden}
+a{color:var(--teal-d)}
+b,strong{font-weight:700}
+.deck{position:fixed;inset:0 0 calc(var(--navh) + env(safe-area-inset-bottom,0px)) 0}
+.slide{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;
+  padding-block:clamp(14px,3.2vh,44px);
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));
+  opacity:0;visibility:hidden;transition:opacity .35s ease, visibility .35s}
+.slide.on{opacity:1;visibility:visible}
+.wrap{margin:auto;width:100%;max-width:1360px;display:flex;flex-direction:column;gap:1.1em;min-width:0}
+.tag{display:inline-flex;align-items:center;gap:.5em;font-size:.72em;font-weight:700;letter-spacing:.08em;color:var(--teal-d);
+  background:var(--teal-soft);padding:.25em .8em;border-radius:4px;align-self:flex-start}
+.tag.o{color:#A8361A;background:var(--orange-soft)}
+h1,h2,h3{margin:0;text-wrap:balance;font-family:var(--f-display);font-weight:900;line-height:1.25}
+h2{font-size:2em}
+h3{font-size:1.18em;font-family:var(--f-body);font-weight:700}
+p{margin:0}
+.lead{font-size:1.12em;color:var(--muted);max-width:52em}
+.g{display:grid;gap:1em;min-width:0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,22em),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,16em),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,12em),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1em 1.15em;min-width:0}
+.card h3{margin-bottom:.35em}
+.card.t{border-top:5px solid var(--teal)}
+.card.o{border-top:5px solid var(--orange)}
+.card.a{border-top:5px solid var(--amber)}
+.card.fill-t{background:var(--teal);color:#fff;border-color:var(--teal)}
+.card.fill-t h3{color:#fff}
+.small{font-size:.85em;color:var(--muted)}
+.xs{font-size:.74em;color:var(--muted)}
+ul.l{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:.3em}
+ul.l li::marker{color:var(--teal)}
+.num{font-family:var(--f-display);font-weight:900;font-size:2.6em;line-height:1.05;color:var(--teal-d);font-variant-numeric:tabular-nums}
+.num.o{color:var(--orange)}
+.num small{font-size:.45em;font-family:var(--f-body);font-weight:700;margin-left:.15em}
+.hl{background:linear-gradient(transparent 58%, var(--amber-soft) 58%);font-weight:700}
+.note{border-left:5px solid var(--amber);background:var(--amber-soft);padding:.7em 1em;border-radius:0 10px 10px 0}
+.note.t{border-color:var(--teal);background:var(--teal-soft)}
+.note.o{border-color:var(--orange);background:var(--orange-soft)}
+.src{font-size:.7em;color:var(--muted);border-top:1px dashed var(--line);padding-top:.5em}
+/* 證據等級徽章 */
+.lv{display:inline-flex;align-items:center;justify-content:center;min-width:2.6em;height:2.6em;border-radius:8px;font-weight:900;color:#fff;font-size:.9em;flex:none}
+.l1a,.l1b{background:var(--green)} .l2b{background:var(--teal)} .l4{background:#C17A12} .l5{background:#7A8A8D} .lD{background:#5A6E8C}
+.study{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1em 1.15em;display:flex;flex-direction:column;gap:.55em;min-width:0}
+.st-head{display:flex;gap:.7em;align-items:center}
+.st-head b{display:block;line-height:1.3}
+.st-head small{display:block;color:var(--muted);font-size:.78em;line-height:1.35}
+.study dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.25em .8em;font-size:.92em}
+.study dt{font-weight:700;color:var(--teal-d);white-space:nowrap}
+.study dd{margin:0;min-width:0}
+.plain{background:var(--teal-soft);border-radius:8px;padding:.5em .8em;font-size:.95em}
+.plain::before{content:"白話　";font-weight:900;color:var(--teal-d)}
+/* 分隔頁 */
+.divider{background:var(--teal);color:#fff}
+.divider .wrap{gap:.6em}
+.divider .big{font-family:var(--f-display);font-size:6em;font-weight:900;line-height:1;color:var(--amber)}
+.divider h2{font-size:2.6em;color:#fff}
+.divider p{font-size:1.15em;max-width:40em;color:#E6F4F4}
+/* 封面 */
+.cover{background:linear-gradient(135deg,#FFFFFF 0%,#E9F3F2 60%,#FCE9E1 100%)}
+.cover h1{font-size:3.3em;color:var(--ink)}
+.cover .bar{height:8px;width:6em;background:var(--orange);border-radius:4px}
+/* 表格 */
+.tscroll{overflow-x:auto;min-width:0;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
+table.tb{border-collapse:collapse;width:100%;font-size:.88em;min-width:36em}
+.tb th,.tb td{padding:.55em .8em;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.tb th{background:var(--teal-soft);color:var(--teal-d);font-weight:700;white-space:nowrap}
+.tb tr:last-child td{border-bottom:none}
+.tb td:first-child{font-weight:700}
+/* 互動 */
+button{font:inherit;color:inherit}
+.btn{cursor:pointer;border:2px solid var(--teal);background:var(--surface);color:var(--teal-d);font-weight:700;border-radius:999px;padding:.35em 1.1em;align-self:flex-start}
+.btn:hover,.btn:focus-visible{background:var(--teal);color:#fff;outline:none}
+.reveal-body{animation:pop .35s ease}
+.flip{cursor:pointer;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:0;text-align:left;min-height:6.2em;position:relative;display:flex;flex-direction:column;overflow:hidden}
+.flip .fa,.flip .fb{padding:.8em 1em;display:flex;flex-direction:column;gap:.2em;flex:1}
+.flip .fa{background:var(--orange-soft)}
+.flip .fb{background:var(--green-soft)}
+.flip .k{font-size:.72em;font-weight:900;letter-spacing:.08em}
+.flip .fa .k{color:#A8361A}.flip .fb .k{color:var(--green)}
+.flip .q{font-size:1.05em;font-weight:700}
+.flip:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.myth{display:flex;flex-direction:column;gap:.6em}
+.myth .opts{display:flex;gap:.5em;flex-wrap:wrap}
+.ans{border-radius:10px;padding:.6em .9em}
+.ans.ok{background:var(--green-soft)} .ans.no{background:var(--orange-soft)}
+.flow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:1em;align-items:start}
+@media (max-width:820px){.flow{grid-template-columns:1fr}}
+.steps{display:flex;flex-direction:column;gap:.4em}
+.step{cursor:pointer;display:flex;gap:.7em;align-items:center;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:.45em .8em}
+.step .n{flex:none;width:1.9em;height:1.9em;border-radius:50%;background:var(--teal-soft);color:var(--teal-d);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:.85em}
+.step.sel{border-color:var(--teal);background:var(--teal);color:#fff}
+.step.sel .n{background:#fff}
+.step.red .n{background:var(--orange);color:#fff}
+.panel{background:var(--surface);border:2px solid var(--teal);border-radius:12px;padding:1.1em 1.3em;min-height:12em}
+.tabs{display:flex;gap:.4em;flex-wrap:wrap}
+.tabbtn{cursor:pointer;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:.3em .9em;font-weight:700}
+.tabbtn.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chk{display:flex;gap:.6em;align-items:flex-start;padding:.4em .6em;border-radius:8px;cursor:pointer;border:1px solid transparent}
+.chk:hover{background:var(--grey-soft)}
+.chk input{width:1.15em;height:1.15em;margin-top:.25em;accent-color:var(--orange);flex:none}
+.chk.key{border-color:var(--orange)}
+.phone{font-family:var(--f-display);font-size:2.2em;font-weight:900;color:var(--teal-d);line-height:1.1;user-select:all}
+.route{display:flex;flex-wrap:wrap;gap:.6em}
+.route .card{flex:1 1 14em}
+.timeline{display:flex;flex-direction:column;gap:.5em;position:relative}
+.tl{display:grid;grid-template-columns:7.5em 1fr;gap:1em;align-items:baseline}
+.tl .d{font-weight:900;color:var(--orange);font-variant-numeric:tabular-nums}
+@media (max-width:600px){.tl{grid-template-columns:1fr;gap:0}}
+.bars{display:flex;flex-direction:column;gap:.55em}
+.bar-row{display:grid;grid-template-columns:8em 1fr 4em;gap:.7em;align-items:center}
+.bar-track{height:1.4em;background:var(--grey-soft);border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px}
+.bar-row .v{font-weight:900;font-variant-numeric:tabular-nums}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:1em;align-items:center}
+@media (max-width:700px){.vs{grid-template-columns:1fr}.vs .arrow{transform:rotate(90deg);justify-self:center}}
+.arrow{font-size:2.4em;color:var(--orange);font-weight:900}
+.refs{font-size:.72em;columns:2 26em;column-gap:2em}
+.refs li{break-inside:avoid;margin-bottom:.35em}
+/* 逐句對話 */
+.dlg{display:flex;flex-direction:column;gap:.55em}
+.ln{display:grid;grid-template-columns:5.5em 1fr;gap:.8em;align-items:start}
+.ln .who{font-weight:900;font-size:.85em;padding:.35em .5em;border-radius:6px;text-align:center}
+.ln.a .who{background:var(--orange-soft);color:#A8361A}
+.ln.b .who{background:var(--teal-soft);color:var(--teal-d)}
+.ln .say{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.45em .8em;min-width:0}
+.ln .why{display:block;margin-top:.3em;font-size:.8em;color:var(--green);font-weight:500}
+.ln .why::before{content:"為什麼這樣說：";font-weight:900}
+.dlg-ctl{display:flex;gap:.6em;flex-wrap:wrap;align-items:center}
+@media (max-width:600px){.ln{grid-template-columns:1fr;gap:.2em}.ln .who{justify-self:start}}
+.qr{background:#fff;border-radius:10px;padding:.4em;width:9em;max-width:100%;flex:none;border:1px solid var(--line)}
+.qr svg{display:block;width:100%;height:auto}
+.qr path{fill:#12343B}
+.res{display:flex;gap:1em;align-items:center}
+@media (max-width:600px){.res{flex-direction:column;align-items:flex-start}}
+/* 導覽列 */
+.nav{position:fixed;left:0;right:0;bottom:0;height:calc(var(--navh) + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));
+  background:var(--ink);color:#fff;display:flex;align-items:center;gap:.8em;font-size:15px;z-index:20}
+.nav button{cursor:pointer;background:transparent;border:1px solid #4E6B71;color:#fff;border-radius:8px;padding:.35em .9em}
+.nav button:hover,.nav button:focus-visible{background:#24505A;outline:none}
+.nav .ttl{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.85}
+.prog{position:absolute;left:0;top:0;height:3px;background:var(--amber);transition:width .3s}
+.menu{position:fixed;inset:0 0 calc(var(--navh) + env(safe-area-inset-bottom,0px)) 0;background:rgba(18,52,59,.96);color:#fff;z-index:19;overflow:auto;
+  padding-block:24px;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+.menu ol{max-width:1100px;margin:0 auto;columns:3 16em;column-gap:2em;font-size:15px}
+.menu li{break-inside:avoid;margin-bottom:.25em}
+.menu a{color:#fff;text-decoration:none}
+.menu a:hover{color:var(--amber)}
+.menu li.sec{font-weight:900;color:var(--amber);list-style:none;margin-top:.6em}
+/* 動畫 */
+@keyframes pop{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.slide.on .wrap>*{animation:pop .5s ease both}
+.slide.on .wrap>*:nth-child(2){animation-delay:.06s}
+.slide.on .wrap>*:nth-child(3){animation-delay:.12s}
+.slide.on .wrap>*:nth-child(4){animation-delay:.18s}
+.slide.on .wrap>*:nth-child(n+5){animation-delay:.24s}
+@media (prefers-reduced-motion:reduce){.slide.on .wrap>*,.reveal-body{animation:none}.slide{transition:none}}
+</style>
+</head><body>
+
+<div class="deck" id="deck">
+
+<!-- ===== 封面 ===== -->
+<section class="slide cover on" data-t="封面">
+<div class="wrap">
+  <span class="tag">新女性聯合會｜內部訓練｜2026.10.21</span>
+  <h1>失智症溝通與照顧技巧</h1>
+  <div class="bar"></div>
+  <p class="lead">在親密關係暴力訪視中，看懂失智症與精神疾病帶來的照顧衝突，並把家庭接到對的法規程序與資源</p>
+  <div class="g g3" style="margin-top:.6em">
+    <div class="card"><h3>鍾孟修 職能治療師</h3><p class="small">愛迪樂健康促進團隊 執行長<br>社團法人台灣生活復能健康促進協會 理事長</p></div>
+    <div class="card"><h3>專長</h3><p class="small">長照復能、失智症非藥物介入、照顧者訓練、ICOPE 評估員培訓</p></div>
+    <div class="card"><h3>著作</h3><p class="small">《讓你健康不失智》（商周出版，2025）</p></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="今天的路線">
+<div class="wrap">
+  <span class="tag">課程地圖</span>
+  <h2>今天的路線</h2>
+  <div class="g g3">
+    <div class="card t"><div class="num">01</div><h3>研究</h3><p class="small">這群家庭為什麼風險高？盛行率、雙向暴力、風險因子、有效的介入</p></div>
+    <div class="card t"><div class="num">02</div><h3>案例</h3><p class="small">台灣判決、近期新聞、三個實務情境</p></div>
+    <div class="card o"><div class="num o">03</div><h3>溝通與照顧技巧</h3><p class="small">可以在訪視時直接分享給照顧者的方法</p></div>
+    <div class="card t"><div class="num">04</div><h3>處置</h3><p class="small">通報、篩派案、危險評估、保護令、精神衛生法新制、民刑法界線</p></div>
+    <div class="card t"><div class="num">05</div><h3>社會福利</h3><p class="small">長照 3.0、照顧者支持、失智與精神疾病資源、經濟補助、專線</p></div>
+    <div class="card t"><div class="num">06</div><h3>縣市比較</h3><p class="small">新北、臺北與其他直轄市的共同點與差異，最後 QA</p></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="開場：生病還是控制？">
+<div class="wrap">
+  <span class="tag o">開場</span>
+  <h2>「他動手，是因為生病，還是因為控制？」</h2>
+  <p class="lead">這是訪視失智或精神疾病家庭時最常卡住的問題。今天的答案是：兩件事要同時處理。</p>
+  <div class="vs">
+    <div class="card t"><h3>理解症狀</h3><ul class="l"><li>失智與精神疾病會改變判斷、抑制與感知</li><li>很多攻擊來自恐懼、疼痛、誤解或環境刺激</li><li>用對方法，衝突可以變少</li></ul></div>
+    <div class="arrow">＋</div>
+    <div class="card o"><h3>管理風險</h3><ul class="l"><li>理解不等於免責，傷害仍是傷害</li><li>照顧者也可能是加害人</li><li>危險評估、安全計畫、保護令照樣要做</li></ul></div>
+  </div>
+  <div class="note t">課程目標：訪視時能 <b>辨識</b> 症狀與暴力型態、<b>分享</b> 降低衝突的溝通技巧、<b>啟動</b> 正確的法定程序與資源。</div>
+</div>
+</section>
+
+<section class="slide" data-t="三個常見迷思">
+<div class="wrap">
+  <span class="tag o">開場｜迷思</span>
+  <h2>先破三個迷思：你覺得對還是錯？</h2>
+  <div class="g g3">
+    <div class="card myth"><h3>「老夫老妻吵了一輩子，那不算家暴，是個性。」</h3>
+      <div class="opts"><button class="btn" data-myth="no">對</button><button class="btn" data-myth="no">錯</button></div>
+      <div class="ans no" hidden><b>錯。</b>家暴法沒有年齡上限，配偶與前配偶都是家庭成員；英國 2021 年《家暴法》也明定不設年齡上限，並把「控制與脅迫」列為家暴。高齡被害人平均受暴更久才求助。</div></div>
+    <div class="card myth"><h3>「他是失智才打人，所以不需要做危險評估。」</h3>
+      <div class="opts"><button class="btn" data-myth="no">對</button><button class="btn" data-myth="no">錯</button></div>
+      <div class="ans no" hidden><b>錯。</b>症狀造成的攻擊一樣會致命。日本研究中，有妄想性嫉妒的失智者，<b>6 成曾對配偶動手</b>。原因要理解，風險也要評估。</div></div>
+    <div class="card myth"><h3>「照顧者願意承認自己會吼罵，代表他是危險的加害人。」</h3>
+      <div class="opts"><button class="btn" data-myth="no">對</button><button class="btn" data-myth="no">錯</button></div>
+      <div class="ans no" hidden><b>不一定。</b>英國研究中 1/3 照顧者承認明顯吼罵，願意說出來，常是求助的開始。要同時評估危險程度與照顧負荷，再決定處理方式。</div></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="怎麼讀研究卡">
+<div class="wrap">
+  <span class="tag">閱讀說明</span>
+  <h2>怎麼讀今天的研究卡</h2>
+  <p class="lead">每張研究卡左上角都有證據等級（依牛津實證醫學中心 CEBM 分級）。等級越前面，結論越可靠。</p>
+  <div class="tscroll"><table class="tb">
+    <tr><th>等級</th><th>研究怎麼做</th><th>參考價值</th></tr>
+    <tr><td><span class="lv l1a">1a</span></td><td>系統性回顧：把多篇隨機對照試驗（RCT）合起來分析</td><td>最高，可作為主要依據</td></tr>
+    <tr><td><span class="lv l1b">1b</span></td><td>隨機對照試驗：隨機分成介入組和對照組再比較</td><td>高，能說明「介入有沒有效」</td></tr>
+    <tr><td><span class="lv l2b">2a</span></td><td>系統性回顧：整合多篇世代或觀察性研究</td><td>中高，看得出整體趨勢</td></tr>
+    <tr><td><span class="lv l2b">2b</span></td><td>世代研究：長期追蹤同一群人</td><td>中，看得出趨勢，但不能完全證明因果</td></tr>
+    <tr><td><span class="lv l4">4</span></td><td>橫斷面調查或案例系列：只在一個時間點收集資料</td><td>中低，適合描述「有多常見」</td></tr>
+    <tr><td><span class="lv l5">5</span></td><td>專家意見、實務架構</td><td>低，屬於經驗建議，好用但未經嚴格驗證</td></tr>
+    <tr><td><span class="lv lD">盛行</span></td><td>盛行率的系統性回顧：整合多國調查估計「有多少人」</td><td>回答盛行率問題時最可靠，但不是在比較介入方法</td></tr>
+  </table></div>
+  <div class="g g3">
+    <div class="card"><b>95% 信賴區間</b><p class="small">真實數值大概落在這個範圍。範圍越窄，估計越準。</p></div>
+    <div class="card"><b>效果量（ES、SMD）</b><p class="small">介入效果有多大。約 0.2 小、0.5 中、0.8 大。</p></div>
+    <div class="card"><b>勝算比（OR）</b><p class="small">小於 1 代表介入組發生壞結果的機會較低。</p></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== 01 研究 ===== -->
+<section class="slide divider" data-t="01 研究" data-sec="1">
+<div class="wrap"><div class="big">01</div><h2>研究：這群家庭為什麼風險高</h2><p>從台灣數字開始，再看國際研究怎麼描述失智照顧與暴力的關係，最後看哪些介入有證據。</p></div>
+</section>
+
+<section class="slide" data-t="台灣現況數字">
+<div class="wrap">
+  <span class="tag">01 研究｜台灣現況</span>
+  <h2>先看台灣與新北的數字</h2>
+  <div class="g g4">
+    <div class="card t"><div class="num">7.99<small>%</small></div><p class="small">65 歲以上失智症盛行率（女 9.36%、男 6.35%）；85 歲以上達 23.23%</p></div>
+    <div class="card t"><div class="num">35<small>萬</small></div><p class="small">2024 年失智人口推估；2031 年超過 47 萬，2041 年近 68 萬</p></div>
+    <div class="card o"><div class="num o">10,347<small>人</small></div><p class="small">新北市 113 年婚姻暴力通報人數（女性 76%）</p></div>
+    <div class="card o"><div class="num o">1,718<small>人</small></div><p class="small">新北市 113 年老人保護通報人數（女性 65%）</p></div>
+  </div>
+  <div class="g g2">
+    <div class="note">全國 113 年老人虐待類型（可複選）：<b>精神虐待 53%</b>、身體 37%、騷擾 30%、經濟 2%。施虐者以成年子女最多（55%）。</div>
+    <div class="note t">意涵：失智人口持續增加，<b>老老照顧、配偶照顧</b>的家庭會越來越常出現在婚暴與老保案件中。</div>
+  </div>
+  <p class="src">來源：衛福部委託國衛院「全國社區失智症流行病學調查」（2020–2023），2024.3.21 發布；新北市家防中心〈113 年家庭暴力、性侵害案量統計〉；衛福部 2025 年老人保護新聞稿。</p>
+</div>
+</section>
+
+<section class="slide" data-t="高齡親密關係暴力增加">
+<div class="wrap">
+  <span class="tag">01 研究｜全國趨勢</span>
+  <h2>65 歲以上的親密關係暴力被害人，4 年增加約 5 成</h2>
+  <div class="g g2" style="align-items:center">
+    <div class="card bars">
+      <h3>親密關係暴力被害人中，65 歲以上人數</h3>
+      <div class="bar-row"><span>110 年</span><div class="bar-track"><div class="bar-fill" style="width:66%;background:var(--teal)"></div></div><span class="v">3,513</span></div>
+      <div class="bar-row"><span>112 年</span><div class="bar-track"><div class="bar-fill" style="width:85%;background:var(--teal)"></div></div><span class="v">4,530</span></div>
+      <div class="bar-row"><span>113 年</span><div class="bar-track"><div class="bar-fill" style="width:92%;background:var(--teal)"></div></div><span class="v">4,903</span></div>
+      <div class="bar-row"><span>114 年</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--orange)"></div></div><span class="v">5,300</span></div>
+      <p class="xs">114 年占全部親密關係暴力被害人（65,204 人）約 8.1%</p>
+    </div>
+    <div class="g" style="gap:.8em">
+      <div class="card o"><b>老人保護通報</b><p class="small">113 年 24,396 件 → 114 年約 26,684 件；加害人中<b>夫妻或伴侶占 26%</b>，類型以精神暴力最多</p></div>
+      <div class="card o"><b>相互通報約占 3 成</b><p class="small">全國家暴通報 2025 年 190,676 件，「相互通報」逐年增加；照顧情境中更難分辨誰是被害人</p></div>
+      <div class="card a"><b>老老照顧 51.8 萬人</b><p class="small">家總統計 2018–2024 年長照殺人 62 件，平均每年 8.8 件；約 7 成照顧者從沒求助、沒用過長照</p></div>
+    </div>
+  </div>
+  <p class="src">來源：衛福部保護服務司親密關係暴力被害人統計表；工商時報 2026.2.12 引保護司資料；公視 2026.6.18；NOWnews 2025.3.7 引家總與內政部資料。</p>
+</div>
+</section>
+
+<section class="slide" data-t="失智者受虐比例">
+<div class="wrap">
+  <span class="tag">01 研究｜盛行率</span>
+  <h2>住在家裡的失智者，受虐比例是一般長者的近 3 倍</h2>
+  <div class="bars card">
+    <div class="bar-row"><span>一般長者</span><div class="bar-track"><div class="bar-fill" style="width:15.7%;background:var(--teal)"></div></div><span class="v">15.7%</span></div>
+    <div class="bar-row"><span>社區失智者</span><div class="bar-track"><div class="bar-fill" style="width:42.6%;background:var(--orange)"></div></div><span class="v">42.6%</span></div>
+  </div>
+  <div class="g g2">
+    <div class="study"><div class="st-head"><span class="lv lD">盛行</span><div><b>Yon et al., 2017</b><small>The Lancet Global Health｜WHO 團隊整合分析</small></div></div>
+      <dl><dt>對象</dt><dd>28 國、52 篇社區調查，60 歲以上長者</dd><dt>怎麼做</dt><dd>合併各國「過去一年受虐率」</dd><dt>結果</dt><dd>15.7%（約 6 人有 1 人）；心理虐待 11.6% 最多，身體虐待 2.6%</dd><dt>限制</dt><dd>各國定義不同；不是專指失智者</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv lD">盛行</span><div><b>Shen et al., 2025</b><small>Gerontology｜系統性回顧與整合分析</small></div></div>
+      <dl><dt>對象</dt><dd>8 國、30 篇研究，6,789 對失智者與照顧者</dd><dt>怎麼做</dt><dd>合併社區失智者受虐與疏忽的比例</dd><dt>結果</dt><dd>42.6%；心理虐待 44.8%、財務 28.3%、疏忽 19.8%、身體 10%</dd><dt>限制</dt><dd>研究間差異大，部分信賴區間很寬</dd></dl></div>
+  </div>
+  <p class="plain">最常見的不是打，而是罵、羞辱、威脅。訪視時要問的是「你們最近吵架都怎麼吵」，不只問「有沒有動手」。</p>
+</div>
+</section>
+
+<section class="slide" data-t="照顧者自陳的虐待">
+<div class="wrap">
+  <span class="tag">01 研究｜照顧者自陳</span>
+  <h2>每 3 位家屬照顧者，就有 1 位承認有明顯的吼罵或威脅</h2>
+  <div class="g g2" style="align-items:start">
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Cooper et al., 2009（英國 CARD 研究）</b><small>BMJ｜橫斷面調查</small></div></div>
+      <dl><dt>對象</dt><dd>220 位家屬照顧者，失智家人剛轉介到倫敦與 Essex 的精神科服務、住在家中</dd><dt>怎麼做</dt><dd>用「修訂版衝突策略量表」10 題，詢問照顧者過去 3 個月的心理與身體行為</dd><dt>結果</dt><dd><b>52%</b> 有某些虐待行為；<b>34%</b> 達顯著程度；最常見是吼叫、咒罵；身體虐待只有 1.4%</dd><dt>限制</dt><dd>照顧者自己回答，可能低報；樣本來自已在接受服務的家庭</dd></dl></div>
+    <div class="g" style="gap:.8em">
+      <div class="card t"><div class="num">34<small>%</small></div><p class="small">達「顯著程度」的照顧者</p></div>
+      <div class="card"><h3>這代表什麼</h3><p class="small">這是照顧者<b>願意說出來</b>的部分。作者也提醒，最嚴重的家庭可能根本不會說。照顧者若願意承認，是開啟支持的好時機，不是指責的時機。</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="雙向暴力">
+<div class="wrap">
+  <span class="tag">01 研究｜雙向暴力</span>
+  <h2>暴力常常是雙向的，配偶照顧風險最高</h2>
+  <div class="vs">
+    <div class="card t"><h3>照顧者 → 失智者</h3><div class="num">66.3<small>%</small></div><p class="small">過去 12 個月任何虐待（心理 63.5%、身體 9.4%）</p></div>
+    <div class="arrow">⇄</div>
+    <div class="card o"><h3>失智者 → 照顧者</h3><div class="num o">35.3<small>%</small></div><p class="small">過去 12 個月任何攻擊（心理 33.9%、身體 7.6%）</p></div>
+  </div>
+  <div class="g g2">
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Steinsheim et al., 2022（挪威）</b><small>BMC Geriatrics｜匿名橫斷面問卷</small></div></div>
+      <dl><dt>對象</dt><dd>540 位居家失智者的家屬照顧者</dd><dt>結果</dt><dd><b>配偶或伴侶照顧者</b>在各類虐待的比例都顯著較高；失智者動手時，照顧者也比較會動手</dd><dt>限制</dt><dd>回收率約 36%；調查期間正逢 COVID-19</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Cooper et al., 2010（英國 CARD）</b><small>J Neurol Neurosurg Psychiatry｜橫斷面研究</small></div></div>
+      <dl><dt>對象</dt><dd>同上 220 位照顧者</dd><dt>結果</dt><dd><b>37.3%</b> 曾遭失智家人罵、威脅或攻擊；受攻擊越多，照顧關係的「回饋感」下降越多；用否認、自責、喝酒因應的人，關係惡化更明顯</dd></dl></div>
+  </div>
+  <p class="plain">「你罵我、我回罵；你推我、我推回去」的互相升高，就是親密關係暴力方案會看到的樣貌。</p>
+</div>
+</section>
+
+<section class="slide" data-t="晚年親密關係暴力">
+<div class="wrap">
+  <span class="tag">01 研究｜晚年親密關係暴力</span>
+  <h2>高齡被害人：打得少了，控制還在，而且更難離開</h2>
+  <div class="g g3">
+    <div class="study"><div class="st-head"><span class="lv l2b">2a</span><div><b>Chen & Li, 2026</b><small>Trauma, Violence & Abuse｜範圍回顧＋整合分析</small></div></div>
+      <dl><dt>對象</dt><dd>37 篇老年人親密關係暴力研究</dd><dt>結果</dt><dd>過去一年任何形式 <b>10.6%</b>；以心理暴力最常見</dd><dt>限制</dt><dd>各研究定義與工具差異大</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Stöckl & Penhale, 2015（德國）</b><small>J Interpers Violence｜全國代表性調查</small></div></div>
+      <dl><dt>對象</dt><dd>10,264 名 16–86 歲女性</dd><dt>結果</dt><dd>身體或性暴力隨年齡下降（66–86 歲 1%），但<b>情緒、經濟暴力與控制行為各年齡層幾乎一樣</b></dd><dt>限制</dt><dd>自陳資料</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>SafeLives, 2016（英國）</b><small>Safe Later Lives｜家暴服務個案資料</small></div></div>
+      <dl><dt>比較</dt><dd>60 歲以上 vs 60 歲以下被害人</dd><dt>結果</dt><dd>平均受暴 <b>6.5 年 vs 4 年</b>；有身心障礙 48% vs 13%；過去一年曾試圖離開 27% vs 68%</dd><dt>限制</dt><dd>服務個案，非人口盛行率</dd></dl></div>
+  </div>
+  <p class="plain">高齡被害人不一定有明顯傷痕，也很少說自己「被家暴」。訪視時要問控制、經濟與威脅，並留意他可能因為要照顧對方而走不了。</p>
+</div>
+</section>
+
+<section class="slide" data-t="風險因子">
+<div class="wrap">
+  <span class="tag">01 研究｜風險因子</span>
+  <h2>什麼情況最容易「罵出口、動到手」</h2>
+  <div class="g g3">
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Yan & Kwok, 2011（香港）</b><small>Int J Geriatric Psychiatry</small></div></div>
+      <dl><dt>對象</dt><dd>122 位華人失智家屬照顧者</dd><dt>結果</dt><dd>1 個月內言語虐待 62%、身體虐待 18%。預測因子：照顧負荷、失智者躁動、<b>同住天數</b>、<b>沒有外籍看護或幫手</b></dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l2b">2b</span><div><b>Ku et al., 2019（台灣南部）</b><small>International Psychogeriatrics</small></div></div>
+      <dl><dt>對象</dt><dd>231 對失智者與照顧者，追蹤 1 年</dd><dt>結果</dt><dd><b>精神行為症狀（BPSD）越多，照顧負荷越重</b>；經濟狀況較好的照顧者負荷較低</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Uei et al., 2013（台灣）</b><small>Social Behavior and Personality</small></div></div>
+      <dl><dt>對象</dt><dd>162 對社區失智者與家屬</dd><dt>結果</dt><dd>照顧者「覺得自己處理得來」攻擊、不合作、遊走時，負荷較輕。這種自我效能可以靠訓練提升</dd></dl></div>
+  </div>
+  <div class="g g4">
+    <div class="card a"><b>行為症狀</b><p class="small">妄想、躁動、攻擊比「忘記」更壓垮人</p></div>
+    <div class="card a"><b>天天同住</b><p class="small">沒有喘口氣的空間</p></div>
+    <div class="card a"><b>沒有替手</b><p class="small">一個人 24 小時撐</p></div>
+    <div class="card a"><b>覺得無能為力</b><p class="small">不知道該怎麼回應</p></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="照顧悲劇的樣貌">
+<div class="wrap">
+  <span class="tag">01 研究｜照顧悲劇</span>
+  <h2>台灣「長照殺人」案件的共同樣貌</h2>
+  <div class="g g4">
+    <div class="card o"><div class="num o">57.7<small>%</small></div><p class="small">照顧超過 10 年</p></div>
+    <div class="card o"><div class="num o">73<small>%</small></div><p class="small">照顧者本身身心狀況不佳</p></div>
+    <div class="card o"><div class="num o">53.8<small>%</small></div><p class="small">發生在夜間</p></div>
+    <div class="card o"><div class="num o">65.4<small>%</small></div><p class="small">加害者為男性</p></div>
+  </div>
+  <div class="g g2">
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>法務部司法官學院犯罪防治研究中心，2024</b><small>定讞判決分析（案例系列）</small></div></div>
+      <dl><dt>對象</dt><dd>1999 年至 2023 年 4 月，26 件長照殺人定讞判決</dd><dt>結果</dt><dd>上方四項數字；平均刑期 4 年 10 月</dd><dt>限制</dt><dd>只含定讞判決，未分析配偶與失智比例</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>《報導者》資料庫，2021</b><small>判決書、新聞與監察院報告彙整</small></div></div>
+      <dl><dt>對象</dt><dd>2005–2020 年 25 件照顧殺人案</dd><dt>結果</dt><dd><b>配偶加害 8 件（32%）</b>，與兒子並列最多；<b>超過一半沒有使用任何照顧服務</b>；15 件曾試圖同死</dd><dt>限制</dt><dd>不是完整統計</dd></dl></div>
+  </div>
+  <p class="note">英國政府檢討 35 份長者家庭命案報告（Benbow et al., 2019，<span class="lv l4" style="height:1.6em;min-width:1.6em;font-size:.7em">4</span>）也指出：<b>照顧壓力、加害者精神疾病、物質濫用、過去家暴史</b>是四大主題，建議第一線風險評估把「照顧壓力」放進去。</p>
+</div>
+</section>
+
+<section class="slide" data-t="國際：照顧與家庭命案">
+<div class="wrap">
+  <span class="tag">01 研究｜國際資料</span>
+  <h2>日本與英國：高齡家庭命案中，配偶照顧者占重要比例</h2>
+  <div class="g g3">
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>英國家庭命案計畫，2022</b><small>Domestic Homicide Project｜警方案件分析</small></div></div>
+      <dl><dt>對象</dt><dd>2020.3–2021.3 共 145 件家庭命案</dd><dt>結果</dt><dd>25% 被害人 65 歲以上；高齡伴侶命案嫌犯<b>全部是現任配偶</b>，常是被害人的照顧者；7 件殺人後自殺<b>全是丈夫殺妻子</b>，多數<b>沒有家暴紀錄</b></dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>日本厚生勞動省高齡者虐待調查</b><small>依《高齡者虐待防止法》的全國調查，共同通信整理</small></div></div>
+      <dl><dt>對象</dt><dd>2006–2024 年度，家屬照顧者造成的長者死亡案件</dd><dt>結果</dt><dd>至少 <b>486 名</b>長者遭照顧家屬虐待或殺害致死，被害人女性占 7 成；2023 年度家庭內虐待 17,100 件，加害人兒子 38.7%、<b>丈夫 22.8%</b></dd><dt>限制</dt><dd>只計入行政調查掌握的案件，專家認為是冰山一角</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Bows, 2018（英國杜倫大學）</b><small>家庭命案資料分析</small></div></div>
+      <dl><dt>對象</dt><dd>2010–2015 年 221 件 60 歲以上家庭命案</dd><dt>結果</dt><dd>占家庭命案約 25%，高於人口比例 18%；加害人 46% 是配偶或伴侶</dd><dt>建議</dt><dd>現行風險評估偏重年輕伴侶，需要調整</dd></dl></div>
+  </div>
+  <div class="note o">「沒有家暴紀錄」不等於安全。<b>照顧者說出想一起走、照顧者自己生病、被照顧者病況急轉</b>，都是要立即評估的訊號。</div>
+</div>
+</section>
+
+<section class="slide" data-t="介入：哪些有效">
+<div class="wrap">
+  <span class="tag">01 研究｜介入證據</span>
+  <h2>哪些介入有證據</h2>
+  <div class="g g2">
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Brodaty & Arasaratnam, 2012</b><small>Am J Psychiatry｜23 篇試驗整合分析</small></div></div>
+      <dl><dt>比較</dt><dd>家屬執行的非藥物介入（行為處理、溝通、環境調整）vs 一般照護</dd><dt>結果</dt><dd>失智者行為症狀效果量 <b>0.34</b>（小到中），作者指出與抗精神病藥物相當</dd><dt>有效特徵</dt><dd>9–12 次、個別化、<b>到家裡</b>、多元成分、持續 3–6 個月</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>REACH II（Belle et al., 2006）</b><small>Annals of Internal Medicine｜RCT</small></div></div>
+      <dl><dt>對象</dt><dd>美國 642 位照顧者</dd><dt>比較</dt><dd>6 個月 9 次家訪＋電話（問題解決、技巧、壓力管理）vs 衛教包</dd><dt>結果</dt><dd>臨床憂鬱 <b>12.6% vs 22.7%</b>，幾乎減半</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>溝通技巧訓練系統性回顧</b><small>Eggenberger 2013；Nguyen 2019；Morris 2018</small></div></div>
+      <dl><dt>結果</dt><dd>照顧者溝通技巧 SMD <b>0.89</b>（大效果）；照顧者壓力在追蹤時才出現小效果（0.30）</dd><dt>關鍵</dt><dd>對家屬最有效的是<b>有實際練習、有討論</b>的技巧型訓練</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Livingston et al., 2014</b><small>Br J Psychiatry｜33 篇 RCT 系統性回顧</small></div></div>
+      <dl><dt>結果</dt><dd>以人為本照護、溝通技巧訓練、音樂活動能降低激躁；芳香療法、光照治療無效</dd><dt>限制</dt><dd>多數研究在機構進行</dd></dl></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="介入：誠實的限制">
+<div class="wrap">
+  <span class="tag o">01 研究｜限制</span>
+  <h2>只教技巧，不夠</h2>
+  <div class="g g2">
+    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>START 方案（Livingston 2013、2020；Cooper 2016）</b><small>BMJ／Br J Psychiatry／Int Psychogeriatrics｜RCT</small></div></div>
+      <dl><dt>對象</dt><dd>英國 260 位家屬照顧者</dd><dt>比較</dt><dd>8 次手冊課程（認識失智、行為處理、改變想法、自我肯定溝通、放鬆）vs 一般照護</dd><dt>結果</dt><dd>焦慮憂鬱下降，<b>效果維持 6 年</b>；但<b>虐待行為沒有減少</b>，追蹤 2 年仍約 1/4 有顯著虐待</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Livingston et al., 2014</b><small>同前</small></div></div>
+      <dl><dt>結果</dt><dd>在家庭中，教家屬<b>複雜</b>的行為管理或認知行為技巧，對<b>嚴重激躁無效</b></dd><dt>作者推測</dt><dd>24 小時照顧的家屬，很難把複雜技巧用出來</dd></dl></div>
+  </div>
+  <h3>所以高風險家庭要三軌並行</h3>
+  <div class="g g3">
+    <div class="card fill-t"><h3>簡單可用的技巧</h3><p>今天第 03 段的句型與步驟</p></div>
+    <div class="card fill-t"><h3>真的喘得到氣</h3><p>喘息、日照、家照據點、替手</p></div>
+    <div class="card fill-t" style="background:var(--orange);border-color:var(--orange)"><h3>保護評估</h3><p>危險評估、安全計畫、通報與保護令</p></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="研究帶回訪視">
+<div class="wrap">
+  <span class="tag">01 研究｜小結</span>
+  <h2>把研究帶回訪視的五句話</h2>
+  <div class="g" style="gap:.6em">
+    <div class="card"><b>1.</b> 失智家庭的衝突以<b>言語與心理</b>為主，要主動問，不能只問有沒有動手。</div>
+    <div class="card"><b>2.</b> 暴力常常<b>雙向</b>，被照顧者也可能先動手；<b>配偶照顧</b>是高風險組合。</div>
+    <div class="card"><b>3.</b> 壓垮照顧者的是<b>行為症狀、同住、沒有替手</b>，這三項都可以被資源改變。</div>
+    <div class="card"><b>4.</b> 照顧悲劇常見於<b>照顧多年、照顧者自己也生病、夜間、沒用服務</b>的家庭。</div>
+    <div class="card"><b>5.</b> 溝通訓練有效，但必須搭配<b>喘息與保護評估</b>，不能單靠上課。</div>
+    <div class="card"><b>6.</b> 高齡被害人<b>受暴更久才求助、常與加害人同住</b>，沒有家暴紀錄不代表沒有風險。</div>
+  </div>
+</div>
+</section>
+
+<!-- ===== 02 案例 ===== -->
+<section class="slide divider" data-t="02 案例" data-sec="1">
+<div class="wrap"><div class="big">02</div><h2>案例：判決、新聞與實務情境</h2><p>以下判決與新聞皆來自公開報導，尚未判決的案件適用無罪推定。實務情境為教學用的合成案例，不是真實個案。</p></div>
+</section>
+
+<section class="slide" data-t="判決案例（一）">
+<div class="wrap">
+  <span class="tag">02 案例｜照顧者殺害配偶的判決</span>
+  <h2>法院怎麼看「老老照顧」下的悲劇</h2>
+  <div class="g g3">
+    <div class="card o"><h3>新北地院｜2026 年 2 月宣判</h3><p class="small"><b>情境</b>：7 旬翁照顧臥床、失語的妻子，妻子拒絕外人照顧；每天僅使用約 4 小時長照服務。2024 年 12 月將妻子從高樓推落後自首。</p><p class="small"><b>判決</b>：殺人罪，經自首與「情堪憫恕」兩次減刑，判 <b>2 年 6 月</b>（可上訴）。</p><p class="small"><b>法院考量</b>：動機與一般殺人明顯不同，屬長照悲劇。</p></div>
+    <div class="card o"><h3>臺灣高等法院｜二審改判</h3><p class="small"><b>情境</b>：74 歲婦人照顧久病丈夫多年後殺夫。</p><p class="small"><b>判決</b>：一審 2 年 6 月；二審經精神鑑定，改判 <b>2 年、緩刑 5 年</b>。</p><p class="small"><b>法院考量</b>：照顧者自身的精神狀態。</p></div>
+    <div class="card o"><h3>士林地院→高院｜2023 年 2 月</h3><p class="small"><b>情境</b>：79 歲婦人照顧洗腎 30 年的丈夫，同時照顧孫子，以鐵鎚殺害丈夫。</p><p class="small"><b>判決</b>：一審 2 年 8 月；高院改判 <b>2 年、緩刑 5 年</b>。</p><p class="small"><b>法院考量</b>：老老照顧、負擔過重。</p></div>
+  </div>
+  <p class="src">來源：中央社 2026.2.5、聯合報健康版；NOWnews 2025.3.7；公視新聞 2023.2.23。</p>
+</div>
+</section>
+
+<section class="slide" data-t="判決案例（二）">
+<div class="wrap">
+  <span class="tag">02 案例｜照顧者殺害配偶的判決</span>
+  <h2>情堪憫恕可以減刑，但多數仍須入監</h2>
+  <div class="g g2">
+    <div class="card o"><h3>桃園｜最高法院駁回定讞（2023 年 12 月）</h3><p class="small">72 歲婦人以刀殺害結婚 50 多年的丈夫。一審 10 年 6 月；高院依<b>刑法第 59 條</b>酌減，改判 <b>6 年</b>。精神鑑定認定有完全責任能力。</p></div>
+    <div class="card o"><h3>桃園地院｜失智丈夫案</h3><p class="small">丈夫失智、不認得家人、偶有暴力；妻子罹重度憂鬱，以枕頭悶住丈夫致死。經<b>自首、刑法第 19 條第 2 項、第 59 條</b>三次減刑，判 <b>1 年 6 月、緩刑 3 年</b>。</p></div>
+  </div>
+  <div class="tscroll"><table class="tb">
+    <tr><th>條文</th><th>白話</th></tr>
+    <tr><td>刑法第 57 條</td><td>量刑時要考慮動機、生活狀況、與被害人的關係等 10 款</td></tr>
+    <tr><td>刑法第 59 條</td><td>情狀顯可憫恕，最低刑度仍嫌太重時，可以酌量減輕</td></tr>
+    <tr><td>刑法第 62 條</td><td>自首可以減輕</td></tr>
+    <tr><td>刑法第 19 條</td><td>行為時因精神障礙不能辨識違法：不罰；能力顯著減低：得減輕</td></tr>
+  </table></div>
+  <p class="note t">法務部 2023 年曾研議長照殺人相關修法（緩刑門檻、緩起訴要件、獨立罪名），目前仍在研議。對社工的意義：<b>判決結果再輕，家庭都已破碎</b>，預防比事後同理更重要。</p>
+</div>
+</section>
+
+<section class="slide" data-t="失智者是加害人">
+<div class="wrap">
+  <span class="tag">02 案例｜反方向</span>
+  <h2>當失智者是加害人，或照顧者「為了安全」綁住他</h2>
+  <div class="g g2">
+    <div class="card o"><h3>高雄地院｜2022 年 8 月報導</h3><p class="small"><b>情境</b>：78 歲翁退休後確診失智，伴有精神病性症狀，在幻覺中持刀刺傷妻子，妻子存活。</p><p class="small"><b>判決</b>：殺人未遂，判 2 年、<b>緩刑 5 年</b>，條件包括付保護管束、<b>強制精神治療</b>、<b>禁止對妻子施暴</b>。妻子與子女皆求情。</p><p class="note t" style="margin-top:.5em">重點：司法以「治療性條件」取代監禁，同時保護被害人。</p></div>
+    <div class="card a"><h3>苗栗｜2019 年 4 月</h3><p class="small"><b>情境</b>：78 歲失智翁反覆走失，妻子以繩子、鐵鍊綁住他的腳踝約半年。</p><p class="small"><b>處理</b>：社會處接獲通報後介入，認定為不當照護但未處罰；召開家庭會議，安排入住機構並轉介喘息服務。</p><p class="note" style="margin-top:.5em">重點：照顧者的「防走失」可能觸及刑法第 302 條與老人福利法第 51 條；真正要處理的是照顧者沒有替手。</p></div>
+  </div>
+  <div class="note t">衛福部委託研究（2015）指出：失智初期較易發生<b>財務剝削</b>，中期較易發生<b>身體虐待</b>，重度時較易發生<b>疏忽</b>。訪視重點會隨病程改變。</div>
+  <p class="src">來源：自由時報 2022.8.13；中央社 2019.4.18；衛福部 104 年度委託研究。</p>
+</div>
+</section>
+
+<section class="slide" data-t="近期新聞">
+<div class="wrap">
+  <span class="tag">02 案例｜近期新聞</span>
+  <h2>近期新聞給我們的提醒</h2>
+  <div class="g g2">
+    <div class="card"><h3>2026.9｜新北三重</h3><p class="small">66 歲妻子疑因照顧壓力，殺害久病的 74 歲丈夫；<b>夫妻兩人都有精神疾病</b>，已遭起訴。<br><b>提醒</b>：照顧者本身生病時，風險倍增。</p></div>
+    <div class="card"><h3>2026.5｜臺北</h3><p class="small">高齡妻子曾兩次通報精神暴力並取得保護令，但保護令<b>未含遷出</b>；之後妻子死亡，丈夫遭羈押，仍在偵查中。<br><b>提醒</b>：保護令款項的選擇要跟著危險評估走。</p></div>
+    <div class="card"><h3>2025.7｜新北土城</h3><p class="small">妻子聲請保護令，開庭後遭丈夫殺害。<br><b>提醒</b>：<b>開庭、離婚訴訟、宣判前後</b>是高風險時點，要提前做安全計畫。</p></div>
+    <div class="card o"><h3>2026.5｜資料分析</h3><p class="small">2000 年至 2025 年 10 月，有 <b>139 件</b>判決是保護令核發後仍發生家暴殺人；配偶或前配偶占 37.4%；<b>過半發生在核發後 6 個月內</b>。</p></div>
+    <div class="card"><h3>2026.4｜臺南</h3><p class="small">82 歲生病的丈夫向醫院請假返家，推著坐輪椅的 76 歲失智妻子外出，兩人被發現溺斃；警方初步排除他殺，原因未明。<br><b>提醒</b>：兩人都生病的老老照顧家庭，<b>出院、請假返家等轉換期</b>要特別關心。</p></div>
+    <div class="card o"><h3>2026.6｜全國</h3><p class="small">家暴通報 2025 年達 190,676 件，親密關係暴力約占一半；<b>相互通報約 3 成</b>且逐年增加。<br><b>提醒</b>：雙方互控時，照顧關係中的權力與依賴要一起評估。</p></div>
+  </div>
+  <p class="src">來源：自由時報 2026.9.30；公視、聯合報 2026.5；NOWnews 2025.7；關鍵評論網 2026.5.15；世界日報 2026.4.12；公視 2026.6.18。</p>
+</div>
+</section>
+
+<section class="slide" data-t="名人照顧者（一）">
+<div class="wrap">
+  <span class="tag">02 案例｜名人的公開經驗</span>
+  <h2>名人配偶的照顧經驗：照顧者也會受傷、也會倒下</h2>
+  <div class="g g3">
+    <div class="card o"><h3>金哈克曼與妻子（美國，2025）</h3><p class="small">演員金哈克曼晚期阿茲海默症，由妻子照顧。2025 年 2 月妻子因漢他病毒感染猝逝，法醫推定他約一週後過世，「很可能不知道太太已經走了」。</p><p class="note" style="margin-top:.5em">啟示：照顧者是唯一的安全網時，要問「<b>萬一你突然倒下，誰會知道？</b>」</p></div>
+    <div class="card t"><h3>布魯斯威利與妻子（美國，2023–2025）</h3><p class="small">2023 年確診額顳葉失智症。妻子公開說他變得「疏離、冰冷」，也坦白自問還能否留在這段婚姻；2025 年安排他搬到附近另一個家，由專人 24 小時照顧，家人定期探望。</p><p class="note t" style="margin-top:.5em">啟示：分開居住可以是保護全家的照顧安排，不等於拋棄。</p></div>
+    <div class="card a"><h3>葛倫坎貝爾與妻子（美國，2015–2020）</h3><p class="small">鄉村歌手確診阿茲海默症後，在換衣、洗澡時會出現攻擊，妻子曾被打到眼睛瘀青，說自己「閃拳頭閃了兩年」。後來他入住記憶照護機構，妻子說「我等太久了」。</p><p class="note" style="margin-top:.5em">啟示：身體照顧時段是高風險時段；照顧者常因「他生病」而不求助。</p></div>
+  </div>
+  <p class="src">來源：AP／Boston Globe 2025.3.7；Boston Globe 2023.2.16、ABC 2025；Arkansas Democrat-Gazette 2015.9.4、AARP 2020.6.15。內容皆為當事人或官方公開說法。</p>
+</div>
+</section>
+
+<section class="slide" data-t="名人照顧者（二）">
+<div class="wrap">
+  <span class="tag">02 案例｜名人的公開經驗</span>
+  <h2>妄想、決策衝突，以及好的照顧可以是什麼樣子</h2>
+  <div class="g g3">
+    <div class="card a"><h3>羅賓威廉斯與妻子（美國）</h3><p class="small">生前只被診斷為巴金森氏症，解剖後才確認是<b>路易氏體失智</b>。妻子 2016 年在《Neurology》期刊撰文，描述他被焦慮與被害妄想纏住、症狀忽好忽壞，「無論我做什麼都拉不出來」。</p><p class="note" style="margin-top:.5em">啟示：症狀起伏讓旁人不相信照顧者，<b>社工要相信照顧者的觀察</b>。</p></div>
+    <div class="card o"><h3>瓊瑤與平鑫濤（臺灣，2017）</h3><p class="small">平鑫濤失智住院，妻子瓊瑤與三名繼子女為是否插鼻胃管公開衝突。瓊瑤後來發公開信表示願讓子女接回照顧。</p><p class="note o" style="margin-top:.5em">啟示：再婚家庭的醫療決策衝突常見，<b>預立醫療照護諮商與意定監護要及早做</b>。</p></div>
+    <div class="card t"><h3>東尼班奈特與妻子（美國，2016–2021）</h3><p class="small">2016 年確診阿茲海默症，有時認不出叉子、鑰匙，但妻子維持他每週在家練唱，2018 至 2020 年仍完成錄音。</p><p class="note t" style="margin-top:.5em">啟示：保留病前的角色與興趣，是配偶照顧的重要資源。</p></div>
+  </div>
+  <p class="src">來源：Neurology 2016;87(13):1308、STAT 2016.9.30；中央社 2017.5.2；NPR／KQED 2021.2.1。</p>
+</div>
+</section>
+
+<section class="slide" data-t="國際案例與法制">
+<div class="wrap">
+  <span class="tag">02 案例｜國際</span>
+  <h2>國際案例：日本與英國怎麼看照顧者的責任</h2>
+  <div class="g g3">
+    <div class="card o"><h3>日本京都伏見案（2006）</h3><p class="small">54 歲兒子照顧失智母親約 10 年，為照顧辭職，申請生活保護三次未獲核准，最後殺害母親後自殺未遂。京都地院判 2 年 6 月、緩刑 3 年，法官勸他好好活下去。</p><p class="note o" style="margin-top:.5em">啟示：經濟斷炊與求助被拒，是照顧悲劇的推力。</p></div>
+    <div class="card t"><h3>日本 JR 東海列車事故（最高法院 2016.3.1）</h3><p class="small">91 歲失智男性走失進入鐵軌被撞身亡，鐵路公司向家屬求償約 720 萬日圓。最高法院判決：<b>與配偶同住不等於負有法定監督義務</b>，家屬免賠。神戶市其後以市民稅設立失智者事故救濟與保險制度。</p><p class="note t" style="margin-top:.5em">啟示：不該把配偶當 24 小時看守者；走失風險可由社會分擔，減少約束。</p></div>
+    <div class="card t"><h3>英國《家暴法》（2021）</h3><p class="small">雙方年滿 16 歲且有個人關聯即適用，<b>沒有年齡上限</b>；明列控制或脅迫、經濟虐待。英國多機構會議指引也要求分清加害人是「照顧者」還是「被照顧者」，並評估雙方的決策能力。</p><p class="note t" style="margin-top:.5em">啟示：加害人本身需要照顧，仍可能造成嚴重傷害。</p></div>
+  </div>
+  <p class="src">來源：J-CAST 2016.1.7；弁護士ドットコム、東洋經濟 2018.10.5；legislation.gov.uk；SafeLives《Guidance for multi-agency forums: Older people》。</p>
+</div>
+</section>
+
+<section class="slide" data-t="實務情境 A">
+<div class="wrap">
+  <span class="tag o">02 案例｜實務情境（合成案例）</span>
+  <h2>情境 A：半夜被懷疑外遇，被掐脖子</h2>
+  <div class="card"><p>72 歲的阿美照顧中度失智、會出現幻覺的丈夫。最近丈夫常在晚上指控她「去找男人」，昨晚掐住她的脖子。女兒打 113 通報。阿美說：「他是生病，不是故意的，我不要聲請保護令。」</p></div>
+  <button class="btn" data-reveal="ra">看討論重點</button>
+  <div id="ra" class="g g2" hidden>
+    <div class="card t"><h3>危險評估</h3><ul class="l small"><li>TIPVDA 2.0 中「掐脖子」加權 5 分，即使總分未達切點，也應依專業判斷考慮列為高危機</li><li>夜間、妄想內容、刀具可近性要特別記錄</li></ul></div>
+    <div class="card t"><h3>症狀處理</h3><ul class="l small"><li>「嫉妒妄想」是可治療的症狀，協助回診或轉介失智共照中心</li><li>分享回應妄想的句型（第 03 段）</li></ul></div>
+    <div class="card t"><h3>保護令的兩難</h3><ul class="l small"><li>「遷出」可能讓失智者無處可去</li><li>可考慮命相對人接受精神治療評估（家暴法第 14 條第 3 項），並同步安排日照、住宿機構或喘息</li></ul></div>
+    <div class="card t"><h3>安全計畫</h3><ul class="l small"><li>收好刀剪、晚上分房並保留出口</li><li>手機放身上、與女兒約定求救暗號</li><li>評估丈夫是否需要輔助或監護宣告</li></ul></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="實務情境 B">
+<div class="wrap">
+  <span class="tag o">02 案例｜實務情境（合成案例）</span>
+  <h2>情境 B：「她不吃藥，我只好把她鎖起來」</h2>
+  <div class="card"><p>68 歲的阿雄照顧患有思覺失調症的妻子。妻子拒絕服藥，阿雄長期辱罵她、控制她的錢，最近開始把她鎖在房間裡。阿雄說：「我已經照顧 15 年了，你們誰來幫我？」</p></div>
+  <button class="btn" data-reveal="rb">看討論重點</button>
+  <div id="rb" class="g g2" hidden>
+    <div class="card o"><h3>這是暴力</h3><ul class="l small"><li>精神與經濟上的不法侵害、控制，屬家庭暴力</li><li>鎖在房間可能構成刑法第 302 條剝奪行動自由</li></ul></div>
+    <div class="card t"><h3>多重通報</h3><ul class="l small"><li>妻子若 65 歲以上或持身障證明，另有老人福利法第 43 條或身權法第 76 條通報義務</li><li>合併精神疾病的保護案件，可連結社區心理衛生中心的心衛社工</li></ul></div>
+    <div class="card t"><h3>醫療路徑</h3><ul class="l small"><li>依精神衛生法第 45 條協助就醫</li><li>有傷人或自傷之虞時，依第 59 條處理；2026.8.1 起強制住院由法院裁定</li></ul></div>
+    <div class="card a"><h3>照顧者本身</h3><ul class="l small"><li>照顧 15 年、高負荷、情緒失控，是照顧悲劇的風險因子</li><li>使用高負荷初篩指標，轉介家照據點與喘息</li></ul></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="實務情境 C">
+<div class="wrap">
+  <span class="tag o">02 案例｜實務情境（合成案例）</span>
+  <h2>情境 C：「我推了她一下，她就跌倒了」</h2>
+  <div class="card"><p>80 歲的陳伯伯照顧輕中度失智的太太，兩人同住、孩子在外地。太太近 3 個月晚上不睡、一直要「回家」，陳伯伯整夜擋門。某晚他推了太太一把，太太跌倒瘀青，急診醫師通報。陳伯伯很自責，也說「再這樣下去我們兩個一起走算了」。</p></div>
+  <button class="btn" data-reveal="rc">看討論重點</button>
+  <div id="rc" class="g g2" hidden>
+    <div class="card o"><h3>先處理最危險的一句話</h3><ul class="l small"><li>「一起走算了」要直接詢問自殺與同死意念</li><li>有自殺意念時連結自殺防治通報與 1925</li></ul></div>
+    <div class="card a"><h3>高負荷初篩</h3><ul class="l small"><li>高齡照顧者、沒有替手、3 個月內情境改變、曾有家暴、自殺意念</li><li>第 9、10 項任一符合即應轉介</li></ul></div>
+    <div class="card t"><h3>症狀與照顧</h3><ul class="l small"><li>「要回家」與日夜顛倒是典型黃昏症候群</li><li>白天活動量、日照、夜間照明與安全門鈴</li></ul></div>
+    <div class="card t"><h3>資源</h3><ul class="l small"><li>1966 長照評估、喘息（含夜間）、日照</li><li>80 歲以上聘外籍看護免巴氏量表（2025.8.1 起）</li></ul></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== 03 技巧 ===== -->
+<section class="slide divider" data-t="03 溝通與照顧技巧" data-sec="1">
+<div class="wrap"><div class="big">03</div><h2>溝通與照顧技巧</h2><p>以下都是可以在訪視時，直接分享給照顧者與家屬的方法。每個方法都標示證據等級。</p></div>
+</section>
+
+<section class="slide" data-t="先換一副眼鏡">
+<div class="wrap">
+  <span class="tag">03 技巧｜理解</span>
+  <h2>先換一副眼鏡：行為是在表達需求</h2>
+  <div class="g g4">
+    <div class="card t"><h3>記憶</h3><p class="small">剛說的話記不住，所以一直問、指控東西被偷</p></div>
+    <div class="card t"><h3>判斷與抑制</h3><p class="small">額葉退化，情緒一來就爆，說話不經過濾</p></div>
+    <div class="card t"><h3>感知</h3><p class="small">看錯、聽錯，把影子看成人、把伴侶當成陌生人</p></div>
+    <div class="card t"><h3>語言</h3><p class="small">說不出「我痛」「我怕」，只能用推、打、叫來表達</p></div>
+  </div>
+  <div class="vs">
+    <div class="card"><h3>照顧者常見的解讀</h3><p class="small">「他故意的」「他在找我麻煩」「他就是看我不順眼」</p></div>
+    <div class="arrow">→</div>
+    <div class="card"><h3>換個角度問</h3><p class="small">「他現在是不是痛、怕、累、餓、想上廁所，或聽不懂我在說什麼？」</p></div>
+  </div>
+  <p class="note o">提醒：「不是故意的」解釋了原因，但不會讓傷害消失。理解症狀是為了<b>減少衝突</b>，不是要被害人忍耐。</p>
+</div>
+</section>
+
+<section class="slide" data-t="溝通十原則">
+<div class="wrap">
+  <span class="tag">03 技巧｜溝通原則</span>
+  <h2>給照顧者的溝通十原則</h2>
+  <div class="g g4">
+    <div class="card"><b>從正面靠近</b><p class="small">在他看得到的地方出現，視線平高，不從背後碰</p></div>
+    <div class="card"><b>先叫名字</b><p class="small">「阿德，我是阿美」，先讓他知道你是誰</p></div>
+    <div class="card"><b>一次一件事</b><p class="small">「先坐下」，等做到了再說下一步</p></div>
+    <div class="card"><b>短句加手勢</b><p class="small">邊說「喝水」邊把杯子遞到手邊</p></div>
+    <div class="card"><b>給兩個選擇</b><p class="small">「穿藍色還是灰色？」比「去換衣服」好</p></div>
+    <div class="card"><b>不爭辯、不糾正</b><p class="small">爭贏了事實，輸掉了關係</p></div>
+    <div class="card"><b>先接情緒</b><p class="small">「你很著急」先於「錢沒有被偷」</p></div>
+    <div class="card"><b>等一等</b><p class="small">問完數到 10，給大腦反應時間</p></div>
+    <div class="card"><b>降低刺激</b><p class="small">關電視、一個人說話、燈光充足</p></div>
+    <div class="card"><b>保留尊嚴</b><p class="small">不在別人面前糾正，不用哄小孩的語氣</p></div>
+  </div>
+  <p class="src">依據：NICE NG97（2018）建議家屬學習「調整溝通方式」；溝通訓練系統性回顧 <span class="lv l1a" style="height:1.5em;min-width:1.5em;font-size:.8em">1a</span>。個別技巧本身多屬專家建議層級。</p>
+</div>
+</section>
+
+<section class="slide" data-t="換句話說">
+<div class="wrap">
+  <span class="tag">03 技巧｜換句話說</span>
+  <h2>換句話說：點一下卡片看替代說法</h2>
+  <div class="g g3">
+    <button class="flip" aria-pressed="false"><span class="fa"><span class="k">常聽到</span><span class="q">「你又忘了！我講幾遍了！」</span></span><span class="fb" hidden><span class="k">可以改說</span><span class="q">「沒關係，我們一起看一下。」</span></span></button>
+    <button class="flip" aria-pressed="false"><span class="fa"><span class="k">常聽到</span><span class="q">「根本沒有人偷你的錢！」</span></span><span class="fb" hidden><span class="k">可以改說</span><span class="q">「錢不見了一定很急，我們一起找找看。」</span></span></button>
+    <button class="flip" aria-pressed="false"><span class="fa"><span class="k">常聽到</span><span class="q">「我哪有外遇，你不要亂講！」</span></span><span class="fb" hidden><span class="k">可以改說</span><span class="q">「你怕我離開你，對不對？我在這裡，我不會走。」</span></span></button>
+    <button class="flip" aria-pressed="false"><span class="fa"><span class="k">常聽到</span><span class="q">「你媽早就過世了！」</span></span><span class="fb" hidden><span class="k">可以改說</span><span class="q">「你很想媽媽，跟我說說她以前的事。」</span></span></button>
+    <button class="flip" aria-pressed="false"><span class="fa"><span class="k">常聽到</span><span class="q">「不洗澡不行，臭死了！」</span></span><span class="fb" hidden><span class="k">可以改說</span><span class="q">「水溫好了，要先洗手還是先洗腳？」</span></span></button>
+    <button class="flip" aria-pressed="false"><span class="fa"><span class="k">常聽到</span><span class="q">「你再這樣，我就不管你了！」</span></span><span class="fb" hidden><span class="k">可以改說</span><span class="q">「我需要休息一下，五分鐘後回來陪你。」</span></span></button>
+  </div>
+  <p class="small">訪視時可以請照顧者挑一句最常說的話，一起想替代說法，不需要角色扮演。</p>
+</div>
+</section>
+
+<section class="slide" data-t="妄想的回應">
+<div class="wrap">
+  <span class="tag">03 技巧｜妄想</span>
+  <h2>被偷妄想與嫉妒妄想：最容易點燃伴侶衝突</h2>
+  <div class="g g2">
+    <div class="card a"><h3>被偷妄想</h3><p class="small">「我的錢被你拿走了」。記憶退化，自己藏的東西找不到，只好用「有人偷」來解釋。</p><ul class="l small"><li>不急著否認，先接情緒，一起找</li><li>準備兩個一樣的錢包、固定收納位置</li><li>注意：也要排除真的有財務剝削</li></ul></div>
+    <div class="card o"><h3>嫉妒妄想</h3><p class="small">堅信伴侶外遇，常在晚上發作，可能伴隨跟蹤、檢查手機、攻擊。被指控的人通常是<b>主要照顧者</b>。</p><ul class="l small"><li>不辯解、不拿證據，越證明越像心虛</li><li>回應背後的害怕：「你怕我離開」</li><li>轉移到熟悉的活動或照片</li><li>屬於可治療的精神症狀，<b>交由醫師評估</b></li></ul></div>
+  </div>
+  <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Hashimoto et al., 2015（日本）</b><small>J Clin Psychiatry｜連續收案的門診個案系列</small></div></div>
+    <p class="small"><b>對象</b>：208 名失智門診病人，平均 77 歲。<b>結果</b>：妄想性嫉妒 8.7%，<b>路易氏體失智 26.3%</b>、阿茲海默症 5.5%；18 位中有 <b>11 位對配偶動手</b>；83% 治療 12 個月內緩解。<b>限制</b>：樣本少。</p></div>
+  <div class="note o">嫉妒妄想出現威脅、掐脖、持械時，要當成<b>高危機</b>處理：安全計畫與醫療評估同時進行。好消息是多數可以治療改善。</div>
+</div>
+</section>
+
+<section class="slide" data-t="示範對話：嫉妒妄想">
+<div class="wrap">
+  <span class="tag">03 技巧｜示範對話</span>
+  <h2>示範對話：「你是不是去找那個男人！」</h2>
+  <p class="small">按「下一句」逐句看，每一句回應都附上為什麼這樣說。可以在訪視時直接分享給照顧者。</p>
+  <div class="dlg" id="dlg1">
+    <div class="ln a"><span class="who">先生</span><span class="say">（半夜）妳又跑去哪裡？是不是去找那個男人！</span></div>
+    <div class="ln b" hidden><span class="who">太太</span><span class="say">你醒來找不到我，一定很慌。<span class="why">先接住情緒。急著辯解「我哪有」，在妄想裡會被當成心虛，衝突反而升高。</span></span></div>
+    <div class="ln a" hidden><span class="who">先生</span><span class="say">妳不要轉移話題！</span></div>
+    <div class="ln b" hidden><span class="who">太太</span><span class="say">我在這裡，哪裡都沒去。我會一直在。<span class="why">回應指控背後的害怕：怕被拋棄。給安全感比給證據有用。</span></span></div>
+    <div class="ln a" hidden><span class="who">先生</span><span class="say">……真的？</span></div>
+    <div class="ln b" hidden><span class="who">太太</span><span class="say">真的。我們一起看你以前當兵的照片好不好？<span class="why">情緒緩下來時，轉向熟悉、愉快的活動，讓注意力離開妄想內容。</span></span></div>
+    <div class="ln a" hidden><span class="who">先生</span><span class="say">（又激動起來，往前逼近）</span></div>
+    <div class="ln b" hidden><span class="who">太太</span><span class="say">我去倒杯水，馬上回來。（走到門邊，手機帶在身上）<span class="why">對方升高時先暫停。保護自己、留出口，是安全計畫的一部分，不是放棄照顧。</span></span></div>
+  </div>
+  <div class="dlg-ctl"><button class="btn" data-next="dlg1">下一句</button><button class="btn" data-reset="dlg1">重來</button></div>
+  <p class="note t">社工的後續：請照顧者記下發作時間與前後狀況，帶給醫師評估；若出現掐脖、持械或威脅，依高危機流程處理。</p>
+</div>
+</section>
+
+<section class="slide" data-t="性需求與性同意">
+<div class="wrap">
+  <span class="tag">03 技巧｜親密與性</span>
+  <h2>失智伴侶的性需求與性同意：訪視時不能跳過的話題</h2>
+  <div class="g g2">
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Lane et al., 2025</b><small>J Am Geriatr Soc｜系統性回顧（多為個案報告）</small></div></div><p class="small">不當性行為最多見於約 <b>25%</b> 的失智者；非藥物介入有幫助，常需合併醫療處理。</p></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Ahmed et al., 2015</b><small>J Alzheimers Dis｜照顧者問卷</small></div></div><p class="small">49 位失智者（含額顳葉失智）中，主要變化其實是<b>性慾與親密降低</b>，異常性行為只占少數。不要把失智直接等同性慾亢進。</p></div>
+  </div>
+  <div class="g g3">
+    <div class="card o"><h3>兩個方向都要問</h3><p class="small">失智者對伴侶強求性行為；或伴侶對已無法表達同意的失智者進行性行為。兩者都可能構成性暴力。</p></div>
+    <div class="card t"><h3>怎麼開口</h3><p class="small">「生病後，你們的親密關係有沒有讓你不舒服或害怕的地方？」分開會談，用平常的語氣問。</p></div>
+    <div class="card t"><h3>可以做什麼</h3><p class="small">協助就醫評估症狀；分房與安全計畫；用擁抱、牽手等其他親密方式滿足需求；必要時依家暴法處理。</p></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="VERA 四步">
+<div class="wrap">
+  <span class="tag">03 技巧｜VERA</span>
+  <h2>VERA 四步：情緒來的時候先做這四件事</h2>
+  <p class="lead">範例：半夜丈夫大吼「妳又跑去哪裡了！」</p>
+  <div class="g g4">
+    <div class="card t"><div class="num">V</div><h3>確認</h3><p class="small">承認他的感受是真的<br>「你醒來找不到我，嚇了一跳。」</p></div>
+    <div class="card t"><div class="num">E</div><h3>回應情緒</h3><p class="small">說出他的情緒<br>「你很生氣，也很擔心。」</p></div>
+    <div class="card t"><div class="num">R</div><h3>安撫</h3><p class="small">給安全感<br>「我在這裡，我只是去倒水。」</p></div>
+    <div class="card t"><div class="num">A</div><h3>轉向活動</h3><p class="small">轉到具體、安定的事<br>「我們一起喝杯溫水再睡。」</p></div>
+  </div>
+  <div class="study"><div class="st-head"><span class="lv l5">5</span><div><b>Blackhall et al., 2011；Hawkes et al., 2015</b><small>Nursing Standard｜實務架構與質性評估</small></div></div>
+    <p class="small">由英國護理師提出。精神科病房的工作人員覺得實用、好上手，但只有質性回饋，沒有成效數據。好用，但屬於經驗建議。</p></div>
+</div>
+</section>
+
+<section class="slide" data-t="DICE 行為偵探">
+<div class="wrap">
+  <span class="tag">03 技巧｜DICE</span>
+  <h2>DICE：先當偵探，再想辦法</h2>
+  <div class="g g4">
+    <div class="card t"><div class="num">D</div><h3>描述</h3><p class="small">什麼時間、在哪裡、誰在場、之前發生什麼、之後怎麼了？</p></div>
+    <div class="card t"><div class="num">I</div><h3>找原因</h3><p class="small">疼痛、便秘、睡不好、藥物、太吵、聽不懂、照顧者的語氣？</p></div>
+    <div class="card t"><div class="num">C</div><h3>一起擬計畫</h3><p class="small">選一兩個最容易改的地方，和照顧者一起決定</p></div>
+    <div class="card t"><div class="num">E</div><h3>評估</h3><p class="small">一兩週後看次數有沒有變少，沒效就換方法</p></div>
+  </div>
+  <div class="g g2">
+    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>Gitlin et al., 2026（WeCareAdvisor）</b><small>J Am Geriatr Soc｜RCT</small></div></div><p class="small">比較「馬上使用」與「延後使用」依 DICE 設計的線上工具。3 個月時，照顧者苦惱小幅但顯著下降，行為症狀也較少。DICE 原為專家共識（Kales 2014、2015，等級 5）。</p></div>
+    <div class="card"><h3>訪視時怎麼用</h3><p class="small">請照顧者用手機記錄一週：「幾點、發生什麼、我怎麼回應」。下次訪視一起看規律，常會發現衝突集中在<b>洗澡、吃藥、傍晚</b>。</p></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="常見情境應對">
+<div class="wrap">
+  <span class="tag">03 技巧｜常見情境</span>
+  <h2>常見照顧情境的應對方法</h2>
+  <div class="tscroll"><table class="tb">
+    <tr><th>情境</th><th>可能原因</th><th>可以怎麼做</th></tr>
+    <tr><td>傍晚吵著要回家</td><td>黃昏症候群、疲累、光線變暗</td><td>白天增加活動與日照；傍晚開燈、減少訪客；陪他「準備回家」，順勢轉到吃點心</td></tr>
+    <tr><td>拒絕洗澡</td><td>怕冷、怕水、覺得被侵犯</td><td>先暖浴室；用毛巾遮蓋身體；分段洗；改到他心情好的時段</td></tr>
+    <tr><td>拒絕吃藥</td><td>不懂為什麼要吃、吞嚥困難</td><td>與醫師或藥師討論劑型與次數；搭配固定生活習慣；不要偷偷混進食物前先問醫師</td></tr>
+    <tr><td>一直重複問</td><td>記不住、不安</td><td>每次都像第一次回答；用白板或月曆寫下答案</td></tr>
+    <tr><td>認錯伴侶</td><td>辨識功能退化</td><td>不爭辯「我是你太太」；先自我介紹，用熟悉的歌或照片連結</td></tr>
+    <tr><td>夜間不睡、遊走</td><td>日夜顛倒、想上廁所、找人</td><td>夜燈與廁所指示；門口感應鈴；愛心手鍊與指紋建檔</td></tr>
+    <tr><td>照顧時抓打</td><td>疼痛、被驚嚇、動作太快</td><td>先說明再碰觸；從正面靠近；放慢；評估疼痛與就醫</td></tr>
+  </table></div>
+</div>
+</section>
+
+<section class="slide" data-t="攻擊當下的安全">
+<div class="wrap">
+  <span class="tag o">03 技巧｜安全</span>
+  <h2>攻擊發生當下：照顧者與訪視者都適用</h2>
+  <div class="g g2">
+    <div class="card o"><h3>站位與距離</h3><ul class="l"><li>保持一臂半以上距離，站在側面約 45 度</li><li>不擋住他的出口，也要留自己的出口</li><li>不從背後抓住或拉住</li></ul></div>
+    <div class="card o"><h3>聲音與動作</h3><ul class="l"><li>放低音量、放慢語速、雙手打開可見</li><li>不辯解、不下指令，只說「我在這裡」</li><li>對方升高時，先退開，過幾分鐘再回來</li></ul></div>
+    <div class="card a"><h3>環境</h3><ul class="l"><li>收好刀剪、鈍器、打火機</li><li>常用物品固定位置，減少找東西引起的衝突</li><li>照顧者手機隨身，設定緊急聯絡人</li></ul></div>
+    <div class="card a"><h3>訪視者自身安全</h3><ul class="l"><li>高危機家庭兩人同行，座位靠門</li><li>出發前告知督導行程與預計結束時間</li><li>有立即危險時離開現場並撥 110</li></ul></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="照顧者的暫停計畫">
+<div class="wrap">
+  <span class="tag">03 技巧｜照顧者自我調節</span>
+  <h2>照顧者的「暫停計畫」：在失控之前離開</h2>
+  <div class="g g2" style="align-items:start">
+    <div class="card">
+      <h3>情緒溫度計</h3>
+      <div class="bars" style="margin-top:.5em">
+        <div class="bar-row"><span>1–3 平穩</span><div class="bar-track"><div class="bar-fill" style="width:30%;background:var(--green)"></div></div><span class="v small">照常</span></div>
+        <div class="bar-row"><span>4–6 煩躁</span><div class="bar-track"><div class="bar-fill" style="width:60%;background:var(--amber)"></div></div><span class="v small">深呼吸</span></div>
+        <div class="bar-row"><span>7 以上</span><div class="bar-track"><div class="bar-fill" style="width:90%;background:var(--orange)"></div></div><span class="v small">離開</span></div>
+      </div>
+      <p class="small" style="margin-top:.6em">和照顧者一起找出自己的「7 分訊號」：手握拳、聲音變大、心跳快。</p>
+    </div>
+    <div class="card t">
+      <h3>暫停四步</h3>
+      <ul class="l"><li>確認被照顧者處在安全的位置</li><li>說一句固定的話：「我去倒杯水，馬上回來」</li><li>離開 5–10 分鐘，到看得到但碰不到的地方</li><li>還是很生氣：打給事先約好的人，或 0800-507272</li></ul>
+    </div>
+  </div>
+  <p class="note t">START 方案中的自我肯定溝通與放鬆練習，能降低照顧者焦慮憂鬱並維持 6 年（<span class="lv l1b" style="height:1.5em;min-width:1.5em;font-size:.8em">1b</span>）。暫停計畫本身屬於實務做法，也是寫進<b>安全計畫</b>的好材料。</p>
+</div>
+</section>
+
+<section class="slide" data-t="照顧者也要被評估">
+<div class="wrap">
+  <span class="tag">03 技巧｜照顧者</span>
+  <h2>照顧者也是需要被評估的人</h2>
+  <div class="g g2" style="align-items:start">
+    <div class="study"><div class="st-head"><span class="lv l2b">2b</span><div><b>國家衛生研究院團隊，2026</b><small>JAMA Network Open｜健保資料庫世代研究</small></div></div>
+      <dl><dt>對象</dt><dd>約 95.5 萬名已婚者</dd><dt>比較</dt><dd>配偶有失智 vs 配偶沒有失智</dd><dt>結果</dt><dd>配偶失智後，另一半日後失智的相對風險約增加 <b>7 成</b>；絕對值約為 5 年內每 100 人多 3–4 人</dd><dt>限制</dt><dd>觀察性研究，只能看出關聯，不能證明照顧導致失智</dd></dl></div>
+    <div class="card t"><h3>建立「照顧備援計畫」</h3><ul class="l small"><li>緊急聯絡人：照顧者突然生病、住院時，誰會知道、誰來接手</li><li>定期關懷：鄰里、據點或社工的固定聯繫</li><li>照顧者自己的健康：回診、睡眠、憂鬱與飲酒</li><li>事先談好：日照、機構或分開居住的選項，不要等到危機</li></ul></div>
+  </div>
+  <p class="note">老老照顧家庭中，照顧者常是唯一的安全網。照顧者本身的病，也是被照顧者的風險。</p>
+</div>
+</section>
+
+<section class="slide" data-t="動機式晤談">
+<div class="wrap">
+  <span class="tag">03 技巧｜動機式晤談</span>
+  <h2>照顧者說「不用，我自己顧就好」：用動機式晤談陪他改變</h2>
+  <p class="lead">動機式晤談（Motivational Interviewing, MI）：不說服、不講道理，讓對方說出自己想改變的理由。</p>
+  <div class="g g4">
+    <div class="card t"><div class="num">O</div><h3>開放式問句</h3><p class="small">「晚上睡不好的時候，對你們有什麼影響？」</p></div>
+    <div class="card t"><div class="num">A</div><h3>肯定</h3><p class="small">「你一個人撐了這麼多年，真的很不容易。」</p></div>
+    <div class="card t"><div class="num">R</div><h3>反映</h3><p class="small">「你想親自照顧好他，也擔心他不習慣外人。」</p></div>
+    <div class="card t"><div class="num">S</div><h3>摘要</h3><p class="small">把對方說過的改變理由串起來，還給他聽</p></div>
+  </div>
+  <div class="g g2">
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Rubak et al., 2005</b><small>British Journal of General Practice｜72 篇 RCT 系統性回顧與整合分析</small></div></div>
+      <p class="small"><b>結果</b>：約 3/4 的研究顯示 MI 有效，涵蓋生理與心理問題；15 分鐘短談也有約 64% 有效，接觸次數越多效果越穩定。<b>限制</b>：效果多見於半年內；用在家暴情境的研究少、樣本小。</p></div>
+    <div class="note o"><b>安全先於動機。</b>有立即危險、受虐或高危機時，不等對方「準備好」：通報、危險評估、保護令照常進行。MI 用在「怎麼談」，不取代法定程序。</div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="示範對話：動機式晤談">
+<div class="wrap">
+  <span class="tag">03 技巧｜示範對話</span>
+  <h2>示範對話：從「不用喘息」到「我想試試看」</h2>
+  <div class="dlg" id="dlg2">
+    <div class="ln a"><span class="who">照顧者</span><span class="say">不用申請什麼喘息啦，他不要外人，我自己顧就好。</span></div>
+    <div class="ln b" hidden><span class="who">社工</span><span class="say">你很想親自把他照顧好，也擔心他不習慣外人。<span class="why">雙面反映：先接住他的堅持，不急著說服。被說服的人會更用力防衛。</span></span></div>
+    <div class="ln a" hidden><span class="who">照顧者</span><span class="say">對啊……可是我最近晚上都沒辦法睡。</span></div>
+    <div class="ln b" hidden><span class="who">社工</span><span class="say">沒辦法睡的時候，對你們兩個有什麼影響？<span class="why">聽到改變的線索，用開放式問句請他多說。</span></span></div>
+    <div class="ln a" hidden><span class="who">照顧者</span><span class="say">我會變得很兇，那天還推了他一下……我很後悔。</span></div>
+    <div class="ln b" hidden><span class="who">社工</span><span class="say">你很在乎他，所以那一下讓你這麼難過。<span class="why">肯定他的在乎，不責備，他才願意繼續說真話。推倒事件仍要完成通報與危險評估。</span></span></div>
+    <div class="ln b" hidden><span class="who">社工</span><span class="say">如果 0 到 10 分，讓自己晚上能睡一下，對你有多重要？<span class="why">準備度尺規，讓他自己評估重要性。</span></span></div>
+    <div class="ln a" hidden><span class="who">照顧者</span><span class="say">大概 7 分吧。</span></div>
+    <div class="ln b" hidden><span class="who">社工</span><span class="say">為什麼是 7 分，不是 3 分？<span class="why">問「為什麼不是更低」，引出他自己的改變理由。</span></span></div>
+    <div class="ln a" hidden><span class="who">照顧者</span><span class="say">再這樣下去，我怕自己撐不住，也怕傷到他。</span></div>
+    <div class="ln b" hidden><span class="who">社工</span><span class="say">有些家庭會先試一週兩個晚上的居家喘息。你想聽聽看怎麼安排嗎？<span class="why">引出、提供、再引出：先取得同意再給資訊，選擇權留在他手上。</span></span></div>
+  </div>
+  <div class="dlg-ctl"><button class="btn" data-next="dlg2">下一句</button><button class="btn" data-reset="dlg2">重來</button></div>
+</div>
+</section>
+
+<section class="slide" data-t="精神疾病家屬溝通">
+<div class="wrap">
+  <span class="tag">03 技巧｜精神疾病</span>
+  <h2>伴侶有精神疾病時：LEAP 溝通</h2>
+  <p class="lead">適用於病識感低、拒絕服藥、與家屬對立的情況。</p>
+  <div class="g g4">
+    <div class="card t"><div class="num">L</div><h3>傾聽</h3><p class="small">聽他怎麼看自己的狀況，不急著糾正</p></div>
+    <div class="card t"><div class="num">E</div><h3>同理</h3><p class="small">回應他的感受：「被說有病，一定很不舒服」</p></div>
+    <div class="card t"><div class="num">A</div><h3>找共識</h3><p class="small">找彼此都同意的事：「我們都希望你睡得好」</p></div>
+    <div class="card t"><div class="num">P</div><h3>合作</h3><p class="small">一起決定下一步：「先找醫師談睡眠，好嗎？」</p></div>
+  </div>
+  <div class="g g2">
+    <div class="study"><div class="st-head"><span class="lv l5">5</span><div><b>Amador, LEAP 架構</b><small>臨床實務方法</small></div></div><p class="small">由臨床心理學家依病識感研究發展的溝通架構，廣泛用於家屬教育，但缺乏大型隨機試驗。</p></div>
+    <div class="card a"><h3>不跟妄想辯論</h3><p class="small">說「我聽到你很害怕」，不說「那是你想像的」。有傷人或自傷之虞時，回到精神衛生法程序。</p></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="失智與家暴的四種組合">
+<div class="wrap">
+  <span class="tag o">03 技巧｜辨識</span>
+  <h2>失智與家暴的四種組合，處理方向不同</h2>
+  <div class="g g2">
+    <div class="card o"><h3>1. 長期家暴，加害人後來失智</h3><p class="small">控制可能更失序、更難預測。被害人更怕不被相信。<b>重點：安全計畫優先，不因診斷降低危險等級。</b></p></div>
+    <div class="card o"><h3>2. 長期家暴，被害人後來失智</h3><p class="small">被害人更孤立、更難求助，加害人同時是照顧者。<b>重點：老人與身障保護通報、替代照顧者。</b></p></div>
+    <div class="card t"><h3>3. 關係原本良好，失智後才出現攻擊</h3><p class="small">多屬症狀。突然出現的新行為要先排除<b>譫妄</b>（感染、脫水、藥物）。<b>重點：醫療評估與照顧技巧，但仍要做安全評估。</b></p></div>
+    <div class="card a"><h3>4. 照顧者過去沒有暴力，照顧後才施暴</h3><p class="small">照顧耗竭、照顧者本身生病或憂鬱。<b>重點：高負荷初篩、喘息、家照據點，同時評估同死意念。</b></p></div>
+  </div>
+  <p class="src">依據：英國 Aberystwyth 大學老年、性別與社會正義中心個案研究；英國地方政府失智與家暴實務指引（<span class="lv l5" style="height:1.5em;min-width:1.5em;font-size:.8em">5</span> 專家觀點）。會談時要問「確診前後，你們的關係有什麼不同？」</p>
+</div>
+</section>
+
+<section class="slide" data-t="症狀還是控制">
+<div class="wrap">
+  <span class="tag o">03 技巧｜辨識</span>
+  <h2>怎麼分辨：症狀引起的攻擊 vs 控制型暴力</h2>
+  <div class="tscroll"><table class="tb">
+    <tr><th>觀察面向</th><th>較像症狀引起</th><th>較像控制型暴力</th></tr>
+    <tr><td>什麼時候開始</td><td>生病後才出現，或隨病程加重</td><td>生病前就有，關係中長期存在</td></tr>
+    <tr><td>發生型態</td><td>突發、和照顧情境有關（洗澡、傍晚、被碰觸），事後不記得</td><td>有目標、持續，伴隨恐嚇、監控、經濟控制、孤立</td></tr>
+    <tr><td>對象</td><td>誰靠近照顧就打誰</td><td>主要針對伴侶，在外人面前收斂</td></tr>
+    <tr><td>處理重點</td><td>醫療評估、照顧技巧、環境調整、喘息</td><td>危險評估、安全計畫、保護令、加害人處遇</td></tr>
+  </table></div>
+  <div class="g g2">
+    <div class="note o"><b>兩者可以同時存在。</b>長期施暴的人生病後，暴力可能更失控；長期受暴的人成為照顧者後，也可能反過來施暴。</div>
+    <div class="note t">不論哪一種，被害人的<b>安全永遠排第一</b>。理解症狀，是為了選對處理方法。</div>
+  </div>
+</div>
+</section>
+
+<!-- ===== 04 處置 ===== -->
+<section class="slide divider" data-t="04 處置流程與法規" data-sec="1">
+<div class="wrap"><div class="big">04</div><h2>處置：法規、程序與辦理流程</h2><p>法條以全國法規資料庫現行條文為準（查核至 2026 年 10 月）。實際作業請以新北市家防中心最新 SOP 為準。</p></div>
+</section>
+
+<section class="slide" data-t="處置總流程">
+<div class="wrap">
+  <span class="tag">04 處置｜總流程</span>
+  <h2>從發現到追蹤：點選每一步看細節</h2>
+  <div class="flow">
+    <div class="steps" id="steps">
+      <button class="step sel" data-p="p1"><span class="n">1</span>發現疑似暴力或照顧危機</button>
+      <button class="step red" data-p="p2"><span class="n">2</span>有立即危險？</button>
+      <button class="step" data-p="p3"><span class="n">3</span>責任通報（24 小時內）</button>
+      <button class="step" data-p="p4"><span class="n">4</span>集中篩派案</button>
+      <button class="step" data-p="p5"><span class="n">5</span>危險評估 TIPVDA 2.0</button>
+      <button class="step" data-p="p6"><span class="n">6</span>高危機網絡會議</button>
+      <button class="step" data-p="p7"><span class="n">7</span>保護令與安全計畫</button>
+      <button class="step" data-p="p8"><span class="n">8</span>醫療路徑</button>
+      <button class="step" data-p="p9"><span class="n">9</span>照顧資源連結</button>
+      <button class="step" data-p="p10"><span class="n">10</span>追蹤與結案評估</button>
+    </div>
+    <div class="panel">
+      <div id="p1"><h3>發現疑似暴力或照顧危機</h3><ul class="l small"><li>訪視中觀察：傷痕、照顧者情緒、居家約束、被照顧者營養衛生</li><li>分別會談照顧者與被照顧者</li><li>同時記錄「暴力型態」與「照顧負荷」兩條線</li></ul></div>
+      <div id="p2" hidden><h3>有立即危險？</h3><ul class="l small"><li>有：撥 <b>110</b>，警察可依家暴法第 29 條逕行逮捕現行犯</li><li>精神症狀導致傷人或自傷之虞：警消依精神衛生法第 48 條第 2 項護送就醫</li><li>由警察、檢察官或主管機關聲請<b>緊急保護令</b>，夜間也可以</li></ul></div>
+      <div id="p3" hidden><h3>責任通報</h3><ul class="l small"><li>家暴法第 50 條：社工知悉疑似家暴應立即通報，<b>最遲 24 小時</b></li><li>被害人 65 歲以上：老人福利法第 43 條；持身障證明：身權法第 76 條</li><li>管道：社會安全網「關懷 e 起來」線上通報，或 113</li><li>通報人身分保密</li></ul></div>
+      <div id="p4" hidden><h3>集中篩派案（衛福部原則，2025.3.13 修正）</h3><ul class="l small"><li>急迫危險、重傷或死亡：<b>立即</b>派案</li><li>身障被害人、高度風險保護案件：<b>24 小時內</b></li><li>其他成人保護與脆弱家庭：<b>3 日內</b>完成派案評估並第一次聯繫</li><li>保護案件派家防中心，脆弱家庭派社福中心；開案中個案由原社工承接</li></ul></div>
+      <div id="p5" hidden><h3>危險評估 TIPVDA 2.0（2023 年起全面使用）</h3><ul class="l small"><li>通報版：8 題，<b>5 分以上</b>為高危機</li><li>個管社工版：18 題加權，0–40 分，<b>20 分以上</b>為高危機；掐脖子加權 5 分</li><li>未達切點也可依專業判斷列為高危機</li><li>失智或精神疾病相對人：另外記錄夜間發作、妄想內容、服藥狀況、武器可近性</li><li>被害人本身有認知障礙時，自評分數可能不準，要多方蒐集資訊（國外常用的長者受虐篩檢 EASI 也只適用認知正常的長者）</li></ul></div>
+      <div id="p6" hidden><h3>高危機網絡會議</h3><ul class="l small"><li>社政、警政、衛政、教育、司法共同出席</li><li>失智或精神疾病個案，建議邀請失智共照中心或社區心衛中心</li><li>達成安全計畫、危機下降並符合多面向指標，才解除列管</li></ul></div>
+      <div id="p7" hidden><h3>保護令與安全計畫</h3><ul class="l small"><li>依危險程度選擇緊急、暫時或通常保護令</li><li>款項要對應風險：遠離、遷出、禁止接觸，或命接受精神治療評估</li><li>安全計畫：求救方式、收好危險物品、緊急去處、高風險時點（開庭、宣判前後）</li></ul></div>
+      <div id="p8" hidden><h3>醫療路徑</h3><ul class="l small"><li>失智：協助回診、轉介失智共照中心，評估行為症狀與用藥</li><li>精神疾病：協助就醫（精衛法第 45 條）；嚴重病人有傷人或自傷之虞時，緊急安置與強制住院（2026.8.1 起由法院裁定）</li><li>合併精神疾病的保護案件，可由心衛社工共同服務</li></ul></div>
+      <div id="p9" hidden><h3>照顧資源連結</h3><ul class="l small"><li>1966 長照評估：喘息、日照、居家服務、交通</li><li>高負荷初篩，轉介家庭照顧者支持服務據點</li><li>住宿式機構與補助、外籍看護、輔助或監護宣告</li></ul></div>
+      <div id="p10" hidden><h3>追蹤與結案評估</h3><ul class="l small"><li>重新評估危險與照顧負荷，兩條線都要下降</li><li>注意病程變化會帶來新風險（初期財務、中期身體、晚期疏忽）</li><li>結案前確認家庭已有固定的照顧替手與求助管道</li></ul></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="通報義務比較">
+<div class="wrap">
+  <span class="tag">04 處置｜通報</span>
+  <h2>三部法律的通報義務，時限各不同</h2>
+  <div class="tscroll"><table class="tb">
+    <tr><th>法律</th><th>適用對象</th><th>時限與程序</th><th>後續處理</th></tr>
+    <tr><td>家庭暴力防治法<br>第 50 條</td><td>家庭成員間的暴力（含配偶、前配偶、同居伴侶）</td><td>立即通報，<b>最遲不得超過 24 小時</b></td><td>集中篩派案、危險評估、保護令</td></tr>
+    <tr><td>老人福利法<br>第 43 條</td><td>65 歲以上，遭疏忽、虐待、遺棄等</td><td>條文本身未寫時限；子法《老人保護通報及處理辦法》第 2 條：緊急時可先口頭或電話，<b>24 小時內補通報表</b></td><td>主管機關立即處理，必要時訪視調查（第 41 條保護安置）</td></tr>
+    <tr><td>身心障礙者權益保障法<br>第 76 條</td><td>持身障證明者（失智症可申請）</td><td>立即通報，<b>至遲 24 小時</b></td><td>主管機關 24 小時內開始訪視，<b>4 日內</b>提出調查報告</td></tr>
+  </table></div>
+  <div class="g g2">
+    <div class="note t">失智配偶同時符合多部法律時，<b>一案可能有多重身分</b>：婚暴被害人、老人保護、身障保護。通報時一併勾選，以利網絡分工。</div>
+    <div class="note">未通報的罰則不同：家暴法第 62 條對未通報的責任通報人員處 <b>6,000 至 30,000 元</b>罰鍰；老人福利法對個人未通報沒有罰則（機構另有罰則）。長期照顧服務法沒有專門的通報條文，仍回到上述三部法律。</div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="保護令">
+<div class="wrap">
+  <span class="tag">04 處置｜保護令</span>
+  <h2>民事保護令：種類、時限與常用款項</h2>
+  <div class="tscroll"><table class="tb">
+    <tr><th>種類</th><th>誰可以聲請</th><th>時限</th><th>效力</th></tr>
+    <tr><td>緊急保護令</td><td>檢察官、警察機關、主管機關（有急迫危險時）</td><td>可言詞、傳真，夜間與假日也可；法院 <b>4 小時內</b>核發</td><td>至暫時或通常保護令裁定為止</td></tr>
+    <tr><td>暫時保護令</td><td>被害人、代理人、檢警、主管機關</td><td>可不經審理核發</td><td>至通常保護令核發、撤回或駁回時失效</td></tr>
+    <tr><td>通常保護令</td><td>被害人；被害人為身障者或難以委任代理人時，法定代理人或三親等內血親、姻親可代為聲請</td><td>經審理核發；核發後 24 小時內送達</td><td><b>2 年以下</b>，可聲請延長，每次 2 年以下</td></tr>
+  </table></div>
+  <div class="g g3">
+    <div class="card"><b>第 14 條常用款項</b><p class="small">禁止施暴、禁止騷擾接觸、命遷出、遠離特定場所、命完成加害人處遇計畫</p></div>
+    <div class="card"><b>第 14 條第 3 項</b><p class="small">法院可命相對人接受精神治療或戒癮治療的<b>評估</b>，主管機關可在裁定前提出建議</p></div>
+    <div class="card"><b>違反保護令罪（第 61 條）</b><p class="small">3 年以下有期徒刑、拘役，或科或併科 10 萬元以下罰金</p></div>
+  </div>
+  <p class="small">未同居的親密伴侶（年滿 16 歲），依第 63 條之 1 準用多數保護令規定。聲請保護令免徵裁判費。</p>
+</div>
+</section>
+
+<section class="slide" data-t="相對人是失智者">
+<div class="wrap">
+  <span class="tag o">04 處置｜兩難</span>
+  <h2>相對人是失智者時，保護令怎麼開才有用</h2>
+  <div class="vs">
+    <div class="card o"><h3>常見卡關</h3><ul class="l small"><li>命遷出，失智者無處可去，也沒人照顧</li><li>禁止接觸，但被害人就是唯一照顧者</li><li>相對人記不住保護令內容</li></ul></div>
+    <div class="arrow">→</div>
+    <div class="card t"><h3>可以搭配的做法</h3><ul class="l small"><li>同步安排住宿式機構、日照或喘息，讓遷出有去處</li><li>聲請命接受精神治療評估</li><li>讓其他家屬或外籍看護接手照顧</li><li>評估輔助或監護宣告，處理財務與醫療決定</li></ul></div>
+  </div>
+  <div class="note t">刑事面也有類似思路：高雄失智翁刺妻案，法院以緩刑附<b>強制精神治療</b>與<b>禁止施暴</b>為條件（第 02 段）。目標都是「讓暴力停下來，又讓照顧接得上」。</div>
+  <div class="note o">被害人不願聲請時，仍要完成危險評估與安全計畫；高危機案件主管機關可依職權聲請。</div>
+</div>
+</section>
+
+<section class="slide" data-t="精神衛生法新制">
+<div class="wrap">
+  <span class="tag">04 處置｜精神衛生法</span>
+  <h2>精神衛生法新制：強制住院改由法院裁定</h2>
+  <div class="route">
+    <div class="card t"><b>協助就醫</b><p class="small">保護人或家屬協助就醫，或諮詢社區心理衛生中心（第 45 條）</p></div>
+    <div class="card t"><b>護送就醫</b><p class="small">警察或消防發現有傷人或自傷之虞，護送至就近醫療機構（第 48 條第 2 項）</p></div>
+    <div class="card a"><b>緊急安置 7 日</b><p class="small">2 位以上專科醫師鑑定，安置次日起 3 日內完成（第 59、60 條）</p></div>
+    <div class="card o"><b>法院裁定強制住院</b><p class="small">每次不超過 60 日，只能延長一次（第 63 條）；不准時可改裁定強制社區治療（第 71 條）</p></div>
+  </div>
+  <div class="g g3">
+    <div class="card"><h3>施行時間</h3><p class="small">修正條文 2022.12.14 公布，2024.12.14 施行；第五章強制住院 <b>2026.8.1 起</b>由法院裁定</p></div>
+    <div class="card"><h3>誰來審</h3><p class="small">法官、精神科醫師、病人權益促進團體代表共 3 人參審，可遠距審理；緊急安置期間提供法律扶助</p></div>
+    <div class="card"><h3>保護人</h3><p class="small">嚴重病人應設保護人 1 人，順序為法定代理人、監護人或輔助人，其次為配偶、家屬（第 34 條）</p></div>
+  </div>
+  <p class="src">來源：精神衛生法（2022.12.14 修正）；衛福部新聞稿 2026.7.30。</p>
+</div>
+</section>
+
+<section class="slide" data-t="老福法與身權法">
+<div class="wrap">
+  <span class="tag">04 處置｜保護安置與罰則</span>
+  <h2>老人福利法與身權法：保護、安置與罰則</h2>
+  <div class="g g2">
+    <div class="card t"><h3>老人福利法</h3><ul class="l small"><li>第 41 條：因配偶或子女疏忽、虐待、遺棄致生命身體危難時，主管機關可依申請或職權<b>保護及安置</b>，並協助提告</li><li>第 51 條：遺棄、妨害自由、傷害、身心虐待、把無自理能力老人留在危險環境等，罰 <b>3 萬至 15 萬元並公告姓名</b></li><li>第 52 條：情節嚴重者，施以 <b>4 至 20 小時家庭教育及輔導</b></li></ul></div>
+    <div class="card t"><h3>身心障礙者權益保障法</h3><ul class="l small"><li>第 75 條：禁止遺棄、身心虐待、限制自由、留置危險環境等</li><li>第 78、80 條：情況危急時緊急保護安置，<b>不得超過 72 小時</b>；需繼續時聲請法院裁定</li><li>第 95 條：罰 3 萬至 15 萬元並得公告姓名；家庭照顧者違反時，接受 <b>8 至 50 小時家庭教育及輔導</b></li></ul></div>
+  </div>
+  <p class="note t">家庭教育及輔導的設計精神是「教會照顧」，適合用在照顧技巧不足引發的不當對待；但不能取代危險評估。</p>
+</div>
+</section>
+
+<section class="slide" data-t="民法與病主法">
+<div class="wrap">
+  <span class="tag">04 處置｜民法</span>
+  <h2>失智者的決定能力：輔助、監護與意定監護</h2>
+  <div class="tscroll"><table class="tb">
+    <tr><th>制度</th><th>適用情形</th><th>效果</th><th>對社工的意義</th></tr>
+    <tr><td>輔助宣告<br>（民法第 15 條之 1）</td><td>辨識意思表示效果的能力<b>顯有不足</b></td><td>借貸、保證、贈與、重要財產處分、訴訟等須經輔助人同意</td><td>失智初期防範財務剝削</td></tr>
+    <tr><td>監護宣告<br>（民法第 14 條）</td><td><b>不能</b>為意思表示或辨識其效果</td><td>成為無行為能力人，由監護人代理</td><td>中重度失智的醫療與財務決定</td></tr>
+    <tr><td>意定監護<br>（民法第 1113 條之 2 起，2019 年增訂）</td><td>本人在意識清楚時，事先約定未來的監護人</td><td>契約須經<b>公證</b>；法院原則上依約定選任</td><td>本人可避開施暴的配偶擔任監護人</td></tr>
+    <tr><td>預立醫療決定<br>（病人自主權利法）</td><td>經預立醫療照護諮商並註記健保卡</td><td>適用條件包含「極重度失智」</td><td>及早讓本人表達醫療意願</td></tr>
+  </table></div>
+  <p class="small">聲請監護或輔助宣告者：本人、配偶、四親等內親屬、最近一年有同居事實的其他親屬、檢察官、主管機關、社會福利機構等。</p>
+</div>
+</section>
+
+<section class="slide" data-t="刑法界線">
+<div class="wrap">
+  <span class="tag">04 處置｜刑法</span>
+  <h2>照顧行為的刑法界線</h2>
+  <div class="tscroll"><table class="tb">
+    <tr><th>條文</th><th>內容</th><th>照顧情境的例子</th></tr>
+    <tr><td>第 277 條 傷害</td><td>5 年以下有期徒刑、拘役或 50 萬元以下罰金</td><td>推倒、打傷</td></tr>
+    <tr><td>第 294 條 遺棄</td><td>對無自救力者，依法應扶助而不為其生存所必要的扶助：6 月以上 5 年以下</td><td>長期不給食物、不就醫、丟著不管</td></tr>
+    <tr><td>第 302 條 剝奪行動自由</td><td>私行拘禁或以非法方法剝奪行動自由：5 年以下有期徒刑、拘役或 9,000 元以下罰金</td><td>用鐵鍊、繩子綁住，反鎖房間</td></tr>
+    <tr><td>第 271 條 殺人</td><td>死刑、無期徒刑或 10 年以上有期徒刑</td><td>照顧悲劇；殺配偶不適用殺直系血親尊親屬的加重</td></tr>
+    <tr><td>第 275 條 受囑託殺人、幫助自殺</td><td>受囑託或得承諾殺人：1 年以上 7 年以下；謀為同死者，得免除其刑</td><td>照顧者說「我們一起走」的同死案件</td></tr>
+    <tr><td>第 19 條 責任能力</td><td>行為時不能辨識違法：不罰；顯著減低：得減輕</td><td>失智者或精神疾病者為加害人時，需精神鑑定</td></tr>
+  </table></div>
+  <div class="note">約束的替代方案：門口感應鈴、愛心手鍊、指紋建檔、白天活動與日照、夜間照明。照顧者「為了安全」而約束時，先問<b>他缺的是哪一種幫手</b>。</div>
+</div>
+</section>
+
+<!-- ===== 05 福利 ===== -->
+<section class="slide divider" data-t="05 社會福利舉措" data-sec="1">
+<div class="wrap"><div class="big">05</div><h2>社會福利舉措</h2><p>2026 年是新制密集上路的一年。以下整理照顧者、失智者、精神疾病家庭可以用的資源。</p></div>
+</section>
+
+<section class="slide" data-t="2025–2026 新制時間軸">
+<div class="wrap">
+  <span class="tag">05 福利｜新制</span>
+  <h2>2025–2026 年上路的新制</h2>
+  <div class="card timeline">
+    <div class="tl"><span class="d">2025.8.1</span><span>80 歲以上長者聘外籍看護，<b>免巴氏量表</b></span></div>
+    <div class="tl"><span class="d">2025.9.1</span><span>聘外籍看護的家庭也可以使用日照、家庭托顧；社區式交通接送費率調整</span></div>
+    <div class="tl"><span class="d">2026.1.1</span><span>長照 3.0（115–124 年）上路：<b>失智症者不限年齡</b>都可使用長照</span></div>
+    <div class="tl"><span class="d">2026.7.1</span><span>新增智慧科技輔具租賃：每 3 年 6 萬元（含安全看視類）</span></div>
+    <div class="tl"><span class="d">2026.8.1</span><span>精神衛生法強制住院改由<b>法院裁定</b></span></div>
+    <div class="tl"><span class="d">2026.9</span><span>住宿式機構補助提高為<b>每月 15,000 元、每年最高 18 萬元</b>，追溯自 1 月 1 日</span></div>
+    <div class="tl"><span class="d">2026.10</span><span>失智症防治照護政策綱領暨行動方案 <b>3.0</b>（2026–2035）行政院聽取報告；2035 年目標確診率、服務涵蓋率、人員失智識能皆達 80%</span></div>
+  </div>
+  <p class="src">來源：衛福部、行政院新聞稿與長照 3.0 核定本；1966 長照服務專區。</p>
+</div>
+</section>
+
+<section class="slide" data-t="長照四包錢">
+<div class="wrap">
+  <span class="tag">05 福利｜長照給付</span>
+  <h2>長照四包錢：撥 1966 申請評估</h2>
+  <div class="g g4">
+    <div class="card t"><h3>照顧及專業服務</h3><p class="small">每月 10,020 元（2 級）至 36,180 元（8 級）；居家服務、日照、專業復能</p></div>
+    <div class="card t"><h3>交通接送</h3><p class="small">每月 1,680–2,400 元，依居住地區分四級</p></div>
+    <div class="card t"><h3>輔具及居家無障礙</h3><p class="small">每 3 年 4 萬元；智慧科技輔具另有每 3 年 6 萬元</p></div>
+    <div class="card o"><h3>喘息服務</h3><p class="small">每年 32,340 元（2–6 級）或 48,510 元（7–8 級）；居家、日照、機構、夜間喘息</p></div>
+  </div>
+  <div class="g g2">
+    <div class="card"><h3>資格</h3><p class="small">長照需要等級 2 級以上，且為 65 歲以上、55 歲以上原住民、<b>失智症者（不限年齡）</b>、失能身障者，或急性後期照護收案對象。</p></div>
+    <div class="card"><h3>部分負擔</h3><p class="small">照顧及專業服務：低收入戶 0%、中低收入戶 5%、一般戶 16%。申請管道：1966、長照管理中心、住院時找出院準備小組。</p></div>
+  </div>
+  <p class="note t">《報導者》分析的照顧殺人案中，<b>超過一半沒有使用任何照顧服務</b>。訪視時第一個要確認的，就是這個家有沒有申請長照。</p>
+</div>
+</section>
+
+<section class="slide" data-t="高負荷初篩">
+<div class="wrap">
+  <span class="tag">05 福利｜照顧者支持</span>
+  <h2>高負荷家庭照顧者初篩：現場勾勾看</h2>
+  <div class="g g2" style="align-items:start">
+    <div class="card" id="screen">
+      <label class="chk"><input type="checkbox" id="c1">被照顧者有嚴重情緒困擾、干擾行為，難以照顧</label>
+      <label class="chk"><input type="checkbox" id="c2">高齡照顧者（65 歲以上，原住民 55 歲以上）</label>
+      <label class="chk"><input type="checkbox" id="c3">過去沒有照顧經驗</label>
+      <label class="chk"><input type="checkbox" id="c4">沒有照顧替手（每週主要照顧 20 小時以上）</label>
+      <label class="chk"><input type="checkbox" id="c5">需要照顧兩人以上</label>
+      <label class="chk"><input type="checkbox" id="c6">照顧者因疾病或身心狀況，影響照顧能力或意願</label>
+      <label class="chk"><input type="checkbox" id="c7">申請資源不符資格、資格變動，或有突發緊急需求</label>
+      <label class="chk"><input type="checkbox" id="c8">3 個月內照顧情境有改變</label>
+      <label class="chk key"><input type="checkbox" id="c9" data-key="1">照顧者或被照顧者之間曾有家暴情事</label>
+      <label class="chk key"><input type="checkbox" id="c10" data-key="1">照顧者曾有自殺企圖或自殺意念</label>
+    </div>
+    <div class="g" style="gap:.8em">
+      <div class="panel" id="screenOut" aria-live="polite"><h3>勾選結果</h3><p class="small">勾選左側項目，這裡會顯示建議。</p></div>
+      <div class="card"><h3>轉介規則</h3><ul class="l small"><li>第 9 或第 10 項任一符合：轉介</li><li>任兩項符合：轉介</li><li>專業人員判斷需要：轉介</li></ul><p class="xs" style="margin-top:.4em">轉介對象：家庭照顧者支持服務據點（全國近 190 處）。疑似虐待、脆弱家庭或自殺企圖，須通報社安網。</p></div>
+    </div>
+  </div>
+  <p class="src">來源：衛福部長照司高負荷家庭照顧者初篩指標（10 項）。家暴個案幾乎都會勾到第 9 項，因此<b>本方案的個案原則上都應評估轉介家照據點</b>。</p>
+</div>
+</section>
+
+<section class="slide" data-t="失智專屬資源">
+<div class="wrap">
+  <span class="tag">05 福利｜失智資源</span>
+  <h2>失智症家庭專屬資源</h2>
+  <div class="g g3">
+    <div class="card t"><div class="num">133<small>處</small></div><h3>失智共同照護中心</h3><p class="small">個案管理、協助確診、照顧諮詢；新北 14 處</p></div>
+    <div class="card t"><div class="num">580<small>處</small></div><h3>失智社區服務據點</h3><p class="small">認知促進、照顧者支持團體；新北 65 處</p></div>
+    <div class="card o"><div class="num o">34.26<small>%</small></div><h3>走失長者中失智者的比例</h3><p class="small">愛的手鍊至 2025 年 7 月已協助 8,997 個家庭團聚</p></div>
+  </div>
+  <div class="g g2">
+    <div class="card"><h3>外籍看護</h3><p class="small">失智症經神經科或精神科專科醫師診斷 <b>CDR 1 以上</b>，可免巴氏量表；80 歲以上長者亦免巴氏量表。</p></div>
+    <div class="card"><h3>防走失與財產</h3><p class="small">愛心手鍊（各縣市社會局補助）、警察機關指紋捺印建檔、身心障礙證明、財產信託與輔助或監護宣告。</p></div>
+  </div>
+  <p class="src">來源：衛福部失智共照中心及據點統計表（2026.6 編製）；聯合報 2025.9.13 引警政署資料。</p>
+</div>
+</section>
+
+<section class="slide" data-t="精神疾病資源與社安網">
+<div class="wrap">
+  <span class="tag">05 福利｜精神疾病資源</span>
+  <h2>精神疾病家庭：社區心衛中心與社安網</h2>
+  <div class="tscroll"><table class="tb">
+    <tr><th>人員</th><th>服務對象</th><th>案量比</th></tr>
+    <tr><td>心衛社工</td><td>保護事件（家暴、兒少、性侵）<b>合併精神疾病</b>或自殺企圖的多重議題個案</td><td>1:25</td></tr>
+    <tr><td>社區關懷訪視員</td><td>精神照護資訊系統第 1、2 級個案</td><td>1:40</td></tr>
+    <tr><td>自殺關懷訪視員</td><td>自殺通報個案</td><td>1:40</td></tr>
+    <tr><td>家暴加害人處遇個管</td><td>保護令或處遇計畫的加害人</td><td>1:300</td></tr>
+  </table></div>
+  <div class="g g2">
+    <div class="card"><h3>社區心理衛生中心</h3><p class="small">規劃每 33 萬人一處，2024 年 10 月已設 52 處，目標 2030 年 100 處。</p></div>
+    <div class="card"><h3>強化社會安全網計畫 2.0</h3><p class="small">2026–2030 年，預算約 819.6 億元；新增照顧對象包括獨居長者與近貧家庭。</p></div>
+  </div>
+  <p class="src">來源：衛福部社安網第二期 114 年補助基準；衛福部、中央社 2026.8。</p>
+</div>
+</section>
+
+<section class="slide" data-t="經濟補助">
+<div class="wrap">
+  <span class="tag">05 福利｜經濟補助</span>
+  <h2>經濟補助：留意「老老照顧」的資格落差</h2>
+  <div class="g g3">
+    <div class="card t"><h3>住宿式機構使用者補助</h3><div class="num">15,000<small>元/月</small></div><p class="small">每年最高 18 萬元；長照需要等級 4 級以上，或中度以上身障；當月住滿一半天數即計一個月</p></div>
+    <div class="card t"><h3>中低收入老人生活津貼</h3><div class="num" style="font-size:1.9em">4,664–9,329<small>元/月</small></div><p class="small">2026 年加發期間的金額，依家庭經濟狀況分級</p></div>
+    <div class="card o"><h3>中低收入老人特別照顧津貼</h3><div class="num o">5,000<small>元/月</small></div><p class="small">受照顧者 ADL 重度以上、未使用居服日照外看機構；<b>照顧者須未滿 65 歲</b>且未全時工作</p></div>
+  </div>
+  <div class="note o">高齡配偶照顧者，正是照顧悲劇的高風險族群，卻因年齡拿不到特別照顧津貼。訪視時要轉向其他資源：長照服務、住宿補助、家照據點。</div>
+</div>
+</section>
+
+<section class="slide" data-t="專線一頁看">
+<div class="wrap">
+  <span class="tag">05 福利｜專線</span>
+  <h2>可以直接給家屬的專線</h2>
+  <div class="g g3">
+    <div class="card o"><div class="phone" style="color:var(--orange)">110</div><p class="small">立即危險，報警</p></div>
+    <div class="card o"><div class="phone" style="color:var(--orange)">113</div><p class="small">保護專線，24 小時，家暴、老人與身障保護</p></div>
+    <div class="card t"><div class="phone">1966</div><p class="small">長照專線，申請長照評估與服務</p></div>
+    <div class="card t"><div class="phone">0800-507-272</div><p class="small">家庭照顧者關懷專線（家總）</p></div>
+    <div class="card t"><div class="phone">1925</div><p class="small">安心專線，24 小時心理諮詢與自殺防治</p></div>
+    <div class="card t"><div class="phone">0800-474-580</div><p class="small">失智症關懷專線（台灣失智症協會）</p></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== 06 縣市 ===== -->
+<section class="slide divider" data-t="06 各縣市規範" data-sec="1">
+<div class="wrap"><div class="big">06</div><h2>各縣市規範：相同與相異</h2><p>法源都在中央，差異在各縣市的執行機制、主動篩案方式與加碼方案。</p></div>
+</section>
+
+<section class="slide" data-t="全國共同的框架">
+<div class="wrap">
+  <span class="tag">06 縣市｜共同點</span>
+  <h2>全國相同的部分</h2>
+  <div class="g g3">
+    <div class="card t"><h3>法源一致</h3><p class="small">家暴法、老人福利法、身權法、精神衛生法、長照服務法皆為中央法律</p></div>
+    <div class="card t"><h3>長照給付一致</h3><p class="small">同一套給付及支付基準，同樣撥 1966 申請</p></div>
+    <div class="card t"><h3>篩檢工具一致</h3><p class="small">TIPVDA 2.0、高負荷初篩 10 項、衛福部集中篩派案原則</p></div>
+    <div class="card t"><h3>通報管道一致</h3><p class="small">113 保護專線與「關懷 e 起來」通報平臺</p></div>
+    <div class="card t"><h3>人力配置原則一致</h3><p class="small">社安網心衛社工、關懷訪視員的服務對象與案量比</p></div>
+    <div class="card a"><h3>自治條例</h3><p class="small">本次查詢六都，<b>未查得</b>照顧者或失智症專屬的自治條例；各市多以計畫、要點推動</p></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="六都比較">
+<div class="wrap">
+  <span class="tag">06 縣市｜相異</span>
+  <h2>六都的做法：點選城市</h2>
+  <div class="tabs" id="cityTabs">
+    <button class="tabbtn sel" data-c="ct1">新北市</button>
+    <button class="tabbtn" data-c="ct2">臺北市</button>
+    <button class="tabbtn" data-c="ct3">桃園市</button>
+    <button class="tabbtn" data-c="ct4">臺中市</button>
+    <button class="tabbtn" data-c="ct5">臺南市</button>
+    <button class="tabbtn" data-c="ct6">高雄市</button>
+  </div>
+  <div class="panel">
+    <div id="ct1"><h3>新北市</h3><ul class="l small"><li>失智共照中心 14 處、失智據點 65 處，共照中心服務人數全國最多（11,500 人）</li><li>2023 年中和照顧悲劇後，社會局與衛生局推動「高照顧負荷喘息方案」，並強化里長通報與社區守門員</li><li>家防中心辦理「老人暨身心障礙者保護預防性關懷服務方案」與「以家庭為中心之整合性服務方案」</li><li>失智守護站大幅擴增；2026 年推出年輕型失智就業再設計方案</li></ul></div>
+    <div id="ct2" hidden><h3>臺北市</h3><ul class="l small"><li>失智共照中心 11 處、失智據點 49 處</li><li>老人保護採「<b>一主責多協力</b>」三級預防：社福中心主責脆弱家庭，家防中心主責保護案件</li><li>照管專員在長照初評與複評時都使用高負荷初篩指標</li><li>主動盤點「<b>雙老、雙障</b>」家庭，寄送照顧壓力自評表，由里幹事核對名冊後安排社工訪視</li><li>老人保護通報中，照顧負荷類約占 45%</li></ul></div>
+    <div id="ct3" hidden><h3>桃園市</h3><ul class="l small"><li>失智共照中心 9 處、失智據點 34 處</li><li>社會局 2023 年辦理高照顧負荷家庭盤點</li></ul></div>
+    <div id="ct4" hidden><h3>臺中市</h3><ul class="l small"><li>失智共照中心 10 處、失智據點 47 處</li><li>衛生局訂有「長期照顧高負荷家庭照顧者通報及服務機制」與通報單</li><li>愛心手鍊由市府全額補助</li></ul></div>
+    <div id="ct5" hidden><h3>臺南市</h3><ul class="l small"><li>失智共照中心 7 處、失智據點 40 處</li><li>以失智友善社區推動為主，本次未查得市級高負荷專屬機制</li></ul></div>
+    <div id="ct6" hidden><h3>高雄市</h3><ul class="l small"><li>失智共照中心 12 處、失智據點 65 處</li><li>2023 年市府「協助高照顧負荷家庭」方案：衛生局、社會局訪視服務體系內家庭，<b>38 區公所</b>訪視體系外家庭，警察局協助安全</li><li>篩選條件：家中 2 位以上身障者、1 位精神疾病者，或照顧者 65 歲以上</li><li>家照據點提供低收、中低收交通補助</li></ul></div>
+  </div>
+  <p class="src">來源：衛福部失智共照中心及據點統計表（2026.6 編製）；各市府簡報與計畫文件。各市機制會調整，轉介前請向當地窗口確認。</p>
+</div>
+</section>
+
+<section class="slide" data-t="比較總表">
+<div class="wrap">
+  <span class="tag">06 縣市｜總表</span>
+  <h2>主動找出高負荷家庭的方式，各市不同</h2>
+  <div class="tscroll"><table class="tb">
+    <tr><th>面向</th><th>全國共通</th><th>新北</th><th>臺北</th><th>高雄</th></tr>
+    <tr><td>高負荷篩檢</td><td>10 項初篩指標＋負荷量表</td><td>喘息方案、里長通報、社區守門員</td><td>照專初複評都篩；雙老雙障主動盤點</td><td>區公所普訪體系外家庭</td></tr>
+    <tr><td>老人保護分工</td><td>家暴法與老福法雙軌</td><td>家防中心處理家內老人虐待</td><td>一主責多協力，家防中心主責保護</td><td>依市府分工</td></tr>
+    <tr><td>失智資源</td><td>共照 133／據點 580</td><td>14／65</td><td>11／49</td><td>12／65</td></tr>
+    <tr><td>精神合併家暴</td><td>心衛社工 1:25</td><td>社區心衛中心</td><td>社區心衛中心</td><td>社區心衛中心</td></tr>
+  </table></div>
+  <div class="note t">對新北社工的實務提醒：被照顧者住新北、子女住臺北的跨縣市家庭，<b>兩地資源與窗口不同</b>，轉介前先確認服務所在地的申請規定。</div>
+</div>
+</section>
+
+<!-- ===== 收尾 ===== -->
+<section class="slide" data-t="訪視檢核清單">
+<div class="wrap">
+  <span class="tag o">總整理</span>
+  <h2>訪視時的七個問題</h2>
+  <div class="g g2">
+    <div class="card"><b>1. 安全</b><p class="small">現在有立即危險嗎？有沒有掐脖、持械、威脅同死？</p></div>
+    <div class="card"><b>2. 型態</b><p class="small">暴力是生病後才出現，還是長期的控制？</p></div>
+    <div class="card"><b>3. 症狀</b><p class="small">有沒有妄想、日夜顛倒、拒絕照顧？最近看過醫師嗎？</p></div>
+    <div class="card"><b>4. 照顧者</b><p class="small">照顧多久了？自己身體好嗎？有沒有想過「一起走」？</p></div>
+    <div class="card"><b>5. 替手</b><p class="small">一週有幾個小時可以休息？誰可以接手？</p></div>
+    <div class="card"><b>6. 資源</b><p class="small">申請長照了嗎？有喘息、日照、家照據點嗎？</p></div>
+    <div class="card"><b>7. 法定程序</b><p class="small">通報了嗎？危險評估幾分？保護令款項對應風險嗎？</p></div>
+    <div class="card fill-t"><b>帶走一句話</b><p>理解症狀，管理風險，接上照顧。</p></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="延伸學習資源">
+<div class="wrap">
+  <span class="tag">延伸學習</span>
+  <h2>課後可以繼續用的兩個線上資料庫</h2>
+  <div class="g g2">
+    <div class="card t res"><div class="qr"><svg version="1.1" viewBox="0 0 37 37" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM10,2H11V3H10zM12,2H13V3H12zM13,2H14V3H13zM19,2H20V3H19zM20,2H21V3H20zM21,2H22V3H21zM22,2H23V3H22zM24,2H25V3H24zM25,2H26V3H25zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM10,3H11V4H10zM11,3H12V4H11zM12,3H13V4H12zM14,3H15V4H14zM18,3H19V4H18zM19,3H20V4H19zM20,3H21V4H20zM23,3H24V4H23zM24,3H25V4H24zM25,3H26V4H25zM26,3H27V4H26zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM11,4H12V5H11zM12,4H13V5H12zM15,4H16V5H15zM16,4H17V5H16zM17,4H18V5H17zM20,4H21V5H20zM22,4H23V5H22zM24,4H25V5H24zM25,4H26V5H25zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM10,5H11V6H10zM12,5H13V6H12zM13,5H14V6H13zM15,5H16V6H15zM19,5H20V6H19zM24,5H25V6H24zM26,5H27V6H26zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM11,6H12V7H11zM13,6H14V7H13zM14,6H15V7H14zM15,6H16V7H15zM16,6H17V7H16zM17,6H18V7H17zM18,6H19V7H18zM21,6H22V7H21zM22,6H23V7H22zM26,6H27V7H26zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM12,7H13V8H12zM14,7H15V8H14zM16,7H17V8H16zM21,7H22V8H21zM26,7H27V8H26zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM10,9H11V10H10zM11,9H12V10H11zM13,9H14V10H13zM17,9H18V10H17zM19,9H20V10H19zM20,9H21V10H20zM21,9H22V10H21zM24,9H25V10H24zM25,9H26V10H25zM26,9H27V10H26zM2,10H3V11H2zM4,10H5V11H4zM5,10H6V11H5zM7,10H8V11H7zM8,10H9V11H8zM9,10H10V11H9zM11,10H12V11H11zM12,10H13V11H12zM16,10H17V11H16zM18,10H19V11H18zM19,10H20V11H19zM20,10H21V11H20zM23,10H24V11H23zM26,10H27V11H26zM28,10H29V11H28zM31,10H32V11H31zM33,10H34V11H33zM34,10H35V11H34zM4,11H5V12H4zM5,11H6V12H5zM11,11H12V12H11zM12,11H13V12H12zM14,11H15V12H14zM15,11H16V12H15zM18,11H19V12H18zM21,11H22V12H21zM22,11H23V12H22zM25,11H26V12H25zM28,11H29V12H28zM29,11H30V12H29zM31,11H32V12H31zM32,11H33V12H32zM34,11H35V12H34zM2,12H3V13H2zM3,12H4V13H3zM5,12H6V13H5zM7,12H8V13H7zM8,12H9V13H8zM9,12H10V13H9zM11,12H12V13H11zM12,12H13V13H12zM15,12H16V13H15zM18,12H19V13H18zM19,12H20V13H19zM20,12H21V13H20zM22,12H23V13H22zM25,12H26V13H25zM27,12H28V13H27zM29,12H30V13H29zM30,12H31V13H30zM31,12H32V13H31zM33,12H34V13H33zM34,12H35V13H34zM3,13H4V14H3zM4,13H5V14H4zM5,13H6V14H5zM6,13H7V14H6zM9,13H10V14H9zM10,13H11V14H10zM11,13H12V14H11zM15,13H16V14H15zM16,13H17V14H16zM18,13H19V14H18zM22,13H23V14H22zM26,13H27V14H26zM29,13H30V14H29zM31,13H32V14H31zM6,14H7V15H6zM7,14H8V15H7zM8,14H9V15H8zM9,14H10V15H9zM10,14H11V15H10zM11,14H12V15H11zM13,14H14V15H13zM14,14H15V15H14zM18,14H19V15H18zM19,14H20V15H19zM21,14H22V15H21zM24,14H25V15H24zM27,14H28V15H27zM29,14H30V15H29zM30,14H31V15H30zM31,14H32V15H31zM33,14H34V15H33zM34,14H35V15H34zM2,15H3V16H2zM3,15H4V16H3zM5,15H6V16H5zM6,15H7V16H6zM7,15H8V16H7zM10,15H11V16H10zM11,15H12V16H11zM12,15H13V16H12zM16,15H17V16H16zM17,15H18V16H17zM18,15H19V16H18zM19,15H20V16H19zM21,15H22V16H21zM26,15H27V16H26zM33,15H34V16H33zM3,16H4V17H3zM4,16H5V17H4zM7,16H8V17H7zM8,16H9V17H8zM10,16H11V17H10zM11,16H12V17H11zM15,16H16V17H15zM20,16H21V17H20zM21,16H22V17H21zM22,16H23V17H22zM26,16H27V17H26zM28,16H29V17H28zM29,16H30V17H29zM30,16H31V17H30zM31,16H32V17H31zM5,17H6V18H5zM6,17H7V18H6zM7,17H8V18H7zM14,17H15V18H14zM15,17H16V18H15zM17,17H18V18H17zM20,17H21V18H20zM21,17H22V18H21zM22,17H23V18H22zM23,17H24V18H23zM24,17H25V18H24zM27,17H28V18H27zM28,17H29V18H28zM29,17H30V18H29zM31,17H32V18H31zM32,17H33V18H32zM2,18H3V19H2zM4,18H5V19H4zM7,18H8V19H7zM8,18H9V19H8zM9,18H10V19H9zM12,18H13V19H12zM14,18H15V19H14zM16,18H17V19H16zM20,18H21V19H20zM21,18H22V19H21zM22,18H23V19H22zM23,18H24V19H23zM26,18H27V19H26zM27,18H28V19H27zM28,18H29V19H28zM30,18H31V19H30zM31,18H32V19H31zM32,18H33V19H32zM5,19H6V20H5zM6,19H7V20H6zM7,19H8V20H7zM10,19H11V20H10zM16,19H17V20H16zM17,19H18V20H17zM25,19H26V20H25zM26,19H27V20H26zM27,19H28V20H27zM28,19H29V20H28zM30,19H31V20H30zM31,19H32V20H31zM33,19H34V20H33zM34,19H35V20H34zM3,20H4V21H3zM4,20H5V21H4zM5,20H6V21H5zM6,20H7V21H6zM7,20H8V21H7zM8,20H9V21H8zM10,20H11V21H10zM11,20H12V21H11zM15,20H16V21H15zM16,20H17V21H16zM17,20H18V21H17zM20,20H21V21H20zM22,20H23V21H22zM26,20H27V21H26zM29,20H30V21H29zM30,20H31V21H30zM32,20H33V21H32zM33,20H34V21H33zM9,21H10V22H9zM10,21H11V22H10zM13,21H14V22H13zM14,21H15V22H14zM16,21H17V22H16zM17,21H18V22H17zM18,21H19V22H18zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM22,21H23V22H22zM24,21H25V22H24zM25,21H26V22H25zM26,21H27V22H26zM27,21H28V22H27zM30,21H31V22H30zM33,21H34V22H33zM34,21H35V22H34zM5,22H6V23H5zM6,22H7V23H6zM8,22H9V23H8zM16,22H17V23H16zM17,22H18V23H17zM18,22H19V23H18zM19,22H20V23H19zM20,22H21V23H20zM21,22H22V23H21zM23,22H24V23H23zM31,22H32V23H31zM32,22H33V23H32zM2,23H3V24H2zM5,23H6V24H5zM7,23H8V24H7zM9,23H10V24H9zM11,23H12V24H11zM12,23H13V24H12zM16,23H17V24H16zM18,23H19V24H18zM19,23H20V24H19zM21,23H22V24H21zM22,23H23V24H22zM23,23H24V24H23zM25,23H26V24H25zM28,23H29V24H28zM31,23H32V24H31zM34,23H35V24H34zM4,24H5V25H4zM5,24H6V25H5zM8,24H9V25H8zM9,24H10V25H9zM12,24H13V25H12zM14,24H15V25H14zM15,24H16V25H15zM16,24H17V25H16zM19,24H20V25H19zM25,24H26V25H25zM26,24H27V25H26zM27,24H28V25H27zM29,24H30V25H29zM31,24H32V25H31zM32,24H33V25H32zM33,24H34V25H33zM34,24H35V25H34zM3,25H4V26H3zM6,25H7V26H6zM7,25H8V26H7zM9,25H10V26H9zM15,25H16V26H15zM17,25H18V26H17zM18,25H19V26H18zM21,25H22V26H21zM26,25H27V26H26zM31,25H32V26H31zM33,25H34V26H33zM34,25H35V26H34zM2,26H3V27H2zM5,26H6V27H5zM6,26H7V27H6zM8,26H9V27H8zM14,26H15V27H14zM15,26H16V27H15zM16,26H17V27H16zM17,26H18V27H17zM19,26H20V27H19zM21,26H22V27H21zM22,26H23V27H22zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM31,26H32V27H31zM33,26H34V27H33zM34,26H35V27H34zM10,27H11V28H10zM11,27H12V28H11zM16,27H17V28H16zM17,27H18V28H17zM19,27H20V28H19zM20,27H21V28H20zM21,27H22V28H21zM22,27H23V28H22zM24,27H25V28H24zM26,27H27V28H26zM30,27H31V28H30zM31,27H32V28H31zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM10,28H11V29H10zM12,28H13V29H12zM14,28H15V29H14zM18,28H19V29H18zM20,28H21V29H20zM21,28H22V29H21zM24,28H25V29H24zM25,28H26V29H25zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM2,29H3V30H2zM8,29H9V30H8zM10,29H11V30H10zM11,29H12V30H11zM12,29H13V30H12zM16,29H17V30H16zM20,29H21V30H20zM23,29H24V30H23zM24,29H25V30H24zM25,29H26V30H25zM26,29H27V30H26zM30,29H31V30H30zM31,29H32V30H31zM32,29H33V30H32zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM11,30H12V31H11zM13,30H14V31H13zM14,30H15V31H14zM15,30H16V31H15zM20,30H21V31H20zM22,30H23V31H22zM23,30H24V31H23zM24,30H25V31H24zM25,30H26V31H25zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM32,30H33V31H32zM33,30H34V31H33zM34,30H35V31H34zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM10,31H11V32H10zM12,31H13V32H12zM14,31H15V32H14zM16,31H17V32H16zM17,31H18V32H17zM22,31H23V32H22zM25,31H26V32H25zM29,31H30V32H29zM31,31H32V32H31zM34,31H35V32H34zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM10,32H11V33H10zM12,32H13V33H12zM14,32H15V33H14zM16,32H17V33H16zM17,32H18V33H17zM18,32H19V33H18zM23,32H24V33H23zM26,32H27V33H26zM28,32H29V33H28zM29,32H30V33H29zM32,32H33V33H32zM2,33H3V34H2zM8,33H9V34H8zM11,33H12V34H11zM12,33H13V34H12zM15,33H16V34H15zM16,33H17V34H16zM19,33H20V34H19zM20,33H21V34H20zM25,33H26V34H25zM26,33H27V34H26zM27,33H28V34H27zM29,33H30V34H29zM30,33H31V34H30zM34,33H35V34H34zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM16,34H17V35H16zM18,34H19V35H18zM19,34H20V35H19zM20,34H21V35H20zM21,34H22V35H21zM22,34H23V35H22zM23,34H24V35H23zM24,34H25V35H24zM25,34H26V35H25zM28,34H29V35H28zM30,34H31V35H30zM32,34H33V35H32z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div><div><h3>失智症溝通技巧資料庫</h3><p class="small">先接住情緒，再處理事情。整理一般互動原則、問題行為分析、常見行為應對、不同病程的調整與研究證據。示範對話可以按「下一句」逐句看，每一句回應都附上為什麼這樣說。</p><p class="xs" style="margin-top:.4em"><a href="https://mattsue1003.github.io/dementia-communication-database/" target="_blank" rel="noopener">mattsue1003.github.io/dementia-communication-database</a></p></div></div>
+    <div class="card t res"><div class="qr"><svg version="1.1" viewBox="0 0 37 37" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM12,2H13V3H12zM15,2H16V3H15zM19,2H20V3H19zM20,2H21V3H20zM21,2H22V3H21zM22,2H23V3H22zM24,2H25V3H24zM25,2H26V3H25zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM11,3H12V4H11zM12,3H13V4H12zM15,3H16V4H15zM16,3H17V4H16zM17,3H18V4H17zM18,3H19V4H18zM20,3H21V4H20zM22,3H23V4H22zM24,3H25V4H24zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM10,4H11V5H10zM11,4H12V5H11zM14,4H15V5H14zM15,4H16V5H15zM18,4H19V5H18zM21,4H22V5H21zM22,4H23V5H22zM23,4H24V5H23zM25,4H26V5H25zM26,4H27V5H26zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM10,5H11V6H10zM13,5H14V6H13zM14,5H15V6H14zM16,5H17V6H16zM18,5H19V6H18zM19,5H20V6H19zM24,5H25V6H24zM26,5H27V6H26zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM12,6H13V7H12zM13,6H14V7H13zM15,6H16V7H15zM17,6H18V7H17zM19,6H20V7H19zM20,6H21V7H20zM21,6H22V7H21zM22,6H23V7H22zM23,6H24V7H23zM24,6H25V7H24zM25,6H26V7H25zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM10,7H11V8H10zM12,7H13V8H12zM15,7H16V8H15zM16,7H17V8H16zM17,7H18V8H17zM18,7H19V8H18zM20,7H21V8H20zM22,7H23V8H22zM23,7H24V8H23zM24,7H25V8H24zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM10,9H11V10H10zM11,9H12V10H11zM14,9H15V10H14zM16,9H17V10H16zM17,9H18V10H17zM21,9H22V10H21zM22,9H23V10H22zM23,9H24V10H23zM24,9H25V10H24zM26,9H27V10H26zM2,10H3V11H2zM4,10H5V11H4zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM8,10H9V11H8zM11,10H12V11H11zM12,10H13V11H12zM15,10H16V11H15zM16,10H17V11H16zM17,10H18V11H17zM19,10H20V11H19zM24,10H25V11H24zM25,10H26V11H25zM28,10H29V11H28zM29,10H30V11H29zM30,10H31V11H30zM31,10H32V11H31zM32,10H33V11H32zM3,11H4V12H3zM4,11H5V12H4zM5,11H6V12H5zM6,11H7V12H6zM10,11H11V12H10zM12,11H13V12H12zM14,11H15V12H14zM18,11H19V12H18zM19,11H20V12H19zM21,11H22V12H21zM22,11H23V12H22zM23,11H24V12H23zM25,11H26V12H25zM28,11H29V12H28zM29,11H30V12H29zM31,11H32V12H31zM32,11H33V12H32zM34,11H35V12H34zM2,12H3V13H2zM4,12H5V13H4zM6,12H7V13H6zM7,12H8V13H7zM8,12H9V13H8zM9,12H10V13H9zM11,12H12V13H11zM12,12H13V13H12zM13,12H14V13H13zM14,12H15V13H14zM17,12H18V13H17zM18,12H19V13H18zM19,12H20V13H19zM23,12H24V13H23zM24,12H25V13H24zM26,12H27V13H26zM27,12H28V13H27zM28,12H29V13H28zM30,12H31V13H30zM32,12H33V13H32zM33,12H34V13H33zM2,13H3V14H2zM9,13H10V14H9zM13,13H14V14H13zM14,13H15V14H14zM16,13H17V14H16zM17,13H18V14H17zM20,13H21V14H20zM21,13H22V14H21zM22,13H23V14H22zM23,13H24V14H23zM27,13H28V14H27zM28,13H29V14H28zM30,13H31V14H30zM31,13H32V14H31zM32,13H33V14H32zM3,14H4V15H3zM4,14H5V15H4zM6,14H7V15H6zM8,14H9V15H8zM12,14H13V15H12zM19,14H20V15H19zM21,14H22V15H21zM22,14H23V15H22zM24,14H25V15H24zM26,14H27V15H26zM27,14H28V15H27zM29,14H30V15H29zM30,14H31V15H30zM31,14H32V15H31zM33,14H34V15H33zM2,15H3V16H2zM4,15H5V16H4zM5,15H6V16H5zM7,15H8V16H7zM10,15H11V16H10zM11,15H12V16H11zM12,15H13V16H12zM13,15H14V16H13zM14,15H15V16H14zM16,15H17V16H16zM17,15H18V16H17zM18,15H19V16H18zM20,15H21V16H20zM21,15H22V16H21zM22,15H23V16H22zM23,15H24V16H23zM25,15H26V16H25zM28,15H29V16H28zM33,15H34V16H33zM34,15H35V16H34zM2,16H3V17H2zM5,16H6V17H5zM7,16H8V17H7zM8,16H9V17H8zM9,16H10V17H9zM11,16H12V17H11zM12,16H13V17H12zM15,16H16V17H15zM16,16H17V17H16zM22,16H23V17H22zM23,16H24V17H23zM24,16H25V17H24zM27,16H28V17H27zM28,16H29V17H28zM31,16H32V17H31zM32,16H33V17H32zM33,16H34V17H33zM4,17H5V18H4zM5,17H6V18H5zM6,17H7V18H6zM7,17H8V18H7zM9,17H10V18H9zM12,17H13V18H12zM13,17H14V18H13zM14,17H15V18H14zM15,17H16V18H15zM18,17H19V18H18zM20,17H21V18H20zM22,17H23V18H22zM23,17H24V18H23zM24,17H25V18H24zM27,17H28V18H27zM28,17H29V18H28zM29,17H30V18H29zM30,17H31V18H30zM31,17H32V18H31zM32,17H33V18H32zM3,18H4V19H3zM5,18H6V19H5zM7,18H8V19H7zM8,18H9V19H8zM13,18H14V19H13zM16,18H17V19H16zM19,18H20V19H19zM25,18H26V19H25zM27,18H28V19H27zM29,18H30V19H29zM30,18H31V19H30zM31,18H32V19H31zM34,18H35V19H34zM2,19H3V20H2zM3,19H4V20H3zM5,19H6V20H5zM6,19H7V20H6zM9,19H10V20H9zM10,19H11V20H10zM12,19H13V20H12zM16,19H17V20H16zM18,19H19V20H18zM20,19H21V20H20zM21,19H22V20H21zM23,19H24V20H23zM24,19H25V20H24zM25,19H26V20H25zM28,19H29V20H28zM29,19H30V20H29zM31,19H32V20H31zM32,19H33V20H32zM33,19H34V20H33zM34,19H35V20H34zM3,20H4V21H3zM4,20H5V21H4zM6,20H7V21H6zM7,20H8V21H7zM8,20H9V21H8zM10,20H11V21H10zM11,20H12V21H11zM13,20H14V21H13zM14,20H15V21H14zM15,20H16V21H15zM16,20H17V21H16zM17,20H18V21H17zM19,20H20V21H19zM22,20H23V21H22zM23,20H24V21H23zM24,20H25V21H24zM26,20H27V21H26zM27,20H28V21H27zM28,20H29V21H28zM29,20H30V21H29zM30,20H31V21H30zM32,20H33V21H32zM33,20H34V21H33zM2,21H3V22H2zM3,21H4V22H3zM5,21H6V22H5zM6,21H7V22H6zM9,21H10V22H9zM16,21H17V22H16zM18,21H19V22H18zM21,21H22V22H21zM23,21H24V22H23zM24,21H25V22H24zM28,21H29V22H28zM29,21H30V22H29zM30,21H31V22H30zM31,21H32V22H31zM32,21H33V22H32zM33,21H34V22H33zM34,21H35V22H34zM7,22H8V23H7zM8,22H9V23H8zM9,22H10V23H9zM10,22H11V23H10zM11,22H12V23H11zM13,22H14V23H13zM15,22H16V23H15zM16,22H17V23H16zM18,22H19V23H18zM19,22H20V23H19zM20,22H21V23H20zM24,22H25V23H24zM26,22H27V23H26zM27,22H28V23H27zM29,22H30V23H29zM30,22H31V23H30zM31,22H32V23H31zM33,22H34V23H33zM34,22H35V23H34zM2,23H3V24H2zM6,23H7V24H6zM7,23H8V24H7zM12,23H13V24H12zM13,23H14V24H13zM14,23H15V24H14zM17,23H18V24H17zM19,23H20V24H19zM20,23H21V24H20zM21,23H22V24H21zM22,23H23V24H22zM23,23H24V24H23zM24,23H25V24H24zM25,23H26V24H25zM26,23H27V24H26zM28,23H29V24H28zM31,23H32V24H31zM32,23H33V24H32zM34,23H35V24H34zM2,24H3V25H2zM7,24H8V25H7zM8,24H9V25H8zM11,24H12V25H11zM12,24H13V25H12zM17,24H18V25H17zM18,24H19V25H18zM20,24H21V25H20zM22,24H23V25H22zM23,24H24V25H23zM26,24H27V25H26zM27,24H28V25H27zM28,24H29V25H28zM29,24H30V25H29zM33,24H34V25H33zM2,25H3V26H2zM4,25H5V26H4zM5,25H6V26H5zM7,25H8V26H7zM11,25H12V26H11zM16,25H17V26H16zM17,25H18V26H17zM20,25H21V26H20zM23,25H24V26H23zM24,25H25V26H24zM27,25H28V26H27zM31,25H32V26H31zM32,25H33V26H32zM2,26H3V27H2zM4,26H5V27H4zM5,26H6V27H5zM6,26H7V27H6zM8,26H9V27H8zM11,26H12V27H11zM12,26H13V27H12zM13,26H14V27H13zM17,26H18V27H17zM19,26H20V27H19zM21,26H22V27H21zM22,26H23V27H22zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM34,26H35V27H34zM10,27H11V28H10zM11,27H12V28H11zM12,27H13V28H12zM13,27H14V28H13zM14,27H15V28H14zM15,27H16V28H15zM19,27H20V28H19zM21,27H22V28H21zM23,27H24V28H23zM24,27H25V28H24zM25,27H26V28H25zM26,27H27V28H26zM30,27H31V28H30zM32,27H33V28H32zM34,27H35V28H34zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM12,28H13V29H12zM13,28H14V29H13zM17,28H18V29H17zM19,28H20V29H19zM25,28H26V29H25zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM32,28H33V29H32zM33,28H34V29H33zM2,29H3V30H2zM8,29H9V30H8zM10,29H11V30H10zM11,29H12V30H11zM12,29H13V30H12zM13,29H14V30H13zM14,29H15V30H14zM16,29H17V30H16zM23,29H24V30H23zM25,29H26V30H25zM26,29H27V30H26zM30,29H31V30H30zM31,29H32V30H31zM32,29H33V30H32zM33,29H34V30H33zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM10,30H11V31H10zM11,30H12V31H11zM12,30H13V31H12zM14,30H15V31H14zM16,30H17V31H16zM17,30H18V31H17zM20,30H21V31H20zM24,30H25V31H24zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM31,30H32V31H31zM33,30H34V31H33zM34,30H35V31H34zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM10,31H11V32H10zM11,31H12V32H11zM13,31H14V32H13zM17,31H18V32H17zM18,31H19V32H18zM20,31H21V32H20zM21,31H22V32H21zM22,31H23V32H22zM23,31H24V32H23zM24,31H25V32H24zM25,31H26V32H25zM26,31H27V32H26zM27,31H28V32H27zM30,31H31V32H30zM32,31H33V32H32zM33,31H34V32H33zM34,31H35V32H34zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM10,32H11V33H10zM11,32H12V33H11zM12,32H13V33H12zM13,32H14V33H13zM23,32H24V33H23zM26,32H27V33H26zM28,32H29V33H28zM29,32H30V33H29zM31,32H32V33H31zM32,32H33V33H32zM2,33H3V34H2zM8,33H9V34H8zM11,33H12V34H11zM12,33H13V34H12zM13,33H14V34H13zM18,33H19V34H18zM21,33H22V34H21zM22,33H23V34H22zM23,33H24V34H23zM30,33H31V34H30zM31,33H32V34H31zM32,33H33V34H32zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM11,34H12V35H11zM13,34H14V35H13zM14,34H15V35H14zM19,34H20V35H19zM22,34H23V35H22zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM29,34H30V35H29zM31,34H32V35H31zM33,34H34V35H33z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div><div><h3>動機式晤談實務指南</h3><p class="small">讓對方說出自己想改變的理由。整理研究證據、四種精神與四個任務、OARS 核心技巧、改變語言、情境與職類示範、口袋卡，給每天都在陪人改變的助人工作者。</p><p class="xs" style="margin-top:.4em"><a href="https://mattsue1003.github.io/motivational-interviewing/" target="_blank" rel="noopener">mattsue1003.github.io/motivational-interviewing</a></p></div></div>
+  </div>
+  <p class="note t">訪視時可以直接用手機開給照顧者看示範對話，也可以把連結傳給家屬。</p>
+</div>
+</section>
+
+<section class="slide divider" data-t="QA">
+<div class="wrap"><div class="big">Q&amp;A</div><h2>問題與討論</h2><p>歡迎提出訪視中遇到的個案情境，一起討論處理方向。</p></div>
+</section>
+
+<section class="slide" data-t="參考資料">
+<div class="wrap">
+  <span class="tag">參考資料</span>
+  <h2>參考資料</h2>
+  <ol class="refs">
+    <li>Yon Y, et al. (2017). Elder abuse prevalence in community settings. <i>Lancet Glob Health</i>, 5(2), e147–e156.</li>
+    <li>Shen Y, et al. (2025). Prevalence of elder abuse and neglect of persons with dementia in community settings. <i>Gerontology</i>, 71(5), 400–416.</li>
+    <li>Cooper C, et al. (2009). Abuse of people with dementia by family carers. <i>BMJ</i>, 338, b155.</li>
+    <li>Cooper C, et al. (2010). Abusive behaviour experienced by family carers from people with dementia. <i>J Neurol Neurosurg Psychiatry</i>, 81(6), 592–596.</li>
+    <li>Steinsheim G, et al. (2022). Abusive episodes among home-dwelling persons with dementia and their informal caregivers. <i>BMC Geriatrics</i>, 22, 852.</li>
+    <li>Yan E, Kwok T. (2011). Abuse of older Chinese with dementia by family caregivers. <i>Int J Geriatr Psychiatry</i>, 26(5), 527–535.</li>
+    <li>Ku LJE, et al. (2019). Predictors of caregiver burden and care costs for older persons with dementia in Taiwan. <i>Int Psychogeriatr</i>, 31(6), 885–894.</li>
+    <li>Uei SL, et al. (2013). Caregivers' self-efficacy and burden of managing behavioral problems in Taiwanese aged 65 and over with dementia. <i>Soc Behav Pers</i>, 41(9), 1487–1496.</li>
+    <li>Benbow SM, et al. (2019). Older adults and violence: Domestic Homicide Reviews in England. <i>Ageing &amp; Society</i>, 39(6), 1097–1121.</li>
+    <li>Brodaty H, Arasaratnam C. (2012). Meta-analysis of nonpharmacological interventions for neuropsychiatric symptoms of dementia. <i>Am J Psychiatry</i>, 169(9), 946–953.</li>
+    <li>Belle SH, et al. (2006). Enhancing the quality of life of dementia caregivers (REACH II). <i>Ann Intern Med</i>, 145(10), 727–738.</li>
+    <li>Livingston G, et al. (2013). START: pragmatic randomised controlled trial. <i>BMJ</i>, 347, f6276；6-year follow-up (2020). <i>Br J Psychiatry</i>, 216(1), 35–42.</li>
+    <li>Cooper C, et al. (2016). Effectiveness of START in reducing abuse by dementia family carers. <i>Int Psychogeriatr</i>, 28(6), 881–887.</li>
+    <li>Livingston G, et al. (2014). Non-pharmacological interventions for agitation in dementia. <i>Br J Psychiatry</i>, 205(6), 436–442.</li>
+    <li>Eggenberger E, et al. (2013). Communication skills training in dementia care. <i>Int Psychogeriatr</i>, 25(3), 345–358.</li>
+    <li>Nguyen H, et al. (2019). Communication training in dementia settings. <i>J Clin Nurs</i>, 28(7-8), 1050–1069.</li>
+    <li>Morris L, et al. (2018). Communication training interventions for family and professional carers. <i>Aging Ment Health</i>, 22(7), 863–880.</li>
+    <li>Kales HC, Gitlin LN, Lyketsos CG. (2014). Management of neuropsychiatric symptoms of dementia (DICE). <i>J Am Geriatr Soc</i>, 62(4), 762–769.</li>
+    <li>Gitlin LN, et al. (2026). Effects of the WeCareAdvisor web app: a randomized trial. <i>J Am Geriatr Soc</i>.</li>
+    <li>Blackhall A, et al. (2011). VERA framework. <i>Nursing Standard</i>, 26(10), 35–39.</li>
+    <li>NICE (2018). Dementia: assessment, management and support (NG97).</li>
+    <li>Chen M, Li M. (2026). Intimate partner violence among older adults: scoping review and meta-analysis. <i>Trauma Violence Abuse</i>.</li>
+    <li>Stöckl H, Penhale B. (2015). Intimate partner violence and its association with physical and mental health symptoms among older women in Germany. <i>J Interpers Violence</i>, 30(17), 3089–3111.</li>
+    <li>SafeLives. (2016). <i>Safe Later Lives: Older people and domestic abuse</i>.</li>
+    <li>Bows H. (2018). Domestic homicide of older people (2010–15). Durham University.</li>
+    <li>Vulnerability Knowledge and Practice Programme. (2022). Domestic Homicide Project Spotlight Briefing: Older Victims.</li>
+    <li>Hashimoto M, et al. (2015). Clinical features of delusional jealousy in elderly patients with dementia. <i>J Clin Psychiatry</i>, 76(6), 691–695.</li>
+    <li>Lane N, et al. (2025). Sexually inappropriate behaviors in dementia: systematic review. <i>J Am Geriatr Soc</i>.</li>
+    <li>Ahmed RM, et al. (2015). A questionnaire study of sexual behaviour in frontotemporal dementia and Alzheimer's disease. <i>J Alzheimers Dis</i>, 46(3), 677–686.</li>
+    <li>Schneider Williams S. (2016). The terrorist inside my husband's brain. <i>Neurology</i>, 87(13), 1308–1311.</li>
+    <li>國家衛生研究院團隊 (2026)。配偶失智與另一半失智風險之世代研究。<i>JAMA Network Open</i>。</li>
+    <li>UK Domestic Abuse Act 2021, section 1；日本最高裁判所 2016.3.1 判決（JR 東海事故）。</li>
+    <li>衛福部保護服務司親密關係暴力被害人統計表（110–115 年）。</li>
+    <li>Rubak S, et al. (2005). Motivational interviewing: a systematic review and meta-analysis. <i>Br J Gen Pract</i>, 55(513), 305–312.</li>
+    <li>Miller WR, Rollnick S. (2023). <i>Motivational Interviewing: Helping People Change and Grow</i> (4th ed.). Guilford Press.</li>
+    <li>法務部司法官學院犯罪防治研究中心〈殘忍的背後—長照殺人事件簿〉，中央社 2024.4.24。</li>
+    <li>《報導者》〈照顧殺人〉專題，2021.7.4。</li>
+    <li>衛福部〈全國社區失智症流行病學調查〉結果，2024.3.21。</li>
+    <li>全國法規資料庫：家庭暴力防治法、老人福利法、身心障礙者權益保障法、精神衛生法、長期照顧服務法、民法、刑法、病人自主權利法。</li>
+    <li>衛福部〈直轄市、縣（市）政府集中篩派案機制處理原則〉，2025.3.13 修正；〈台灣親密關係暴力危險評估工作手冊〉。</li>
+    <li>衛福部長照 3.0 核定本、1966 長照服務專區、高負荷家庭照顧者初篩指標、失智共照中心及據點統計表。</li>
+    <li>新北市家防中心〈113 年家庭暴力、性侵害案量統計〉；臺北市、高雄市、臺中市、桃園市相關計畫文件。</li>
+  </ol>
+</div>
+</section>
+
+<section class="slide cover" data-t="謝謝">
+<div class="wrap">
+  <span class="tag">謝謝聆聽</span>
+  <h1>理解症狀，管理風險，接上照顧</h1>
+  <div class="bar"></div>
+  <div class="g g2" style="align-items:center">
+    <div class="card fill-t res" style="background:var(--ink);border-color:var(--ink)"><div class="qr" style="width:11em"><svg version="1.1" viewBox="0 0 37 37" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM11,2H12V3H11zM12,2H13V3H12zM13,2H14V3H13zM16,2H17V3H16zM17,2H18V3H17zM19,2H20V3H19zM20,2H21V3H20zM21,2H22V3H21zM24,2H25V3H24zM25,2H26V3H25zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM17,3H18V4H17zM18,3H19V4H18zM19,3H20V4H19zM25,3H26V4H25zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM11,4H12V5H11zM12,4H13V5H12zM13,4H14V5H13zM16,4H17V5H16zM17,4H18V5H17zM19,4H20V5H19zM20,4H21V5H20zM21,4H22V5H21zM22,4H23V5H22zM24,4H25V5H24zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM11,5H12V6H11zM12,5H13V6H12zM15,5H16V6H15zM17,5H18V6H17zM22,5H23V6H22zM25,5H26V6H25zM26,5H27V6H26zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM14,6H15V7H14zM18,6H19V7H18zM22,6H23V7H22zM24,6H25V7H24zM25,6H26V7H25zM26,6H27V7H26zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM10,7H11V8H10zM11,7H12V8H11zM12,7H13V8H12zM13,7H14V8H13zM15,7H16V8H15zM16,7H17V8H16zM19,7H20V8H19zM21,7H22V8H21zM23,7H24V8H23zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM12,9H13V10H12zM13,9H14V10H13zM16,9H17V10H16zM19,9H20V10H19zM20,9H21V10H20zM23,9H24V10H23zM25,9H26V10H25zM2,10H3V11H2zM5,10H6V11H5zM7,10H8V11H7zM8,10H9V11H8zM10,10H11V11H10zM11,10H12V11H11zM13,10H14V11H13zM15,10H16V11H15zM16,10H17V11H16zM17,10H18V11H17zM18,10H19V11H18zM23,10H24V11H23zM25,10H26V11H25zM26,10H27V11H26zM27,10H28V11H27zM29,10H30V11H29zM2,11H3V12H2zM5,11H6V12H5zM7,11H8V12H7zM9,11H10V12H9zM10,11H11V12H10zM18,11H19V12H18zM23,11H24V12H23zM26,11H27V12H26zM27,11H28V12H27zM28,11H29V12H28zM29,11H30V12H29zM34,11H35V12H34zM2,12H3V13H2zM6,12H7V13H6zM7,12H8V13H7zM8,12H9V13H8zM9,12H10V13H9zM12,12H13V13H12zM13,12H14V13H13zM18,12H19V13H18zM20,12H21V13H20zM21,12H22V13H21zM23,12H24V13H23zM26,12H27V13H26zM28,12H29V13H28zM29,12H30V13H29zM30,12H31V13H30zM32,12H33V13H32zM34,12H35V13H34zM2,13H3V14H2zM5,13H6V14H5zM7,13H8V14H7zM9,13H10V14H9zM10,13H11V14H10zM11,13H12V14H11zM12,13H13V14H12zM14,13H15V14H14zM16,13H17V14H16zM18,13H19V14H18zM22,13H23V14H22zM23,13H24V14H23zM24,13H25V14H24zM25,13H26V14H25zM26,13H27V14H26zM27,13H28V14H27zM28,13H29V14H28zM30,13H31V14H30zM31,13H32V14H31zM33,13H34V14H33zM7,14H8V15H7zM8,14H9V15H8zM9,14H10V15H9zM11,14H12V15H11zM13,14H14V15H13zM17,14H18V15H17zM19,14H20V15H19zM20,14H21V15H20zM21,14H22V15H21zM23,14H24V15H23zM24,14H25V15H24zM25,14H26V15H25zM28,14H29V15H28zM31,14H32V15H31zM33,14H34V15H33zM7,15H8V16H7zM9,15H10V16H9zM10,15H11V16H10zM17,15H18V16H17zM18,15H19V16H18zM20,15H21V16H20zM21,15H22V16H21zM23,15H24V16H23zM27,15H28V16H27zM28,15H29V16H28zM30,15H31V16H30zM31,15H32V16H31zM33,15H34V16H33zM34,15H35V16H34zM7,16H8V17H7zM8,16H9V17H8zM12,16H13V17H12zM13,16H14V17H13zM15,16H16V17H15zM22,16H23V17H22zM23,16H24V17H23zM24,16H25V17H24zM25,16H26V17H25zM26,16H27V17H26zM27,16H28V17H27zM28,16H29V17H28zM29,16H30V17H29zM30,16H31V17H30zM31,16H32V17H31zM32,16H33V17H32zM33,16H34V17H33zM3,17H4V18H3zM4,17H5V18H4zM5,17H6V18H5zM10,17H11V18H10zM11,17H12V18H11zM14,17H15V18H14zM15,17H16V18H15zM16,17H17V18H16zM17,17H18V18H17zM19,17H20V18H19zM20,17H21V18H20zM21,17H22V18H21zM23,17H24V18H23zM24,17H25V18H24zM25,17H26V18H25zM28,17H29V18H28zM29,17H30V18H29zM30,17H31V18H30zM33,17H34V18H33zM2,18H3V19H2zM5,18H6V19H5zM8,18H9V19H8zM15,18H16V19H15zM16,18H17V19H16zM19,18H20V19H19zM22,18H23V19H22zM23,18H24V19H23zM24,18H25V19H24zM26,18H27V19H26zM28,18H29V19H28zM30,18H31V19H30zM33,18H34V19H33zM3,19H4V20H3zM4,19H5V20H4zM9,19H10V20H9zM12,19H13V20H12zM13,19H14V20H13zM14,19H15V20H14zM15,19H16V20H15zM18,19H19V20H18zM23,19H24V20H23zM25,19H26V20H25zM29,19H30V20H29zM31,19H32V20H31zM33,19H34V20H33zM2,20H3V21H2zM4,20H5V21H4zM7,20H8V21H7zM8,20H9V21H8zM9,20H10V21H9zM13,20H14V21H13zM14,20H15V21H14zM15,20H16V21H15zM16,20H17V21H16zM18,20H19V21H18zM20,20H21V21H20zM23,20H24V21H23zM27,20H28V21H27zM32,20H33V21H32zM34,20H35V21H34zM6,21H7V22H6zM7,21H8V22H7zM10,21H11V22H10zM18,21H19V22H18zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM22,21H23V22H22zM23,21H24V22H23zM26,21H27V22H26zM27,21H28V22H27zM29,21H30V22H29zM33,21H34V22H33zM2,22H3V23H2zM6,22H7V23H6zM7,22H8V23H7zM8,22H9V23H8zM9,22H10V23H9zM10,22H11V23H10zM11,22H12V23H11zM12,22H13V23H12zM13,22H14V23H13zM14,22H15V23H14zM16,22H17V23H16zM18,22H19V23H18zM19,22H20V23H19zM20,22H21V23H20zM21,22H22V23H21zM22,22H23V23H22zM23,22H24V23H23zM24,22H25V23H24zM25,22H26V23H25zM33,22H34V23H33zM4,23H5V24H4zM5,23H6V24H5zM6,23H7V24H6zM7,23H8V24H7zM11,23H12V24H11zM12,23H13V24H12zM14,23H15V24H14zM15,23H16V24H15zM17,23H18V24H17zM18,23H19V24H18zM23,23H24V24H23zM24,23H25V24H24zM28,23H29V24H28zM31,23H32V24H31zM32,23H33V24H32zM33,23H34V24H33zM34,23H35V24H34zM2,24H3V25H2zM3,24H4V25H3zM5,24H6V25H5zM8,24H9V25H8zM10,24H11V25H10zM14,24H15V25H14zM16,24H17V25H16zM17,24H18V25H17zM21,24H22V25H21zM22,24H23V25H22zM24,24H25V25H24zM26,24H27V25H26zM28,24H29V25H28zM29,24H30V25H29zM30,24H31V25H30zM32,24H33V25H32zM34,24H35V25H34zM3,25H4V26H3zM4,25H5V26H4zM5,25H6V26H5zM7,25H8V26H7zM9,25H10V26H9zM10,25H11V26H10zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM20,25H21V26H20zM21,25H22V26H21zM23,25H24V26H23zM24,25H25V26H24zM30,25H31V26H30zM31,25H32V26H31zM2,26H3V27H2zM4,26H5V27H4zM6,26H7V27H6zM8,26H9V27H8zM9,26H10V27H9zM10,26H11V27H10zM13,26H14V27H13zM14,26H15V27H14zM15,26H16V27H15zM16,26H17V27H16zM17,26H18V27H17zM19,26H20V27H19zM20,26H21V27H20zM22,26H23V27H22zM23,26H24V27H23zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM31,26H32V27H31zM33,26H34V27H33zM34,26H35V27H34zM10,27H11V28H10zM12,27H13V28H12zM13,27H14V28H13zM14,27H15V28H14zM21,27H22V28H21zM22,27H23V28H22zM23,27H24V28H23zM24,27H25V28H24zM26,27H27V28H26zM30,27H31V28H30zM31,27H32V28H31zM34,27H35V28H34zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM13,28H14V29H13zM15,28H16V29H15zM18,28H19V29H18zM22,28H23V29H22zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM31,28H32V29H31zM32,28H33V29H32zM33,28H34V29H33zM2,29H3V30H2zM8,29H9V30H8zM10,29H11V30H10zM11,29H12V30H11zM12,29H13V30H12zM16,29H17V30H16zM17,29H18V30H17zM22,29H23V30H22zM23,29H24V30H23zM26,29H27V30H26zM30,29H31V30H30zM33,29H34V30H33zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM12,30H13V31H12zM13,30H14V31H13zM14,30H15V31H14zM16,30H17V31H16zM18,30H19V31H18zM23,30H24V31H23zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM31,30H32V31H31zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM10,31H11V32H10zM11,31H12V32H11zM16,31H17V32H16zM17,31H18V32H17zM19,31H20V32H19zM22,31H23V32H22zM23,31H24V32H23zM24,31H25V32H24zM25,31H26V32H25zM26,31H27V32H26zM28,31H29V32H28zM30,31H31V32H30zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM11,32H12V33H11zM12,32H13V33H12zM13,32H14V33H13zM19,32H20V33H19zM22,32H23V33H22zM23,32H24V33H23zM24,32H25V33H24zM25,32H26V33H25zM26,32H27V33H26zM27,32H28V33H27zM30,32H31V33H30zM32,32H33V33H32zM34,32H35V33H34zM2,33H3V34H2zM8,33H9V34H8zM11,33H12V34H11zM12,33H13V34H12zM14,33H15V34H14zM15,33H16V34H15zM17,33H18V34H17zM18,33H19V34H18zM19,33H20V34H19zM20,33H21V34H20zM23,33H24V34H23zM24,33H25V34H24zM26,33H27V34H26zM31,33H32V34H31zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM14,34H15V35H14zM15,34H16V35H15zM16,34H17V35H16zM21,34H22V35H21zM23,34H24V35H23zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM30,34H31V35H30zM33,34H34V35H33z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div><div><h3>歡迎按讚、追蹤粉絲專頁</h3><p>掃描 QR Code，追蹤鍾孟修職能治療師的粉專。失智照顧、長照復能、照顧者支持的新資料與工具，都會第一時間分享。</p><p class="xs" style="margin-top:.4em;color:#CFE3E3"><a style="color:#fff" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">facebook.com/profile.php?id=100063748491881</a></p></div></div>
+    <div class="card"><h3>鍾孟修 職能治療師</h3><p class="small">愛迪樂健康促進團隊 執行長<br>社團法人台灣生活復能健康促進協會 理事長<br>《讓你健康不失智》作者</p></div>
+  </div>
+</div>
+</section>
+
+</div>
+
+<div class="menu" id="menu" hidden><ol id="menuList"></ol></div>
+<nav class="nav" aria-label="投影片導覽">
+  <div class="prog" id="prog"></div>
+  <button id="prev" aria-label="上一頁">‹ 上一頁</button>
+  <button id="menuBtn" aria-label="目錄"><span id="cnt">1 / 1</span>　目錄</button>
+  <span class="ttl" id="ttl"></span>
+  <button id="next" aria-label="下一頁">下一頁 ›</button>
+</nav>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  let cur=0;
+  const cnt=document.getElementById('cnt'),ttl=document.getElementById('ttl'),prog=document.getElementById('prog');
+  function go(i,push){
+    i=Math.max(0,Math.min(slides.length-1,i));
+    slides[cur].classList.remove('on');
+    cur=i;
+    const s=slides[cur];
+    s.classList.add('on');s.scrollTop=0;
+    cnt.textContent=(cur+1)+' / '+slides.length;
+    ttl.textContent=s.dataset.t||'';
+    prog.style.width=((cur+1)/slides.length*100)+'%';
+    if(push!==false){try{history.replaceState(null,'','#s'+(cur+1));}catch(e){}}
+  }
+  const m=/^#s(\d+)$/.exec(location.hash||'');
+  go(m?parseInt(m[1],10)-1:0,false);
+  document.getElementById('prev').onclick=()=>go(cur-1);
+  document.getElementById('next').onclick=()=>go(cur+1);
+  // 目錄
+  const menu=document.getElementById('menu'),ml=document.getElementById('menuList');
+  slides.forEach((s,i)=>{
+    const li=document.createElement('li');
+    if(s.dataset.sec) li.className='sec';
+    const a=document.createElement('a');a.href='#s'+(i+1);a.textContent=(i+1)+'. '+(s.dataset.t||'');
+    a.onclick=e=>{e.preventDefault();menu.hidden=true;go(i);};
+    li.appendChild(a);ml.appendChild(li);
+  });
+  document.getElementById('menuBtn').onclick=()=>{menu.hidden=!menu.hidden;};
+  document.addEventListener('keydown',e=>{
+    if(e.target.matches('input,textarea'))return;
+    if(['ArrowRight','PageDown'].includes(e.key)||(e.key===' '&&!e.target.matches('button'))){e.preventDefault();go(cur+1);}
+    else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(cur-1);}
+    else if(e.key==='Home')go(0);else if(e.key==='End')go(slides.length-1);
+    else if(e.key==='Escape')menu.hidden=true;
+  });
+  // 滑動換頁
+  let sx=0,sy=0,skip=false;
+  const deck=document.getElementById('deck');
+  deck.addEventListener('touchstart',e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;skip=!!e.target.closest('.tscroll');},{passive:true});
+  deck.addEventListener('touchend',e=>{if(skip)return;const t=e.changedTouches[0];const dx=t.clientX-sx,dy=t.clientY-sy;
+    if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)go(cur+(dx<0?1:-1));},{passive:true});
+  // 展開
+  document.querySelectorAll('[data-reveal]').forEach(b=>b.addEventListener('click',()=>{
+    const t=document.getElementById(b.dataset.reveal);t.hidden=!t.hidden;
+    if(!t.hidden){t.classList.remove('reveal-body');void t.offsetWidth;t.classList.add('reveal-body');}
+    b.textContent=t.hidden?'看討論重點':'收起討論重點';
+  }));
+  // 翻牌
+  document.querySelectorAll('.flip').forEach(f=>f.addEventListener('click',()=>{
+    const b=f.querySelector('.fb');b.hidden=!b.hidden;f.setAttribute('aria-pressed',String(!b.hidden));
+    if(!b.hidden){b.classList.remove('reveal-body');void b.offsetWidth;b.classList.add('reveal-body');}
+  }));
+  // 流程
+  document.querySelectorAll('#steps .step').forEach(st=>st.addEventListener('click',()=>{
+    document.querySelectorAll('#steps .step').forEach(x=>{x.classList.remove('sel');document.getElementById(x.dataset.p).hidden=true;});
+    st.classList.add('sel');const p=document.getElementById(st.dataset.p);p.hidden=false;
+    p.classList.remove('reveal-body');void p.offsetWidth;p.classList.add('reveal-body');
+  }));
+  // 城市分頁
+  document.querySelectorAll('#cityTabs .tabbtn').forEach(tb=>tb.addEventListener('click',()=>{
+    document.querySelectorAll('#cityTabs .tabbtn').forEach(x=>{x.classList.remove('sel');document.getElementById(x.dataset.c).hidden=true;});
+    tb.classList.add('sel');document.getElementById(tb.dataset.c).hidden=false;
+  }));
+  // 逐句對話
+  document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{
+    const d=document.getElementById(b.dataset.next),n=d.querySelector('.ln[hidden]');
+    if(n){n.hidden=false;n.classList.remove('reveal-body');void n.offsetWidth;n.classList.add('reveal-body');
+      const sl=d.closest('.slide');n.scrollIntoView({block:'nearest',behavior:'smooth'});}
+    if(!d.querySelector('.ln[hidden]'))b.textContent='對話結束';
+  }));
+  document.querySelectorAll('[data-reset]').forEach(b=>b.addEventListener('click',()=>{
+    const d=document.getElementById(b.dataset.reset);d.querySelectorAll('.ln').forEach((l,i)=>{if(i>0)l.hidden=true;});
+    const nb=document.querySelector('[data-next="'+b.dataset.reset+'"]');nb.textContent='下一句';
+  }));
+  // 迷思
+  document.querySelectorAll('[data-myth]').forEach(b=>b.addEventListener('click',()=>{
+    const c=b.closest('.myth'),a=c.querySelector('.ans');a.hidden=false;
+    a.classList.remove('reveal-body');void a.offsetWidth;a.classList.add('reveal-body');
+  }));
+  // 初篩
+  const boxes=[...document.querySelectorAll('#screen input')],out=document.getElementById('screenOut');
+  function evalScreen(){
+    const n=boxes.filter(b=>b.checked).length,key=boxes.some(b=>b.checked&&b.dataset.key);
+    let h='<h3>勾選結果：'+n+' 項</h3>';
+    if(key) h+='<p class="note o"><b>建議轉介家照據點</b>：符合第 9 或第 10 項。若有自殺意念或疑似虐待，同步通報社安網，並連結 1925。</p>';
+    else if(n>=2) h+='<p class="note o"><b>建議轉介家照據點</b>：符合兩項以上，屬高負荷家庭照顧者。</p>';
+    else if(n===1) h+='<p class="note t">目前未達轉介條件，可依專業判斷轉介，並持續追蹤照顧情境變化。</p>';
+    else h+='<p class="small">勾選左側項目，這裡會顯示建議。</p>';
+    out.innerHTML=h;
+  }
+  boxes.forEach(b=>b.addEventListener('change',evalScreen));
+})();
+</script>
+</body></html>
