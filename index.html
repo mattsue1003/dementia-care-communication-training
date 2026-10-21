@@ -16,6 +16,7 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html,body{height:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);
   font-size:clamp(16px, calc(0.85vw + 0.75vh), 26px);line-height:1.6;overflow:hidden}
@@ -27,7 +28,7 @@ b,strong{font-weight:700}
   padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));
   opacity:0;visibility:hidden;transition:opacity .35s ease, visibility .35s}
 .slide.on{opacity:1;visibility:visible}
-.wrap{margin:auto;width:100%;max-width:1360px;display:flex;flex-direction:column;gap:1.1em;min-width:0}
+.wrap{margin:auto;width:100%;max-width:1720px;display:flex;flex-direction:column;gap:1.1em;min-width:0}
 .tag{display:inline-flex;align-items:center;gap:.5em;font-size:.72em;font-weight:700;letter-spacing:.08em;color:var(--teal-d);
   background:var(--teal-soft);padding:.25em .8em;border-radius:4px;align-self:flex-start}
 .tag.o{color:#A8361A;background:var(--orange-soft)}
@@ -156,6 +157,10 @@ button{font:inherit;color:inherit}
 .qr path{fill:#12343B}
 .res{display:flex;gap:1em;align-items:center}
 @media (max-width:600px){.res{flex-direction:column;align-items:flex-start}}
+.take{border:2px solid var(--orange);border-radius:12px;background:var(--surface);padding:.6em 1em}
+.take-h{font-weight:900;color:#A8361A;font-size:.85em;letter-spacing:.06em;margin-bottom:.2em}
+.take ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:.15em;font-size:.92em}
+.take li::marker{color:var(--orange)}
 /* 導覽列 */
 .nav{position:fixed;left:0;right:0;bottom:0;height:calc(var(--navh) + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);
   padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));
@@ -384,7 +389,7 @@ button{font:inherit;color:inherit}
   <div class="g g3">
     <div class="study"><div class="st-head"><span class="lv lD">盛行</span><div><b>Chen & Li, 2026</b><small>Trauma, Violence & Abuse｜盛行率整合分析</small></div></div><dl><dt>想知道</dt><dd>老年人被配偶或伴侶施暴有多常見</dd><dt>對象</dt><dd>37 篇以老年人為對象的研究（男女都有），收錄到 2025 年 8 月</dd><dt>怎麼做</dt><dd>合併各研究「過去一年曾被配偶或伴侶施暴」的比例</dd><dt>結果</dt><dd><b>10.6%</b>，約每 10 位長者有 1 位；最常見的是心理暴力，例如罵、羞辱、控制</dd><dt>限制</dt><dd>各研究對「老年」的年齡與暴力的定義不同</dd><dt class="use">用在服務</dt><dd class="use">高齡個案的通報與開案，不要因為「年紀大了、打不動了」就降低危險等級</dd></dl></div>
     <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Stöckl & Penhale, 2015（德國）</b><small>J Interpers Violence｜全國代表性調查</small></div></div><dl><dt>想知道</dt><dd>年紀變大以後，伴侶暴力會不會就消失了</dd><dt>對象</dt><dd>德國全國抽樣 10,264 名 16–86 歲女性</dd><dt>怎麼做</dt><dd>比較三個年齡層（16–49、50–65、66–86 歲）過去一年被伴侶施暴的比例</dd><dt>結果</dt><dd>被打或性暴力隨年齡下降（8% → 3% → 1%）；但被罵、被控制、被管錢等<b>情緒與經濟暴力，三個年齡層幾乎一樣多</b></dd><dt>限制</dt><dd>受訪者自己回答，可能少報</dd><dt class="use">用在服務</dt><dd class="use">評估高齡伴侶暴力時，重點放在控制與經濟暴力：問「錢誰在管？」「可以自己出門、見朋友嗎？」「他會不會威脅你？」</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>SafeLives, 2016（英國）</b><small>Safe Later Lives 報告｜家暴服務個案紀錄分析</small></div></div><dl><dt>想知道</dt><dd>高齡家暴被害人和年輕被害人有什麼不同</dd><dt>對象</dt><dd>英國家暴服務的個案，分成 60 歲以上與 60 歲以下兩組</dd><dt>怎麼做</dt><dd>分析家暴專責人員收案時的紀錄並比較兩組</dd><dt>結果</dt><dd>60 歲以上被害人：求助前平均已受暴 <b>6.5 年</b>（年輕組 4 年）；48% 有身心障礙（年輕組 13%）；過去一年曾試圖離開只有 27%（年輕組 68%）</dd><dt>限制</dt><dd>只包含有來求助的個案，不能代表所有長者</dd><dt class="use">用在服務</dt><dd class="use">高齡被害人很少主動離開，安全計畫要以「留在家中也能安全」來設計，並同時處理她放不下照顧責任的顧慮</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>SafeLives, 2016（英國）</b><small>Safe Later Lives 報告｜家暴服務個案紀錄分析</small></div></div><dl><dt>想知道</dt><dd>高齡家暴被害人和年輕被害人有什麼不同</dd><dt>對象</dt><dd>英國家暴服務的個案，分成 60 歲以上與 60 歲以下兩組</dd><dt>怎麼做</dt><dd>分析家暴專責人員收案時的紀錄並比較兩組</dd><dt>結果</dt><dd>60 歲以上被害人：求助前平均已受暴 <b>6.5 年</b>（年輕組 4 年）；48% 有身心障礙（年輕組 13%）；過去一年曾試圖離開只有 27%（年輕組 68%）</dd><dt>限制</dt><dd>只包含有來求助的個案，不能代表所有長者</dd><dt class="use">用在服務</dt><dd class="use">高齡被害人很少主動離開，常見的原因是「<b>我走了，誰照顧他？</b>」：她擔心生病的伴侶沒人照顧，或覺得照顧是自己的責任。所以安全計畫要設計成「留在家裡也比較安全」（收好刀剪等危險物品、約好求救暗號、晚上分房睡），同時幫她安排替代照顧（日照、喘息、機構），讓她需要離開或暫時避開時，不必擔心對方沒人照顧</dd></dl></div>
   </div>
   <p class="plain">高齡被害人不一定有明顯傷痕，也很少說自己「被家暴」。訪視時要問控制、經濟與威脅，並留意他可能因為要照顧對方而走不了。</p>
 </div>
@@ -397,9 +402,10 @@ button{font:inherit;color:inherit}
   <div class="g g3">
     <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Yan & Kwok, 2011（香港）</b><small>Int J Geriatric Psychiatry｜橫斷面調查</small></div></div><dl><dt>想知道</dt><dd>華人家庭中，照顧者對失智家人的虐待和照顧壓力有沒有關係</dd><dt>對象</dt><dd>香港 122 位失智者的家屬照顧者</dd><dt>怎麼做</dt><dd>問卷詢問照顧者過去 1 個月對失智家人做過的行為，並測量照顧負荷、失智者躁動程度、同住情形</dd><dt>結果</dt><dd>照顧者對失智家人言語虐待（罵、吼）<b>62%</b>、身體虐待 18%。言語虐待較常出現在：照顧負荷重、失智者躁動、同住天數多、家裡沒有外籍看護或幫手</dd><dt>限制</dt><dd>樣本小、不是隨機抽樣、照顧者自己回答</dd><dt class="use">用在服務</dt><dd class="use">訪視時盤點三件事：照顧者的負荷、失智者是否躁動、家裡有沒有替手；缺替手的家庭優先連結喘息、日照或申請外籍看護</dd></dl></div>
     <div class="study"><div class="st-head"><span class="lv l2b">2b</span><div><b>Ku et al., 2019（台灣南部）</b><small>International Psychogeriatrics｜世代研究：追蹤同一群人一年</small></div></div><dl><dt>想知道</dt><dd>哪些因素會讓台灣失智照顧者的負擔變重</dd><dt>對象</dt><dd>南部一家醫院失智門診 231 對「失智者＋照顧者」，1 年後追蹤到 167 對</dd><dt>怎麼做</dt><dd>用「Zarit 照顧負荷量表」測照顧者壓力；用「神經精神量表（NPI）」評估失智者的精神行為症狀</dd><dt>結果</dt><dd>失智者的<b>精神行為症狀（BPSD，例如妄想、躁動、攻擊、日夜顛倒）越多，照顧者負荷越重</b>；家庭經濟較好的照顧者負荷較低</dd><dt>限制</dt><dd>只有一家醫院的病人</dd><dt class="use">用在服務</dt><dd class="use">照顧者抱怨妄想、躁動、日夜顛倒時，先協助回診處理症狀，症狀減少，衝突與照顧壓力也會跟著下降</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Uei et al., 2013（台灣）</b><small>Social Behavior and Personality｜橫斷面調查</small></div></div><dl><dt>想知道</dt><dd>照顧者對自己「處理得來」的信心，和照顧負荷有沒有關係</dd><dt>對象</dt><dd>台灣 162 對社區失智者與主要家屬照顧者</dd><dt>怎麼做</dt><dd>問卷測量失智者的行為問題、照顧者的負荷，以及照顧者處理行為問題的信心（自我效能）</dd><dt>結果</dt><dd>照顧者越覺得自己處理得來<b>攻擊、不合作、遊走</b>等行為，照顧負荷越輕；連同行為頻率、照顧時數等六個因素，可以解釋 36.1% 的負荷差異</dd><dt>限制</dt><dd>只問一次，看不出因果</dd><dt class="use">用在服務</dt><dd class="use">提升照顧者「處理得來」的信心：教一兩個簡單、馬上能用的方法（第 03 段），並在下次訪視時一起檢討成效</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Uei et al., 2013（台灣）</b><small>Social Behavior and Personality｜橫斷面調查</small></div></div><dl><dt>想知道</dt><dd>照顧者對自己「處理得來」的信心，和照顧負荷有沒有關係</dd><dt>對象</dt><dd>台灣 162 對社區失智者與主要家屬照顧者</dd><dt>怎麼做</dt><dd>問卷測量失智者的行為問題、照顧者的負荷，以及照顧者處理行為問題的信心（自我效能）</dd><dt>結果</dt><dd>照顧者越覺得自己處理得來<b>攻擊、不合作、遊走</b>等行為，照顧負荷越輕；連同行為頻率、照顧時數等六個因素，可以解釋 36.1% 的負荷差異</dd><dt>限制</dt><dd>只問一次，看不出因果</dd><dt class="use">用在服務</dt><dd class="use">提升照顧者「我處理得來」的信心：每次只教一個當天就能用的方法，例如：他指控錢被偷時，先說「錢不見了一定很急，我們一起找」，不要辯解；他抗拒洗澡時，改問「要先洗手還是先洗腳？」。<b>下次訪視用三個問題檢視成效</b>：這週用了幾次？用了之後對方是不是比較緩和？衝突次數比上週多還是少？有效就繼續，沒效就換一個方法</dd></dl></div>
   </div>
   <div class="note">四個共同警訊：<b>行為症狀</b>（妄想、躁動比「忘記」更壓垮人）、<b>天天同住</b>、<b>沒有替手</b>、<b>覺得無能為力</b>。</div>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>把「失智者是否躁動、照顧者有沒有替手、每週同住多少天」寫進訪視評估</li><li>有精神行為症狀時，先協助就醫處理症狀，衝突會跟著下降</li></ul></div>
 </div>
 </section>
 
@@ -414,10 +420,11 @@ button{font:inherit;color:inherit}
     <div class="card o"><div class="num o">65.4<small>%</small></div><p class="small">加害者為男性</p></div>
   </div>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>法務部司法官學院犯罪防治研究中心，2024</b><small>長照殺人定讞判決分析</small></div></div><dl><dt>想知道</dt><dd>台灣長照殺人案件有哪些共同特徵</dd><dt>對象</dt><dd>1999 年至 2023 年 4 月，26 件已定讞的長照殺人判決</dd><dt>怎麼做</dt><dd>逐件整理判決書中的加害者、照顧年數、發生時間與刑期</dd><dt>結果</dt><dd>上方四項數字；平均刑期 4 年 10 月；父母殺害子女的案件占 4 成以上</dd><dt>限制</dt><dd>只有定讞判決；沒有分析配偶與失智的比例</dd><dt class="use">用在服務</dt><dd class="use">照顧超過 10 年、照顧者自己身體也不好的家庭，要列為高風險，夜間的求助管道要事先安排好</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>法務部司法官學院犯罪防治研究中心，2024</b><small>長照殺人定讞判決分析</small></div></div><dl><dt>想知道</dt><dd>台灣長照殺人案件有哪些共同特徵</dd><dt>對象</dt><dd>1999 年至 2023 年 4 月，26 件已定讞的長照殺人判決</dd><dt>怎麼做</dt><dd>逐件整理判決書中的加害者、照顧年數、發生時間與刑期</dd><dt>結果</dt><dd>上方四項數字；平均刑期 4 年 10 月；父母殺害子女的案件占 4 成以上</dd><dt>限制</dt><dd>只有定讞判決；沒有分析配偶與失智的比例</dd><dt class="use">用在服務</dt><dd class="use">照顧超過 10 年、照顧者自己身體也不好的家庭，要列為高風險，並事先安排夜間求助：110、119、113、1925 四支 24 小時電話，加上可以半夜接手的親友或里長電話</dd></dl></div>
     <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>《報導者》資料庫，2021</b><small>媒體整理的照顧殺人案件</small></div></div><dl><dt>想知道</dt><dd>台灣照顧殺人案的加害人是誰、有沒有用過照顧服務</dd><dt>對象</dt><dd>2005–2020 年 25 件照顧殺人案</dd><dt>怎麼做</dt><dd>記者整理判決書、新聞與監察院報告</dd><dt>結果</dt><dd>加害人是配偶 8 件、兒子 8 件，並列最多；18 名加害人是男性；<b>超過一半（14 件）沒有使用任何照顧服務</b>；15 件加害人曾試圖一起尋死</dd><dt>限制</dt><dd>媒體整理，不是完整的官方統計</dd><dt class="use">用在服務</dt><dd class="use">第一個要確認的就是這個家「有沒有在用長照服務」；沒有的話，當次訪視就協助撥 1966 申請評估</dd></dl></div>
   </div>
-  <p class="note">英國政府檢討 35 份長者家庭命案報告（Benbow et al., 2019，<span class="lv l4" style="height:1.6em;min-width:1.6em;font-size:.7em">4</span>）也指出：<b>照顧壓力、加害者精神疾病、物質濫用、過去家暴史</b>是四大主題，建議第一線風險評估把「照顧壓力」放進去。</p>
+  <p class="note">英國政府檢討 35 份長者家庭命案報告（Benbow et al., 2019，<span class="lv l4" style="height:1.6em;min-width:1.6em;font-size:.7em">4</span>）也指出：<b>照顧壓力、加害者精神疾病、物質濫用、過去家暴史</b>是四大主題，建議第一線風險評估把「照顧壓力」放進去。照顧壓力可以先問：照顧多久、每天幾小時、有沒有人換手、睡得好嗎、自己身體好嗎；精神疾病要特別注意被害或嫉妒妄想、命令性幻聽、重度憂鬱合併絕望感，以及停藥、合併飲酒。</p>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>照顧超過 10 年、照顧者自己生病、夜間無人支援、沒用長照服務：<b>四項中有兩項就提高關注</b></li><li>當次訪視就確認 1966 申請狀態，並給家屬夜間求助電話</li></ul></div>
 </div>
 </section>
 
@@ -426,9 +433,9 @@ button{font:inherit;color:inherit}
   <span class="tag">01 研究｜國際資料</span>
   <h2>日本與英國：高齡家庭命案中，配偶照顧者占重要比例</h2>
   <div class="g g3">
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>英國家庭命案計畫，2022</b><small>Domestic Homicide Project｜警方案件分析</small></div></div><dl><dt>想知道</dt><dd>英國家庭命案中，高齡被害人是什麼樣的情況</dd><dt>對象</dt><dd>2020 年 3 月至 2021 年 3 月，英國警方記錄的 145 件家庭命案</dd><dt>怎麼做</dt><dd>分析警方案件資料中被害人年齡、與嫌犯的關係</dd><dt>結果</dt><dd>36 件（25%）被害人 65 歲以上；高齡被害人遭伴侶殺害的案件，<b>嫌犯全是現任配偶</b>，常是被害人的照顧者；7 件「殺人後自殺」全是丈夫殺妻子，這些夫妻多數<b>沒有家暴紀錄</b></dd><dt>限制</dt><dd>只有一年的資料，案件數不多</dd><dt class="use">用在服務</dt><dd class="use">沒有家暴紀錄的高齡夫妻，仍可能發生致命事件：聽到「我們一起走算了」或照顧者自己生病時，要立即做自殺與危險評估</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>日本高齡者虐待全國調查</b><small>厚生勞動省依《高齡者虐待防止法》每年調查，共同通信整理</small></div></div><dl><dt>想知道</dt><dd>日本有多少長者死於家屬照顧者的虐待或殺害</dd><dt>對象</dt><dd>2006–2024 年度，各地政府回報的家庭內長者虐待案件</dd><dt>怎麼做</dt><dd>整理歷年調查中，因照顧家屬虐待或殺害而死亡的長者人數</dd><dt>結果</dt><dd>至少 <b>486 名</b>長者死亡，女性占 7 成；2023 年度家庭內虐待 17,100 件，加害人是兒子 38.7%、<b>丈夫 22.8%</b></dd><dt>限制</dt><dd>只計入政府掌握的案件，專家認為是冰山一角</dd><dt class="use">用在服務</dt><dd class="use">丈夫照顧妻子的家庭，是國際資料一再出現的高風險組合，訪視時要特別留意男性照顧者的情緒與求助意願</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Bows, 2018（英國杜倫大學）</b><small>家庭命案資料分析</small></div></div><dl><dt>想知道</dt><dd>英國 60 歲以上的家庭命案有什麼特徵</dd><dt>對象</dt><dd>2010–2015 年英國 221 件被害人 60 歲以上的家庭命案</dd><dt>怎麼做</dt><dd>分析命案資料中的加害人關係與案件比例</dd><dt>結果</dt><dd>占所有家庭命案約 25%，高於 60 歲以上的人口比例 18%；加害人 46% 是配偶或伴侶、44% 是子女或孫子女</dd><dt>建議</dt><dd>現行危險評估工具以年輕伴侶為主，需要為長者調整</dd><dt class="use">用在服務</dt><dd class="use">使用台灣的危險評估工具時，要額外記錄照顧關係、照顧年數、照顧者健康狀況，彌補工具對高齡個案的不足</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>英國家庭命案計畫，2022</b><small>Domestic Homicide Project｜警方案件分析</small></div></div><dl><dt>想知道</dt><dd>英國家庭命案中，高齡被害人是什麼樣的情況</dd><dt>對象</dt><dd>2020 年 3 月至 2021 年 3 月，英國警方記錄的 145 件家庭命案</dd><dt>怎麼做</dt><dd>分析警方案件資料中被害人年齡、與嫌犯的關係</dd><dt>結果</dt><dd>36 件（25%）被害人 65 歲以上；高齡被害人遭伴侶殺害的案件，<b>嫌犯全是現任配偶</b>，常是被害人的照顧者；7 件「殺人後自殺」全是丈夫殺妻子，這些夫妻多數<b>沒有家暴紀錄</b></dd><dt>限制</dt><dd>只有一年的資料，案件數不多</dd><dt class="use">用在服務</dt><dd class="use">沒有家暴紀錄的高齡夫妻，仍可能發生致命事件：聽到「我們一起走算了」或照顧者自己生病時，要立即做自殺與危險評估。也要注意「我撐不下去了」「我死了他怎麼辦」「我真怕自己會做出什麼事」這類話；直接問「你有沒有想過不想活，或帶他一起走？」，有具體計畫時不要讓他獨處，撥 110 或 119</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>日本高齡者虐待全國調查</b><small>厚生勞動省依《高齡者虐待防止法》每年調查，共同通信整理</small></div></div><dl><dt>想知道</dt><dd>日本有多少長者死於家屬照顧者的虐待或殺害</dd><dt>對象</dt><dd>2006–2024 年度，各地政府回報的家庭內長者虐待案件</dd><dt>怎麼做</dt><dd>整理歷年調查中，因照顧家屬虐待或殺害而死亡的長者人數</dd><dt>結果</dt><dd>至少 <b>486 名</b>長者死亡，女性占 7 成；2023 年度家庭內虐待 17,100 件，加害人是兒子 38.7%、<b>丈夫 22.8%</b></dd><dt>限制</dt><dd>只計入政府掌握的案件，專家認為是冰山一角</dd><dt class="use">用在服務</dt><dd class="use">丈夫照顧妻子是國際資料一再出現的高風險組合。男性照顧者較少主動求助，訪視時可以直接問：「最近睡得好嗎？有沒有喝比較多酒？會不會覺得撐不下去？」並主動提出喘息安排</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Bows, 2018（英國杜倫大學）</b><small>家庭命案資料分析</small></div></div><dl><dt>想知道</dt><dd>英國 60 歲以上的家庭命案有什麼特徵</dd><dt>對象</dt><dd>2010–2015 年英國 221 件被害人 60 歲以上的家庭命案</dd><dt>怎麼做</dt><dd>分析命案資料中的加害人關係與案件比例</dd><dt>結果</dt><dd>占所有家庭命案約 25%，高於 60 歲以上的人口比例 18%；加害人 46% 是配偶或伴侶、44% 是子女或孫子女</dd><dt>建議</dt><dd>現行危險評估工具以年輕伴侶為主，需要為長者調整</dd><dt class="use">用在服務</dt><dd class="use">使用台灣的危險評估工具時，要額外記錄照顧關係、照顧年數、照顧者健康狀況，彌補工具對高齡個案的不足，例如照顧幾年、每天照顧幾小時、有沒有替手、照顧者自己的健康與睡眠</dd></dl></div>
   </div>
   <div class="note o">「沒有家暴紀錄」不等於安全。<b>照顧者說出想一起走、照顧者自己生病、被照顧者病況急轉</b>，都是要立即評估的訊號。</div>
 </div>
@@ -439,8 +446,8 @@ button{font:inherit;color:inherit}
   <span class="tag">01 研究｜介入證據</span>
   <h2>哪些介入有證據（一）：教家屬照顧與到家支持</h2>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Brodaty & Arasaratnam, 2012</b><small>Am J Psychiatry｜整合分析：合併 23 篇試驗</small></div></div><dl><dt>想知道</dt><dd>教家屬用非藥物方法照顧，能不能減少失智者的行為症狀</dd><dt>對象</dt><dd>23 篇隨機或類隨機試驗，介入都由家屬照顧者在家執行</dd><dt>怎麼做</dt><dd>一組家屬接受訓練（行為處理、溝通、環境調整等），另一組一般照護，比較失智者行為症狀的變化</dd><dt>結果</dt><dd>訓練組失智者行為症狀明顯減少，效果量 <b>0.34</b>（屬小到中等效果；0.2 小、0.5 中、0.8 大），作者指出與抗精神病藥物的效果相當</dd><dt>有效方案</dt><dd>9–12 次、依家庭量身設計、<b>到家裡進行</b>、包含多種方法、持續 3–6 個月</dd><dt class="use">用在服務</dt><dd class="use">轉介居家服務時，選擇「到家、量身設計、持續數個月」的方案效果最好；只發衛教單張效果有限</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>REACH II（Belle et al., 2006）</b><small>Annals of Internal Medicine｜隨機對照試驗（RCT）</small></div></div><dl><dt>想知道</dt><dd>到家裡的多元支持，能不能減輕照顧者的憂鬱</dd><dt>對象</dt><dd>美國 642 位失智者家屬照顧者，西語裔、白人、非裔各 200 多人</dd><dt>怎麼做</dt><dd>隨機分兩組：介入組 6 個月內接受 9 次家訪與電話支持（問題解決、照顧技巧、壓力管理）；對照組只拿衛教資料、接 2 通電話</dd><dt>結果</dt><dd>6 個月後達臨床憂鬱的照顧者：介入組 <b>12.6%</b>、對照組 <b>22.7%</b>，幾乎少一半</dd><dt>限制</dt><dd>只追蹤 6 個月；介入密集，人力成本高</dd><dt class="use">用在服務</dt><dd class="use">有憂鬱跡象的照顧者，優先連結家照據點的個案管理或心理支持，而不是只給資源清單</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Brodaty & Arasaratnam, 2012</b><small>Am J Psychiatry｜整合分析：合併 23 篇試驗</small></div></div><dl><dt>想知道</dt><dd>教家屬用非藥物方法照顧，能不能減少失智者的行為症狀</dd><dt>對象</dt><dd>23 篇隨機或類隨機試驗，介入都由家屬照顧者在家執行</dd><dt>怎麼做</dt><dd>一組家屬接受訓練（行為處理、溝通、環境調整等），另一組一般照護，比較失智者行為症狀的變化</dd><dt>結果</dt><dd>訓練組失智者行為症狀明顯減少，效果量 <b>0.34</b>（屬小到中等效果；0.2 小、0.5 中、0.8 大），作者指出與抗精神病藥物的效果相當</dd><dt>有效方案</dt><dd>9–12 次、依家庭量身設計、<b>到家裡進行</b>、包含多種方法、持續 3–6 個月</dd><dt class="use">用在服務</dt><dd class="use">轉介時優先選「到家、依家庭量身設計、持續幾個月」的服務，例如長照的居家專業服務（治療師到家指導照顧方法）或家照據點的到宅照顧技巧指導；只發衛教單張效果有限</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>REACH II（Belle et al., 2006）</b><small>Annals of Internal Medicine｜隨機對照試驗（RCT）</small></div></div><dl><dt>想知道</dt><dd>到家裡的多元支持，能不能減輕照顧者的憂鬱</dd><dt>對象</dt><dd>美國 642 位失智者家屬照顧者，西語裔、白人、非裔各 200 多人</dd><dt>怎麼做</dt><dd>隨機分兩組：介入組 6 個月內接受 9 次家訪與電話支持（問題解決、照顧技巧、壓力管理）；對照組只拿衛教資料、接 2 通電話</dd><dt>結果</dt><dd>6 個月後達臨床憂鬱的照顧者：介入組 <b>12.6%</b>、對照組 <b>22.7%</b>，幾乎少一半</dd><dt>限制</dt><dd>只追蹤 6 個月；介入密集，人力成本高</dd><dt class="use">用在服務</dt><dd class="use">照顧者出現睡不好、常哭、說「撐不下去」等憂鬱跡象時，優先轉介家照據點的個案管理或心理支持，並陪他完成第一次聯繫，而不是只給一張資源清單</dd></dl></div>
   </div>
 </div>
 </section>
@@ -450,7 +457,7 @@ button{font:inherit;color:inherit}
   <span class="tag">01 研究｜介入證據</span>
   <h2>哪些介入有證據（二）：溝通訓練與非藥物方法</h2>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>溝通技巧訓練的系統性回顧</b><small>Eggenberger 2013；Nguyen 2019；Morris 2018</small></div></div><dl><dt>想知道</dt><dd>教照顧者溝通技巧，到底有沒有用</dd><dt>對象</dt><dd>三篇系統性回顧，各自整合 12–38 篇研究，對象包括專業照顧者與家屬</dd><dt>怎麼做</dt><dd>比較接受溝通訓練與沒有接受訓練的照顧者</dd><dt>結果</dt><dd>照顧者溝通技巧明顯進步（SMD 0.89，屬大效果；SMD 是比較不同研究效果大小的指標，0.8 以上算大）；照顧者壓力要到追蹤時才出現小幅下降（0.30）</dd><dt>關鍵</dt><dd>對家屬最有效的是<b>有實際練習、有討論</b>的訓練，只聽講效果有限</dd><dt>限制</dt><dd>多數研究樣本小，品質參差</dd><dt class="use">用在服務</dt><dd class="use">教照顧者技巧時要「示範＋一起練一句」，例如用第 03 段的換句話說，比單純講解有效</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>溝通技巧訓練的系統性回顧</b><small>Eggenberger 2013；Nguyen 2019；Morris 2018</small></div></div><dl><dt>想知道</dt><dd>教照顧者溝通技巧，到底有沒有用</dd><dt>對象</dt><dd>三篇系統性回顧，各自整合 12–38 篇研究，對象包括專業照顧者與家屬</dd><dt>怎麼做</dt><dd>比較接受溝通訓練與沒有接受訓練的照顧者</dd><dt>結果</dt><dd>照顧者溝通技巧明顯進步（SMD 0.89，屬大效果；SMD 是比較不同研究效果大小的指標，0.8 以上算大）；照顧者壓力要到追蹤時才出現小幅下降（0.30）</dd><dt>關鍵</dt><dd>對家屬最有效的是<b>有實際練習、有討論</b>的訓練，只聽講效果有限</dd><dt>限制</dt><dd>多數研究樣本小，品質參差</dd><dt class="use">用在服務</dt><dd class="use">三個步驟：①問照顧者「他最常讓你生氣的是哪一句話或哪件事？」②社工示範替代說法，例如他一直問同樣的問題時，不說「你又忘了！」，改說「沒關係，我們一起看一下」；他不肯洗澡時，不說「不洗不行」，改問「要先洗手還是先洗腳？」③請照顧者當場用自己的話說一次。實際說出口一次，比單純講解更容易真的用上</dd></dl></div>
     <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Livingston et al., 2014</b><small>Br J Psychiatry｜系統性回顧：整合 33 篇隨機對照試驗</small></div></div><dl><dt>想知道</dt><dd>哪些非藥物方法能減少失智者的激躁（躁動、吼叫、攻擊）</dd><dt>對象</dt><dd>33 篇隨機對照試驗，多數在照護機構進行</dd><dt>怎麼做</dt><dd>比較各種非藥物方法與一般照護</dd><dt>結果</dt><dd>以人為本的照護、教工作人員溝通技巧、音樂活動可以降低激躁；芳香療法、光照治療沒有效果</dd><dt>限制</dt><dd>多數在機構，居家的研究少</dd><dt class="use">用在服務</dt><dd class="use">建議失智者使用日照或據點的音樂、活動課程，可以減少躁動，也讓照顧者有喘息時間</dd></dl></div>
   </div>
 </div>
@@ -461,12 +468,12 @@ button{font:inherit;color:inherit}
   <span class="tag o">01 研究｜限制</span>
   <h2>只教技巧，不夠</h2>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>START 方案（Livingston 2013、2020；Cooper 2016）</b><small>BMJ／Br J Psychiatry／Int Psychogeriatrics｜隨機對照試驗（RCT）</small></div></div><dl><dt>想知道</dt><dd>教家屬因應策略，能不能改善照顧者心理健康、減少虐待</dd><dt>對象</dt><dd>英國 260 位失智者家屬照顧者</dd><dt>怎麼做</dt><dd>隨機分兩組：START 組上 8 次一對一課程（認識失智、處理行為問題、改變負面想法、自我肯定溝通、放鬆練習）；對照組一般照護</dd><dt>結果</dt><dd>START 組焦慮憂鬱明顯下降，<b>效果維持到 6 年後</b>；但照顧者對失智家人的<b>虐待行為沒有減少</b>，追蹤 2 年仍約 1/4 有顯著虐待</dd><dt>限制</dt><dd>研究人員依倫理會處理兩組發現的虐待，可能讓兩組差異看不出來</dd><dt class="use">用在服務</dt><dd class="use">只上課不夠：高風險家庭要同時做三件事，教技巧、安排喘息、做保護評估</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>START 方案（Livingston 2013、2020；Cooper 2016）</b><small>BMJ／Br J Psychiatry／Int Psychogeriatrics｜隨機對照試驗（RCT）</small></div></div><dl><dt>想知道</dt><dd>教家屬因應策略，能不能改善照顧者心理健康、減少虐待</dd><dt>對象</dt><dd>英國 260 位失智者家屬照顧者</dd><dt>怎麼做</dt><dd>隨機分兩組：START 組上 8 次一對一課程（認識失智、處理行為問題、改變負面想法、自我肯定溝通、放鬆練習）；對照組一般照護</dd><dt>結果</dt><dd>START 組焦慮憂鬱明顯下降，<b>效果維持到 6 年後</b>；但照顧者對失智家人的<b>虐待行為沒有減少</b>，追蹤 2 年仍約 1/4 有顯著虐待</dd><dt>限制</dt><dd>研究人員依倫理會處理兩組發現的虐待，可能讓兩組差異看不出來</dd><dt class="use">用在服務</dt><dd class="use">只上課不夠，高風險家庭要同時做三件事：①教一兩個簡單技巧；②安排喘息、日照等替手；③做保護評估，包括分開會談了解暴力型態、做 TIPVDA 2.0 危險評估、檢查被照顧者有沒有傷痕、營養不良或被約束、問照顧者有沒有自殺或同死念頭，再決定通報與安全計畫</dd></dl></div>
     <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Livingston et al., 2014</b><small>同上一頁的系統性回顧，只看居家研究</small></div></div><dl><dt>想知道</dt><dd>在家裡教家屬照顧技巧，能不能減少嚴重激躁</dd><dt>對象</dt><dd>回顧中在家庭進行的試驗，對象是家屬照顧者</dd><dt>怎麼做</dt><dd>比較接受行為管理或認知行為技巧訓練的家屬與一般照護</dd><dt>結果</dt><dd>對<b>嚴重激躁沒有效果</b></dd><dt>作者推測</dt><dd>24 小時照顧的家屬很難把複雜技巧用出來</dd><dt class="use">用在服務</dt><dd class="use">對 24 小時照顧的家屬，一次只教一個簡單方法，並搭配喘息，不要期待他學會整套技巧</dd></dl></div>
   </div>
   <h3>所以高風險家庭要三軌並行</h3>
   <div class="g g3">
-    <div class="card fill-t"><h3>簡單可用的技巧</h3><p>今天第 03 段的句型與步驟</p></div>
+    <div class="card fill-t"><h3>簡單可用的技巧</h3><p>「溝通與照顧技巧」單元的句型與步驟</p></div>
     <div class="card fill-t"><h3>真的喘得到氣</h3><p>喘息、日照、家照據點、替手</p></div>
     <div class="card fill-t" style="background:var(--orange);border-color:var(--orange)"><h3>保護評估</h3><p>危險評估、安全計畫、通報與保護令</p></div>
   </div>
@@ -503,6 +510,7 @@ button{font:inherit;color:inherit}
     <div class="card o"><h3>士林地院→高院｜2023 年 2 月</h3><p class="small"><b>情境</b>：79 歲婦人照顧洗腎 30 年的丈夫，同時照顧孫子，以鐵鎚殺害丈夫。</p><p class="small"><b>判決</b>：一審 2 年 8 月；高院改判 <b>2 年、緩刑 5 年</b>。</p><p class="small"><b>法院考量</b>：老老照顧、負擔過重。</p></div>
   </div>
   <p class="src">來源：中央社 2026.2.5、聯合報健康版；NOWnews 2025.3.7；公視新聞 2023.2.23。</p>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>法院一再把「老老照顧、負擔過重」認定為悲劇的主因：<b>照顧負荷本身就是危險因子</b>，要和暴力風險一起評估</li><li>有用長照不代表夠用：第一案每天已有約 4 小時服務仍發生悲劇，要問「<b>剩下的時間誰在撐？</b>」</li><li>行動：做高負荷初篩，評估喘息、日照或住宿式機構是否需要加量</li></ul></div>
 </div>
 </section>
 
@@ -522,6 +530,7 @@ button{font:inherit;color:inherit}
     <tr><td>刑法第 19 條</td><td>行為時因精神障礙不能辨識違法：不罰；能力顯著減低：得減輕</td></tr>
   </table></div>
   <p class="note t">法務部 2023 年曾研議長照殺人相關修法（緩刑門檻、緩起訴要件、獨立罪名），目前仍在研議。對社工的意義：<b>判決結果再輕，家庭都已破碎</b>，預防比事後同理更重要。</p>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>減刑是事後的同理，<b>預防才是社工能介入的時間點</b></li><li>照顧者本身有憂鬱或身心疾病時（如桃園案的妻子），要連結精神醫療與心衛社工</li><li>被照顧者失智又會動手時，照顧者也需要自己的安全計畫</li></ul></div>
 </div>
 </section>
 
@@ -535,6 +544,7 @@ button{font:inherit;color:inherit}
   </div>
   <div class="note t">衛福部委託研究（2015）指出：失智初期較易發生<b>財務剝削</b>，中期較易發生<b>身體虐待</b>，重度時較易發生<b>疏忽</b>。訪視重點會隨病程改變。</div>
   <p class="src">來源：自由時報 2022.8.13；中央社 2019.4.18；衛福部 104 年度委託研究。</p>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>法院可以用緩刑加上「強制治療、禁止施暴」等條件：<b>協助被害人向法院表達她需要的保護與治療條件</b></li><li>看到約束、上鎖，先問照顧者缺什麼幫手，再提供替代方法，而不是只指責</li><li>病程不同，風險不同：初期注意財務、中期注意身體、晚期注意疏忽</li></ul></div>
 </div>
 </section>
 
@@ -544,13 +554,14 @@ button{font:inherit;color:inherit}
   <h2>近期新聞給我們的提醒</h2>
   <div class="g g2">
     <div class="card"><h3>2026.9｜新北三重</h3><p class="small">66 歲妻子疑因照顧壓力，殺害久病的 74 歲丈夫；<b>夫妻兩人都有精神疾病</b>，已遭起訴。<br><b>提醒</b>：照顧者本身生病時，風險倍增。</p></div>
-    <div class="card"><h3>2026.5｜臺北</h3><p class="small">高齡妻子曾兩次通報精神暴力並取得保護令，但保護令<b>未含遷出</b>；之後妻子死亡，丈夫遭羈押，仍在偵查中。<br><b>提醒</b>：保護令款項的選擇要跟著危險評估走。</p></div>
+    <div class="card"><h3>2026.5｜臺北</h3><p class="small">高齡妻子曾兩次通報精神暴力並取得保護令，但保護令<b>未含遷出</b>；之後妻子死亡，丈夫遭羈押，仍在偵查中。<br><b>提醒</b>：保護令款項的選擇要跟著危險評估走：危險高時要考慮命遷出、遠離住處，而不只是禁止施暴。</p></div>
     <div class="card"><h3>2025.7｜新北土城</h3><p class="small">妻子聲請保護令，開庭後遭丈夫殺害。<br><b>提醒</b>：<b>開庭、離婚訴訟、宣判前後</b>是高風險時點，要提前做安全計畫。</p></div>
     <div class="card o"><h3>2026.5｜資料分析</h3><p class="small">2000 年至 2025 年 10 月，有 <b>139 件</b>判決是保護令核發後仍發生家暴殺人；配偶或前配偶占 37.4%；<b>過半發生在核發後 6 個月內</b>。</p></div>
     <div class="card"><h3>2026.4｜臺南</h3><p class="small">82 歲生病的丈夫向醫院請假返家，推著坐輪椅的 76 歲失智妻子外出，兩人被發現溺斃；警方初步排除他殺，原因未明。<br><b>提醒</b>：兩人都生病的老老照顧家庭，<b>出院、請假返家等轉換期</b>要特別關心。</p></div>
-    <div class="card o"><h3>2026.6｜全國</h3><p class="small">家暴通報 2025 年達 190,676 件，親密關係暴力約占一半；<b>相互通報約 3 成</b>且逐年增加。<br><b>提醒</b>：雙方互控時，照顧關係中的權力與依賴要一起評估。</p></div>
+    <div class="card o"><h3>2026.6｜全國</h3><p class="small">家暴通報 2025 年達 190,676 件，親密關係暴力約占一半；<b>相互通報約 3 成</b>且逐年增加。<br><b>提醒</b>：雙方互控時，要分開會談，看錢與證件在誰手上、誰依賴誰照顧、誰比較害怕對方，找出主要加害者。</p></div>
   </div>
   <p class="src">來源：自由時報 2026.9.30；公視、聯合報 2026.5；NOWnews 2025.7；關鍵評論網 2026.5.15；世界日報 2026.4.12；公視 2026.6.18。</p>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li><b>開庭、宣判、保護令核發後 6 個月內</b>要主動加強聯繫與安全計畫</li><li>保護令款項要跟著危險評估選，高危機時考慮遷出、遠離等款項</li><li>雙方都生病、出院或請假返家等轉換期，主動關懷；相互通報時，兩人分開評估</li></ul></div>
 </div>
 </section>
 
@@ -564,6 +575,7 @@ button{font:inherit;color:inherit}
     <div class="card a"><h3>葛倫坎貝爾與妻子（美國，2015–2020）</h3><p class="small">鄉村歌手確診阿茲海默症後，在換衣、洗澡時會出現攻擊，妻子曾被打到眼睛瘀青，說自己「閃拳頭閃了兩年」。後來他入住記憶照護機構，妻子說「我等太久了」。</p><p class="note" style="margin-top:.5em">啟示：身體照顧時段是高風險時段；照顧者常因「他生病」而不求助。</p></div>
   </div>
   <p class="src">來源：AP／Boston Globe 2025.3.7；Boston Globe 2023.2.16、ABC 2025；Arkansas Democrat-Gazette 2015.9.4、AARP 2020.6.15。內容皆為當事人或官方公開說法。</p>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>建立「照顧備援計畫」：照顧者突然倒下時，誰會知道、誰來接手</li><li>洗澡、換衣等身體照顧時段是攻擊高風險時段，要教照顧者安全做法</li><li>分開居住、入住機構可以是保護全家的選項，及早和家屬討論</li></ul></div>
 </div>
 </section>
 
@@ -577,6 +589,7 @@ button{font:inherit;color:inherit}
     <div class="card t"><h3>東尼班奈特與妻子（美國，2016–2021）</h3><p class="small">2016 年確診阿茲海默症，有時認不出叉子、鑰匙，但妻子維持他每週在家練唱，2018 至 2020 年仍完成錄音。</p><p class="note t" style="margin-top:.5em">啟示：保留病前的角色與興趣，是配偶照顧的重要資源。</p></div>
   </div>
   <p class="src">來源：Neurology 2016;87(13):1308、STAT 2016.9.30；中央社 2017.5.2；NPR／KQED 2021.2.1。</p>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>症狀忽好忽壞時，<b>相信照顧者的描述</b>，協助就醫確認診斷</li><li>再婚或家族衝突的家庭，及早協助做預立醫療照護諮商與意定監護</li><li>保留失智者病前的興趣與角色，是降低衝突的照顧資源</li></ul></div>
 </div>
 </section>
 
@@ -590,6 +603,7 @@ button{font:inherit;color:inherit}
     <div class="card t"><h3>英國《家暴法》（2021）</h3><p class="small">雙方年滿 16 歲且有個人關聯即適用，<b>沒有年齡上限</b>；明列控制或脅迫、經濟虐待。英國多機構會議指引也要求分清加害人是「照顧者」還是「被照顧者」，並評估雙方的決策能力。</p><p class="note t" style="margin-top:.5em">啟示：加害人本身需要照顧，仍可能造成嚴重傷害。</p></div>
   </div>
   <p class="src">來源：J-CAST 2016.1.7；弁護士ドットコム、東洋經濟 2018.10.5；legislation.gov.uk；SafeLives《Guidance for multi-agency forums: Older people》。</p>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>經濟斷炊、求助被拒會把照顧者推向絕境：評估家庭收入與社會救助是否斷線</li><li>走失風險用手鍊、指紋、社區協尋分擔，不要讓照顧者用約束自己扛</li><li>加害人本身需要照顧時仍可能造成嚴重傷害：<b>同時規劃加害人的照顧安排與被害人的安全</b></li></ul></div>
 </div>
 </section>
 
@@ -601,7 +615,7 @@ button{font:inherit;color:inherit}
   <button class="btn" data-reveal="ra">看討論重點</button>
   <div id="ra" class="g g2" hidden>
     <div class="card t"><h3>危險評估</h3><ul class="l small"><li>TIPVDA 2.0 中「掐脖子」加權 5 分，即使總分未達切點，也應依專業判斷考慮列為高危機</li><li>夜間、妄想內容、刀具可近性要特別記錄</li></ul></div>
-    <div class="card t"><h3>症狀處理</h3><ul class="l small"><li>「嫉妒妄想」是可治療的症狀，協助回診或轉介失智共照中心</li><li>分享回應妄想的句型（第 03 段）</li></ul></div>
+    <div class="card t"><h3>症狀處理</h3><ul class="l small"><li>「嫉妒妄想」是可治療的症狀，協助回診或轉介失智共照中心</li><li>分享回應妄想的句型：不辯解，先接情緒，例如「你醒來找不到我，一定很慌。我在這裡，不會走」</li></ul></div>
     <div class="card t"><h3>保護令的兩難</h3><ul class="l small"><li>「遷出」可能讓失智者無處可去</li><li>可考慮命相對人接受精神治療評估（家暴法第 14 條第 3 項），並同步安排日照、住宿機構或喘息</li></ul></div>
     <div class="card t"><h3>安全計畫</h3><ul class="l small"><li>收好刀剪、晚上分房並保留出口</li><li>手機放身上、與女兒約定求救暗號</li><li>評估丈夫是否需要輔助或監護宣告</li></ul></div>
   </div>
@@ -639,6 +653,14 @@ button{font:inherit;color:inherit}
 </section>
 
 <!-- ===== 03 技巧 ===== -->
+<section class="slide" data-t="02 案例帶走的行動">
+<div class="wrap">
+  <span class="tag o">02 案例｜小結</span>
+  <h2>02 案例帶走的行動</h2>
+  <div class="g g2" style="gap:.7em"><div class="card"><b>1.</b> 評估危險時，同時評估<b>照顧負荷</b>：照顧年數、照顧者健康、有沒有替手、長照用得夠不夠</div><div class="card"><b>2.</b> 聽到「一起走」「撐不下去」，當次就做<b>自殺與同死風險評估</b>，連結 1925</div><div class="card"><b>3.</b> <b>開庭、宣判、保護令核發後 6 個月</b>是高風險期，排定主動聯繫</div><div class="card"><b>4.</b> 失智者是相對人時，保護令與照顧安排要<b>同步規劃</b>：遷出去哪裡、誰來照顧、要不要治療評估</div><div class="card"><b>5.</b> 看到約束、上鎖等不當照顧，先找出缺的幫手，再提供替代方案</div><div class="card"><b>6.</b> 及早協助預立醫療照護諮商、意定監護與照顧備援計畫</div></div>
+</div>
+</section>
+
 <section class="slide divider" data-t="03 溝通與照顧技巧" data-sec="1">
 <div class="wrap"><div class="big">03</div><h2>溝通與照顧技巧</h2><p>以下都是可以在訪視時，直接分享給照顧者與家屬的方法。每個方法都標示證據等級。</p></div>
 </section>
@@ -844,6 +866,86 @@ button{font:inherit;color:inherit}
 </div>
 </section>
 
+<section class="slide" data-t="照顧壓力怎麼評估">
+<div class="wrap">
+  <span class="tag">03 技巧｜評估照顧壓力</span>
+  <h2>照顧壓力怎麼評估：三層工具，由簡到深</h2>
+  <div class="g g3">
+    <div class="card t"><h3>第一層：訪視時先問五個問題</h3><ul class="l small"><li>你照顧他多久了？一天大概照顧幾個小時？</li><li>有沒有人可以換手？一週能休息幾小時？</li><li>最近晚上睡得好嗎？</li><li>他最讓你頭痛的是哪個行為？</li><li>你自己身體還好嗎？有沒有在看醫生？</li></ul></div>
+    <div class="card a"><h3>第二層：高負荷家庭照顧者初篩指標</h3><p class="small">衛福部長照司公告的 10 項指標，例如高齡照顧者、沒有替手、3 個月內照顧情況改變、曾有家暴、照顧者有自殺念頭。符合第 9 項（曾有家暴）或第 10 項（自殺意念）任一項，或任兩項，就轉介家庭照顧者支持服務據點。家暴個案幾乎都符合第 9 項。</p></div>
+    <div class="card o"><h3>第三層：照顧負荷量表</h3><p class="small">由家照據點或照管專員進一步評估。長照司使用的負荷量表：<b>44 分以上屬高負荷</b>、22–43 分中度、21 分以下低度。醫療與研究常用「Zarit 照顧負荷量表」（ZBI），分數越高壓力越大。</p></div>
+  </div>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>社工不需要自己做完整量表：<b>先用五個問題篩出高風險，再用初篩指標轉介</b>，由家照據點做深入評估</li><li>把評估結果寫進危險評估紀錄：照顧年數、每日照顧時數、有無替手、照顧者健康，補足 TIPVDA 沒有涵蓋的照顧因子</li></ul></div>
+</div>
+</section>
+
+<section class="slide" data-t="要多注意的話">
+<div class="wrap">
+  <span class="tag o">03 技巧｜警訊</span>
+  <h2>聽到這些話，要停下來直接問</h2>
+  <div class="g g2">
+    <div class="card o"><h3>照顧者說的話</h3><ul class="l small"><li>「我們一起走算了」「不如大家都解脫」</li><li>「我撐不下去了」「我已經沒辦法了」</li><li>「我死了，他怎麼辦？」「他走了我也不想活」</li><li>「我真怕自己會做出什麼事」「再這樣我會殺了他」</li><li>「沒有人幫得了我」「說了也沒用」</li><li>「我都交代好了」「之後就麻煩你們了」</li></ul></div>
+    <div class="card a"><h3>同時要留意的行為</h3><ul class="l small"><li>交代後事、整理財物、把東西送人</li><li>收集、囤積藥物</li><li>突然變得異常平靜，好像「想通了」</li><li>喝酒變多、整夜不睡</li><li>拒絕所有協助、不再回電</li><li>被照顧者病情急轉，或照顧者自己剛被診斷重病</li></ul></div>
+  </div>
+  <p class="note">出現任何一項，都要在當次訪視直接詢問：「你有沒有想過不想活，或帶他一起走？」直接問不會讓對方更想自殺，反而讓他知道可以說出來。</p>
+</div>
+</section>
+
+<section class="slide" data-t="自殺與同死評估">
+<div class="wrap">
+  <span class="tag o">03 技巧｜自殺與同死評估</span>
+  <h2>自殺與同死評估：問、應、轉介</h2>
+  <div class="g g3">
+    <div class="card o"><div class="num o">問</div><h3>直接問出口</h3><ul class="l small"><li>「你最近有沒有想過不想活了？」</li><li>「你有沒有想過帶他一起走？」</li><li>有的話接著問：<b>想過怎麼做嗎？什麼時候？東西準備了嗎？以前試過嗎？</b></li></ul></div>
+    <div class="card a"><div class="num" style="color:#C17A12">應</div><h3>回應，不評價</h3><ul class="l small"><li>「謝謝你願意告訴我，照顧這麼久一定很辛苦。」</li><li>不說「你怎麼可以這樣想」</li><li>一起把危險物品、囤積的藥物交給家人保管</li><li>約好今晚可以打給誰</li></ul></div>
+    <div class="card t"><div class="num">轉</div><h3>轉介與通報</h3><ul class="l small"><li>有具體計畫或已準備工具：<b>不要讓他獨處，撥 110 或 119</b></li><li>有自殺意念：透過「關懷 e 起來」做自殺通報，由自殺關懷訪視員追蹤；提供 1925</li><li>有同死或傷人意念：同時列入家暴高危機處理</li></ul></div>
+  </div>
+  <div class="card"><h3>可用的篩檢工具：簡式健康量表（BSRS-5，又稱心情溫度計）</h3><p class="small">5 題問最近一週的焦慮、憂鬱、生氣、自卑、失眠，每題 0–4 分。總分 <b>0–5 正常、6–9 輕度、10–14 中度、15 分以上重度</b>；另有一題「有沒有自殺的想法」，<b>2 分以上</b>就建議轉介專業協助。可以在訪視時口頭問完。</p></div>
+  <div class="take"><div class="take-h">照顧者生病時，哪些情況要立即評估</div><ul><li><b>憂鬱症、焦慮症、長期失眠</b>，或 BSRS-5 達中度以上</li><li>剛被診斷<b>重大疾病</b>（例如癌症）、自己也開始失能或失智、長期疼痛</li><li>有<b>飲酒或藥物問題</b>、過去曾自殺，或本身有精神疾病</li></ul></div>
+</div>
+</section>
+
+<section class="slide" data-t="保護評估怎麼做">
+<div class="wrap">
+  <span class="tag o">03 技巧｜保護評估</span>
+  <h2>高風險家庭的保護評估：一次訪視要確認的六件事</h2>
+  <div class="g g3">
+    <div class="card o"><h3>1. 分開會談</h3><p class="small">照顧者與被照顧者分開談，各自說自己的狀況。失智者表達有困難時，用簡短、具體的問題問：「有人打你嗎？」「你會怕誰？」</p></div>
+    <div class="card o"><h3>2. 暴力的型態與歷史</h3><p class="small">誰對誰做了什麼、多久一次、最近有沒有變嚴重、生病前就有嗎？分辨是症狀引起，還是長期控制。</p></div>
+    <div class="card o"><h3>3. 危險評估</h3><p class="small">親密關係暴力用 <b>TIPVDA 2.0</b>：通報版 8 題、5 分以上為高危機；個管版 18 題、20 分以上為高危機。掐脖子、持械、威脅同死，即使未達分數也列高危機。</p></div>
+    <div class="card a"><h3>4. 被照顧者的受虐跡象</h3><p class="small">看有沒有：不明傷痕或瘀青、體重明顯下降、身體或衣物不潔、被綁或反鎖、財物被拿走、該就醫卻沒就醫。</p></div>
+    <div class="card a"><h3>5. 照顧壓力與照顧者狀況</h3><p class="small">照顧幾年、每天幾小時、有沒有替手、睡眠與健康；用高負荷初篩 10 項判斷是否轉介家照據點。</p></div>
+    <div class="card a"><h3>6. 自殺與同死念頭</h3><p class="small">直接問：「你有沒有想過不想活，或帶他一起走？」可搭配簡式健康量表（BSRS-5），自殺題 2 分以上就轉介。</p></div>
+  </div>
+  <div class="take"><div class="take-h">評估完要做的決定</div><ul><li>有立即危險：撥 110；有傷人或自傷之虞的精神症狀：請警消護送就醫</li><li>疑似暴力：24 小時內通報，65 歲以上或持身障證明者一併勾選老人或身障保護；高危機案件提報高危機網絡會議</li><li>和被害人與照顧者一起訂安全計畫，並同步安排喘息或替代照顧</li></ul></div>
+</div>
+</section>
+
+<section class="slide" data-t="和男性照顧者互動">
+<div class="wrap">
+  <span class="tag">03 技巧｜男性照顧者</span>
+  <h2>讓男性照顧者願意開口：從「事情」談到「心情」</h2>
+  <p class="lead">很多男性照顧者習慣「自己扛」，覺得求助等於失敗。直接問「你心情好嗎？」常得到「還好」。換個切入點會比較容易。</p>
+  <div class="g g2">
+    <div class="card t"><h3>這樣開口</h3><ul class="l small"><li><b>從具體任務談起</b>：「照顧上哪一件事最費力？洗澡、吃藥，還是晚上？」</li><li><b>肯定他的能力與責任感</b>：「你一個人撐了這麼多年，很不容易。」</li><li><b>把求助說成照顧策略</b>：「找人換手，是為了讓你能照顧得更久。」</li><li><b>給他選擇權</b>：「喘息可以先試一週兩個下午，你覺得哪天比較方便？」</li><li><b>用實際的字眼</b>：說「找人來幫忙」「讓你睡一覺」，少用「心理諮商」「情緒支持」</li></ul></div>
+    <div class="card a"><h3>這樣互動</h3><ul class="l small"><li>邊做事邊聊，例如一起整理藥盒、看照顧紀錄，比面對面坐著談更自然</li><li>問題短而直接，一次問一件事</li><li>可以請他信任的人一起出面，例如醫師、里長，或同性別的工作人員</li><li>直接問睡眠與喝酒：「最近睡得好嗎？會不會喝比較多酒？」</li><li>留下電話，約好下次聯繫的時間，主動打過去，不要只等他打來</li></ul></div>
+  </div>
+  <p class="xs">依據：臨床與社工實務經驗（等級 5 的專家建議）；國際資料顯示高齡男性照顧者是照顧悲劇的高風險族群。</p>
+</div>
+</section>
+
+<section class="slide" data-t="有意願和沒意願">
+<div class="wrap">
+  <span class="tag">03 技巧｜轉介</span>
+  <h2>照顧者有意願、沒意願，各要怎麼做</h2>
+  <div class="g g2">
+    <div class="card t"><h3>有意願：陪他接上線</h3><ul class="l small"><li>當場一起打電話給家照據點或 1966，不要只給電話號碼</li><li>幫忙填好轉介單，約好第一次聯繫或家訪的時間</li><li>告訴他接下來會發生什麼：誰會打來、會問什麼</li><li>一到兩週內再聯繫，確認真的有接上服務</li></ul></div>
+    <div class="card a"><h3>沒意願：不放棄，先降低門檻</h3><ul class="l small"><li>先問他最在意什麼，從他要的開始，例如交通、送餐、輔具，而不是一開始就談心理支持</li><li>用動機式晤談：「如果 0 到 10 分，讓自己休息一下有多重要？」再問「為什麼不是更低？」</li><li>給小一點的第一步：「先讓據點的人打一通電話給你，好嗎？」</li><li>尊重他的決定，但保持固定聯繫，讓他知道隨時可以改變主意</li></ul></div>
+  </div>
+  <div class="note o"><b>沒意願也必須做的事：</b>照顧者有自殺念頭，或有家暴、虐待的情形時，<b>通報不需要對方同意</b>。依家庭暴力防治法第 50 條、老人福利法第 43 條進行責任通報，有自殺意念者也要做自殺通報，由自殺關懷訪視員接手追蹤。家照據點等支持服務需要本人同意，但保護與通報不用。</div>
+</div>
+</section>
+
 <section class="slide" data-t="動機式晤談">
 <div class="wrap">
   <span class="tag">03 技巧｜動機式晤談</span>
@@ -856,7 +958,7 @@ button{font:inherit;color:inherit}
     <div class="card t"><div class="num">S</div><h3>摘要</h3><p class="small">把對方說過的改變理由串起來，還給他聽</p></div>
   </div>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Rubak et al., 2005</b><small>British Journal of General Practice｜整合分析：合併 72 篇隨機對照試驗</small></div></div><dl><dt>想知道</dt><dd>動機式晤談能不能幫助人改變行為</dd><dt>對象</dt><dd>72 篇隨機對照試驗，涵蓋飲酒、體重、血壓等生理與心理問題</dd><dt>怎麼做</dt><dd>比較接受動機式晤談與接受一般建議的人</dd><dt>結果</dt><dd>約 <b>3/4</b> 的研究顯示有效；只談 15 分鐘也有約 64% 的研究有效；談的次數越多，效果越穩定</dd><dt>限制</dt><dd>效果多出現在半年內；用在家暴情境的研究少、樣本小</dd><dt class="use">用在服務</dt><dd class="use">照顧者拒絕喘息、拒絕資源時，用動機式晤談的方法引出他自己的改變理由，而不是說服他</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Rubak et al., 2005</b><small>British Journal of General Practice｜整合分析：合併 72 篇隨機對照試驗</small></div></div><dl><dt>想知道</dt><dd>動機式晤談能不能幫助人改變行為</dd><dt>對象</dt><dd>72 篇隨機對照試驗，涵蓋飲酒、體重、血壓等生理與心理問題</dd><dt>怎麼做</dt><dd>比較接受動機式晤談與接受一般建議的人</dd><dt>結果</dt><dd>約 <b>3/4</b> 的研究顯示有效；只談 15 分鐘也有約 64% 的研究有效；談的次數越多，效果越穩定</dd><dt>限制</dt><dd>效果多出現在半年內；用在家暴情境的研究少、樣本小</dd><dt class="use">用在服務</dt><dd class="use">照顧者拒絕喘息、拒絕資源時，不要急著說服，改用動機式晤談引出他自己的理由，例如問：「如果 0 到 10 分，讓自己睡一覺對你有多重要？」，再追問「為什麼是 7 分，不是 3 分？」，讓他說出自己需要休息的理由</dd></dl></div>
     <div class="note o"><b>安全先於動機。</b>有立即危險、受虐或高危機時，不等對方「準備好」：通報、危險評估、保護令照常進行。MI 用在「怎麼談」，不取代法定程序。</div>
   </div>
 </div>
@@ -934,6 +1036,45 @@ button{font:inherit;color:inherit}
 </section>
 
 <!-- ===== 04 處置 ===== -->
+<section class="slide" data-t="權力與依賴怎麼評估">
+<div class="wrap">
+  <span class="tag o">03 技巧｜雙方互控</span>
+  <h2>雙方互相通報時：評估「誰握有權力、誰依賴誰」</h2>
+  <p class="lead">兩個人都動過手，不代表兩人危險一樣。分開會談，用以下六個面向找出誰處在比較弱勢、比較危險的位置。</p>
+  <div class="tscroll"><table class="tb">
+    <tr><th>面向</th><th>可以這樣問</th><th>警訊</th></tr>
+    <tr><td>資源</td><td>錢、存摺、房子、證件、手機、鑰匙在誰手上？</td><td>一方完全掌控，另一方要用錢、出門都得經過同意</td></tr>
+    <tr><td>依賴</td><td>吃飯、洗澡、吃藥、就醫由誰協助？誰沒辦法自己打電話或出門？</td><td>被照顧的一方生活完全依賴對方，求助管道被切斷</td></tr>
+    <tr><td>害怕</td><td>「你會怕他嗎？在他面前，你會不會不敢說話或做事？」</td><td>只有一方明顯害怕、會先看對方臉色才回答</td></tr>
+    <tr><td>暴力的目的</td><td>動手是為了讓對方聽話、懲罰對方，還是被攻擊時反擊、或發病時失控？</td><td>為了控制、恐嚇、懲罰而施暴，屬於主要加害的型態</td></tr>
+    <tr><td>傷害與後果</td><td>誰受傷比較重？誰為了避開對方，改變了生活或不敢出門？</td><td>一方傷勢較重，或生活明顯受限</td></tr>
+    <tr><td>決定權</td><td>就醫、用錢、見親友、要不要用長照，由誰決定？</td><td>重要決定都由一方說了算，另一方的意見被忽略</td></tr>
+  </table></div>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>警訊集中在哪一方，那一方通常就是<b>主要加害者</b>；另一方的動手多是反擊或症狀，但兩人都要做安全計畫</li><li>失智或失能的一方即使會動手，也常是最依賴、最難求助的人，要同時評估是否需要老人或身障保護</li><li>以上為實務評估架構（等級 5 的專家建議），用來輔助 TIPVDA 2.0，不取代正式工具</li></ul></div>
+</div>
+</section>
+
+<section class="slide" data-t="哪些精神狀況風險較高">
+<div class="wrap">
+  <span class="tag o">03 技巧｜精神疾病與風險</span>
+  <h2>加害者有精神疾病時，哪些狀況風險較高</h2>
+  <p class="lead">有精神疾病不等於危險，多數病人不會傷人。風險升高的關鍵在於「<b>症狀內容</b>」與「<b>有沒有在治療</b>」。</p>
+  <div class="g g2">
+    <div class="card o"><h3>症狀內容</h3><ul class="l small"><li><b>被害妄想</b>：堅信伴侶要害他、下毒</li><li><b>嫉妒妄想</b>：堅信伴侶外遇（失智、路易氏體失智、酒精使用者都可能出現）</li><li><b>命令性幻聽</b>：聽到聲音叫他傷人</li><li><b>重度憂鬱合併絕望感</b>：可能出現「帶家人一起走」的念頭，高齡男性照顧者特別要注意</li></ul></div>
+    <div class="card a"><h3>讓風險更高的情況</h3><ul class="l small"><li>自行停藥、不回診、拒絕治療</li><li><b>合併飲酒或藥物使用</b></li><li>過去曾經施暴，或發病時曾傷人</li><li>家中容易取得刀具或其他危險物品</li><li>最近病情惡化、剛出院，或生活出現重大變化</li></ul></div>
+  </div>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>危險評估時多問三件事：<b>他最近懷疑什麼？有沒有規律吃藥、回診？有沒有喝酒？</b></li><li>症狀明顯或停藥時，協助就醫，並連結社區心理衛生中心；有傷人之虞時依精神衛生法請警消護送</li><li>以上為臨床實務上的共識（等級 5 的專家建議），用來輔助、不取代 TIPVDA 等正式工具</li></ul></div>
+</div>
+</section>
+
+<section class="slide" data-t="03 技巧帶走的行動">
+<div class="wrap">
+  <span class="tag o">03 技巧｜小結</span>
+  <h2>03 技巧帶走的行動</h2>
+  <div class="g g2" style="gap:.7em"><div class="card"><b>1.</b> 教照顧者一句口訣：<b>先接住情緒，再處理事情</b></div><div class="card"><b>2.</b> 一次只教一個方法，<b>示範後請照顧者當場說一次</b>，下次訪視追蹤用得如何</div><div class="card"><b>3.</b> 反覆衝突時，請照顧者記錄一週「時間、發生什麼、怎麼回應」，一起找原因</div><div class="card"><b>4.</b> 和照顧者約定「暫停計畫」與攻擊當下的站位，寫進安全計畫</div><div class="card"><b>5.</b> 辨識是症狀還是控制；<b>兩種情況都要做安全評估</b></div><div class="card"><b>6.</b> 照顧者拒絕資源時，用動機式晤談引出他自己的理由</div></div>
+</div>
+</section>
+
 <section class="slide divider" data-t="04 處置流程與法規" data-sec="1">
 <div class="wrap"><div class="big">04</div><h2>處置：法規、程序與辦理流程</h2><p>法條以全國法規資料庫現行條文為準（查核至 2026 年 10 月）。實際作業請以臺北市（及個案所在縣市）家防中心最新 SOP 為準。</p></div>
 </section>
@@ -1009,6 +1150,24 @@ button{font:inherit;color:inherit}
 </div>
 </section>
 
+<section class="slide" data-t="保護令款項怎麼選">
+<div class="wrap">
+  <span class="tag o">04 處置｜保護令款項</span>
+  <h2>保護令款項怎麼選：跟著危險程度加碼</h2>
+  <div class="tscroll"><table class="tb">
+    <tr><th>危險程度（依 TIPVDA 2.0 與專業判斷）</th><th>可考慮的款項（家暴法第 14 條第 1 項）</th><th>照顧情境的注意事項</th></tr>
+    <tr><td>較低<br><span class="xs">言語辱罵、偶發推擠，沒有致命徵兆</span></td><td>第 1 款 禁止施暴；第 2 款 禁止騷擾、跟蹤等非必要聯絡；第 10 款 完成加害人處遇計畫（認知教育、心理輔導）</td><td>失智或精神症狀明顯、有飲酒問題時，請法院依第 14 條第 3 項命相對人接受<b>精神治療或戒癮治療的評估</b></td></tr>
+    <tr><td>中度<br><span class="xs">反覆身體暴力、威脅、控制錢與行動</span></td><td>再加：第 4 款 遠離被害人住處、工作場所等特定地點；第 5 款 必需品使用權（例如輔具、藥品、證件）；第 8 款 租金或扶養費；第 9 款 醫療等費用</td><td>經濟依賴的高齡被害人，扶養費與必需品款項能讓她<b>不必為了生活而留在危險裡</b></td></tr>
+    <tr><td>高危機<br><span class="xs">TIPVDA 達切點、掐脖子、持械、威脅同死、曾違反保護令</span></td><td>再加：第 3 款 <b>命相對人遷出住居所</b>，搭配遠離款項；有急迫危險時，由警察或主管機關聲請<b>緊急保護令</b>（4 小時內核發）</td><td>相對人是失智者時，遷出前要先安排去處：其他家人、住宿式機構（每月可補助 15,000 元）或日照</td></tr>
+  </table></div>
+  <div class="g g2">
+    <div class="note">其他款項：第 6、7 款未成年子女相關；第 11 款律師費；第 12 款禁止查閱被害人戶籍等資訊；第 13–15 款性影像相關；第 16 款其他保護被害人的必要命令。</div>
+    <div class="note t">危險升高或保護令被違反時，回頭重新評估，並向法院聲請變更或延長保護令；通常保護令一次最長 2 年，可聲請延長。</div>
+  </div>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>和被害人逐款討論：「你最擔心他做什麼？」「你需要他離開家，還是留在家但不能靠近你？」</li><li>保護令與照顧安排一起規劃：被害人如果是唯一照顧者，先安排替手，保護令才執行得了</li></ul></div>
+</div>
+</section>
+
 <section class="slide" data-t="相對人是失智者">
 <div class="wrap">
   <span class="tag o">04 處置｜兩難</span>
@@ -1018,7 +1177,7 @@ button{font:inherit;color:inherit}
     <div class="arrow">→</div>
     <div class="card t"><h3>可以搭配的做法</h3><ul class="l small"><li>同步安排住宿式機構、日照或喘息，讓遷出有去處</li><li>聲請命接受精神治療評估</li><li>讓其他家屬或外籍看護接手照顧</li><li>評估輔助或監護宣告，處理財務與醫療決定</li></ul></div>
   </div>
-  <div class="note t">刑事面也有類似思路：高雄失智翁刺妻案，法院以緩刑附<b>強制精神治療</b>與<b>禁止施暴</b>為條件（第 02 段）。目標都是「讓暴力停下來，又讓照顧接得上」。</div>
+  <div class="note t">刑事面也有類似思路：高雄失智翁刺妻案，78 歲失智翁在幻覺中刺傷妻子，法院判緩刑並附<b>強制精神治療</b>與<b>禁止施暴</b>為條件。目標都是「讓暴力停下來，又讓照顧接得上」。</div>
   <div class="note o">被害人不願聲請時，仍要完成危險評估與安全計畫；高危機案件主管機關可依職權聲請。</div>
 </div>
 </section>
@@ -1091,6 +1250,14 @@ button{font:inherit;color:inherit}
 </section>
 
 <!-- ===== 05 福利 ===== -->
+<section class="slide" data-t="04 處置帶走的行動">
+<div class="wrap">
+  <span class="tag o">04 處置｜小結</span>
+  <h2>04 處置帶走的行動</h2>
+  <div class="g g2" style="gap:.7em"><div class="card"><b>1.</b> 疑似暴力 <b>24 小時內通報</b>，65 歲以上或持身障證明者同時勾選老人或身障保護</div><div class="card"><b>2.</b> TIPVDA 2.0 分數之外，加上夜間發作、妄想內容、武器可近性、照顧負荷做專業判斷</div><div class="card"><b>3.</b> 保護令款項依危險評估選擇，並與照顧安排同步</div><div class="card"><b>4.</b> 精神疾病有傷人或自傷之虞時，先請警消護送；2026 年 8 月起強制住院由法院審理，先向家屬說明流程</div><div class="card"><b>5.</b> 失智初期協助辦理意定監護、預立醫療決定；財務被控制時協助聲請輔助或監護宣告</div><div class="card"><b>6.</b> 不當照顧可建議主管機關安排家庭教育及輔導，讓照顧者學會照顧方法</div></div>
+</div>
+</section>
+
 <section class="slide divider" data-t="05 社會福利舉措" data-sec="1">
 <div class="wrap"><div class="big">05</div><h2>社會福利舉措</h2><p>2026 年是新制密集上路的一年。以下整理照顧者、失智者、精神疾病家庭可以用的資源。</p></div>
 </section>
@@ -1222,6 +1389,26 @@ button{font:inherit;color:inherit}
 </section>
 
 <!-- ===== 06 縣市 ===== -->
+<section class="slide" data-t="夜間求助怎麼安排">
+<div class="wrap">
+  <span class="tag o">05 福利｜夜間求助</span>
+  <h2>夜間求助怎麼安排：照顧悲劇過半發生在晚上</h2>
+  <div class="g g2">
+    <div class="card o"><h3>24 小時可以打的電話</h3><ul class="l small"><li><b>110</b>：有立即危險、被攻擊、失智者走失</li><li><b>119</b>：急病、受傷，或精神症狀有傷人自傷之虞時請求護送就醫</li><li><b>113</b> 保護專線：家暴、老人與身障保護諮詢與通報</li><li><b>1925</b> 安心專線：照顧者情緒崩潰、出現自殺念頭時</li></ul></div>
+    <div class="card t"><h3>白天先安排好的夜間支援</h3><ul class="l small"><li>家人、鄰居、里長的電話，寫在冰箱或手機第一頁，並先說好「半夜打給你」</li><li>獨居或老老家庭可申請<b>緊急救援系統</b>（各縣市社會局辦理，臺北市可洽社會局或 1999）</li><li>失智者配戴<b>愛心手鍊</b>、到警察局按捺指紋，走失時協尋較快</li><li>長照的<b>小規模多機能</b>服務可提供夜間臨時住宿，讓照顧者喘口氣（透過 1966 申請）</li></ul></div>
+  </div>
+  <div class="take"><div class="take-h">帶走這一頁</div><ul><li>和照顧者一起寫一張「<b>今晚撐不住時的求助卡</b>」：要打的電話、可以去的房間、可以接手的人</li><li>家照關懷專線 0800-507-272 與 1966 不是 24 小時服務，白天先打，夜間緊急時改用上面四支電話</li></ul></div>
+</div>
+</section>
+
+<section class="slide" data-t="05 福利帶走的行動">
+<div class="wrap">
+  <span class="tag o">05 福利｜小結</span>
+  <h2>05 福利帶走的行動</h2>
+  <div class="g g2" style="gap:.7em"><div class="card"><b>1.</b> 每個家庭先確認：<b>長照有沒有申請、時數夠不夠</b>，沒有就當場協助撥 1966</div><div class="card"><b>2.</b> 家暴個案幾乎都符合初篩第 9 項，<b>原則上都評估轉介家照據點</b></div><div class="card"><b>3.</b> 失智症 CDR 1 以上、或 80 歲以上，聘外籍看護免巴氏量表</div><div class="card"><b>4.</b> 住宿式機構補助每月 15,000 元，可作為遷出或分開居住的安排</div><div class="card"><b>5.</b> 高齡配偶照顧者拿不到特別照顧津貼，要改找其他資源</div><div class="card"><b>6.</b> 把 110、113、1966、0800-507-272、1925 寫給家屬帶回家</div></div>
+</div>
+</section>
+
 <section class="slide divider" data-t="06 各縣市規範" data-sec="1">
 <div class="wrap"><div class="big">06</div><h2>各縣市規範：相同與相異</h2><p>法源都在中央，差異在各縣市的執行機制、主動篩案方式與加碼方案。</p></div>
 </section>
@@ -1281,6 +1468,14 @@ button{font:inherit;color:inherit}
 </section>
 
 <!-- ===== 收尾 ===== -->
+<section class="slide" data-t="06 縣市帶走的行動">
+<div class="wrap">
+  <span class="tag o">06 縣市｜小結</span>
+  <h2>06 縣市帶走的行動</h2>
+  <div class="g g2" style="gap:.7em"><div class="card"><b>1.</b> 各縣市法源相同，差別在執行機制與加碼方案</div><div class="card"><b>2.</b> 臺北市採「一主責多協力」：社福中心主責脆弱家庭，家防中心主責保護案件</div><div class="card"><b>3.</b> 臺北市有「雙老、雙障」主動盤點與照專初篩，可與家照據點、社福中心協力</div><div class="card"><b>4.</b> 跨縣市個案，先確認服務所在地的窗口與申請規定再轉介</div></div>
+</div>
+</section>
+
 <section class="slide" data-t="訪視檢核清單">
 <div class="wrap">
   <span class="tag o">總整理</span>
@@ -1403,7 +1598,25 @@ button{font:inherit;color:inherit}
     ttl.textContent=s.dataset.t||'';
     prog.style.width=((cur+1)/slides.length*100)+'%';
     if(push!==false){try{history.replaceState(null,'','#s'+(cur+1));}catch(e){}}
+    if(typeof fit==='function')fit(s);
   }
+  // 自動調整字級：內容少就放大撐滿，內容多就縮小避免捲動
+  function fit(sl){
+    const w=sl.querySelector('.wrap');if(!w)return;
+    w.style.fontSize='';
+    if(innerWidth<760||innerHeight<480)return;
+    const cs=getComputedStyle(sl);
+    const avail=sl.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+    const hidden=[...sl.querySelectorAll('.dlg .ln[hidden]')];hidden.forEach(x=>x.hidden=false);
+    let lo=0.72,hi=sl.classList.contains('divider')||sl.classList.contains('cover')?1.3:1.5;
+    for(let k=0;k<9;k++){const m=(lo+hi)/2;w.style.fontSize=m+'em';if(w.scrollHeight<=avail*0.97)lo=m;else hi=m;}
+    w.style.fontSize=lo+'em';
+    hidden.forEach(x=>x.hidden=true);
+  }
+  window.__fit=()=>fit(slides[cur]);
+  addEventListener('resize',()=>fit(slides[cur]));
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>fit(slides[cur]));
+  document.addEventListener('click',e=>{if(e.target.closest('[data-reveal],.step,.tabbtn,.flip,[data-myth]'))requestAnimationFrame(()=>fit(slides[cur]));});
   const m=/^#s(\d+)$/.exec(location.hash||'');
   go(m?parseInt(m[1],10)-1:0,false);
   document.getElementById('prev').onclick=()=>go(cur-1);
