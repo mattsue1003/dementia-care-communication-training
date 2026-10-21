@@ -66,9 +66,11 @@ ul.l li::marker{color:var(--teal)}
 .st-head{display:flex;gap:.7em;align-items:center}
 .st-head b{display:block;line-height:1.3}
 .st-head small{display:block;color:var(--muted);font-size:.78em;line-height:1.35}
-.study dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.25em .8em;font-size:.92em}
+.study dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.2em .7em;font-size:.86em;line-height:1.5}
 .study dt{font-weight:700;color:var(--teal-d);white-space:nowrap}
 .study dd{margin:0;min-width:0}
+.study dt.use{color:var(--orange)}
+.study dd.use{background:var(--orange-soft);border-radius:6px;padding:.15em .5em}
 .plain{background:var(--teal-soft);border-radius:8px;padding:.5em .8em;font-size:.95em}
 .plain::before{content:"白話　";font-weight:900;color:var(--teal-d)}
 /* 分隔頁 */
@@ -207,7 +209,7 @@ button{font:inherit;color:inherit}
     <div class="card o"><div class="num o">03</div><h3>溝通與照顧技巧</h3><p class="small">可以在訪視時直接分享給照顧者的方法</p></div>
     <div class="card t"><div class="num">04</div><h3>處置</h3><p class="small">通報、篩派案、危險評估、保護令、精神衛生法新制、民刑法界線</p></div>
     <div class="card t"><div class="num">05</div><h3>社會福利</h3><p class="small">長照 3.0、照顧者支持、失智與精神疾病資源、經濟補助、專線</p></div>
-    <div class="card t"><div class="num">06</div><h3>縣市比較</h3><p class="small">新北、臺北與其他直轄市的共同點與差異，最後 QA</p></div>
+    <div class="card t"><div class="num">06</div><h3>縣市比較</h3><p class="small">臺北、新北與其他直轄市的共同點與差異，最後 QA</p></div>
   </div>
 </div>
 </section>
@@ -272,21 +274,27 @@ button{font:inherit;color:inherit}
 <div class="wrap"><div class="big">01</div><h2>研究：這群家庭為什麼風險高</h2><p>從台灣數字開始，再看國際研究怎麼描述失智照顧與暴力的關係，最後看哪些介入有證據。</p></div>
 </section>
 
-<section class="slide" data-t="台灣現況數字">
+<section class="slide" data-t="全國與臺北市數字">
 <div class="wrap">
-  <span class="tag">01 研究｜台灣現況</span>
-  <h2>先看台灣與新北的數字</h2>
+  <span class="tag">01 研究｜全國與臺北市</span>
+  <h2>先看全國與臺北市的數字</h2>
   <div class="g g4">
-    <div class="card t"><div class="num">7.99<small>%</small></div><p class="small">65 歲以上失智症盛行率（女 9.36%、男 6.35%）；85 歲以上達 23.23%</p></div>
-    <div class="card t"><div class="num">35<small>萬</small></div><p class="small">2024 年失智人口推估；2031 年超過 47 萬，2041 年近 68 萬</p></div>
-    <div class="card o"><div class="num o">10,347<small>人</small></div><p class="small">新北市 113 年婚姻暴力通報人數（女性 76%）</p></div>
-    <div class="card o"><div class="num o">1,718<small>人</small></div><p class="small">新北市 113 年老人保護通報人數（女性 65%）</p></div>
+    <div class="card t"><div class="num">7.99<small>%</small></div><p class="small">全國 65 歲以上失智症盛行率；85 歲以上達 23.23%</p></div>
+    <div class="card t"><div class="num">24.76<small>%</small></div><p class="small">臺北市 65 歲以上人口比例，全國最高，約每 4 人就有 1 位長者（2026 年 8 月）</p></div>
+    <div class="card t"><div class="num">49,111<small>人</small></div><p class="small">臺北市失智人口推估（2025 年底）</p></div>
+    <div class="card t"><div class="num">24.7<small>%</small></div><p class="small">臺北市 60 歲以上長者「只與配偶同住」的比例，老老照顧的基本盤</p></div>
+  </div>
+  <div class="g g4">
+    <div class="card o"><div class="num o">19,886<small>件</small></div><p class="small">臺北市 2025 年家暴通報（2022 年 16,924 件，逐年增加）</p></div>
+    <div class="card o"><div class="num o">52<small>%</small></div><p class="small">臺北市家暴刑事案件中，親密關係暴力的比例（2021 年至 2025 年 10 月）</p></div>
+    <div class="card o"><div class="num o">18.6<small>%</small></div><p class="small">臺北市保護令被違反比例；違反者中 42% 是家暴慣犯</p></div>
+    <div class="card o"><div class="num o">45<small>%</small></div><p class="small">臺北市老人保護通報中，屬於「照顧負荷」類的比例</p></div>
   </div>
   <div class="g g2">
-    <div class="note">全國 113 年老人虐待類型（可複選）：<b>精神虐待 53%</b>、身體 37%、騷擾 30%、經濟 2%。施虐者以成年子女最多（55%）。</div>
-    <div class="note t">意涵：失智人口持續增加，<b>老老照顧、配偶照顧</b>的家庭會越來越常出現在婚暴與老保案件中。</div>
+    <div class="note">臺北市 60 歲以上長者中，<b>12.4% 家中有需要長期照顧的家人</b>；65 歲以上有 15.1% 自己需要照顧協助。</div>
+    <div class="note t">意涵：臺北市是全國最老的城市，<b>老老照顧、配偶照顧</b>的家庭會越來越常出現在婚暴與老保案件中。</div>
   </div>
-  <p class="src">來源：衛福部委託國衛院「全國社區失智症流行病學調查」（2020–2023），2024.3.21 發布；新北市家防中心〈113 年家庭暴力、性侵害案量統計〉；衛福部 2025 年老人保護新聞稿。</p>
+  <p class="src">來源：衛福部〈全國社區失智症流行病學調查〉2024.3.21；內政部人口統計（中時新聞網 2026.10.5）；臺北市衛生局失智月記者會（2026.9.22）；臺北市社會局〈113 年臺北市老人生活狀況調查〉（3,865 位 60 歲以上市民面訪，2025.3）；臺北市府資料（經濟日報 2026.6.23；聯合報 2025.12.24）；臺北市政府 2023.12.11 老人保護簡報。</p>
 </div>
 </section>
 
@@ -316,17 +324,16 @@ button{font:inherit;color:inherit}
 <section class="slide" data-t="失智者受虐比例">
 <div class="wrap">
   <span class="tag">01 研究｜盛行率</span>
-  <h2>住在家裡的失智者，受虐比例是一般長者的近 3 倍</h2>
+  <h2>住在家裡的失智者，被家人虐待或疏忽的比例比一般長者高很多</h2>
   <div class="bars card">
-    <div class="bar-row"><span>一般長者</span><div class="bar-track"><div class="bar-fill" style="width:15.7%;background:var(--teal)"></div></div><span class="v">15.7%</span></div>
-    <div class="bar-row"><span>社區失智者</span><div class="bar-track"><div class="bar-fill" style="width:42.6%;background:var(--orange)"></div></div><span class="v">42.6%</span></div>
+    <div class="bar-row"><span>一般長者被虐</span><div class="bar-track"><div class="bar-fill" style="width:15.7%;background:var(--teal)"></div></div><span class="v">15.7%</span></div>
+    <div class="bar-row"><span>失智者被照顧者虐待或疏忽</span><div class="bar-track"><div class="bar-fill" style="width:42.6%;background:var(--orange)"></div></div><span class="v">42.6%</span></div>
   </div>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv lD">盛行</span><div><b>Yon et al., 2017</b><small>The Lancet Global Health｜WHO 團隊整合分析</small></div></div>
-      <dl><dt>對象</dt><dd>28 國、52 篇社區調查，60 歲以上長者</dd><dt>怎麼做</dt><dd>合併各國「過去一年受虐率」</dd><dt>結果</dt><dd>15.7%（約 6 人有 1 人）；心理虐待 11.6% 最多，身體虐待 2.6%</dd><dt>限制</dt><dd>各國定義不同；不是專指失智者</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv lD">盛行</span><div><b>Shen et al., 2025</b><small>Gerontology｜系統性回顧與整合分析</small></div></div>
-      <dl><dt>對象</dt><dd>8 國、30 篇研究，6,789 對失智者與照顧者</dd><dt>怎麼做</dt><dd>合併社區失智者受虐與疏忽的比例</dd><dt>結果</dt><dd>42.6%；心理虐待 44.8%、財務 28.3%、疏忽 19.8%、身體 10%</dd><dt>限制</dt><dd>研究間差異大，部分信賴區間很寬</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv lD">盛行</span><div><b>Yon et al., 2017</b><small>The Lancet Global Health｜WHO 團隊｜盛行率整合分析：把多國調查合在一起計算</small></div></div><dl><dt>想知道</dt><dd>全世界住在社區的長者，一年內被虐待的比例有多高</dd><dt>對象</dt><dd>28 國、52 篇社區調查，60 歲以上長者</dd><dt>怎麼做</dt><dd>合併各國調查中「過去一年曾被家人、照顧者或熟人虐待」的比例</dd><dt>結果</dt><dd><b>15.7%</b>，約每 6 位長者有 1 位。最多是心理虐待 11.6%（罵、羞辱、威脅），其次財務 6.8%、疏忽 4.2%、身體 2.6%</dd><dt>限制</dt><dd>各國對「虐待」的定義與問法不同；對象是一般長者，不是專指失智者</dd><dt class="use">用在服務</dt><dd class="use">訪視長者家庭時，不論是否失智，都要把「被虐待」列為需要詢問的項目，尤其是罵、羞辱、威脅這類看不到傷痕的心理虐待</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv lD">盛行</span><div><b>Shen et al., 2025</b><small>Gerontology｜盛行率整合分析</small></div></div><dl><dt>想知道</dt><dd>住在家裡的失智者，被家屬照顧者虐待或疏忽的比例有多高</dd><dt>對象</dt><dd>8 國、30 篇研究，共 6,789 對「失智者＋家屬照顧者」</dd><dt>怎麼做</dt><dd>合併各研究的比例；每一種虐待類型分開計算，所以各類數字不能相加</dd><dt>結果</dt><dd>任何一種虐待或疏忽 <b>42.6%</b>，約每 5 位有 2 位。心理虐待 44.8%、財務剝削 28.3%（例如未經同意動用存款）、疏忽 19.8%（例如沒給足飲食、不協助就醫）、身體虐待 10%</dd><dt>限制</dt><dd>各研究差異大，有些數字範圍很寬（例如財務剝削估計在 3%–53% 之間），只能看大方向</dd><dt class="use">用在服務</dt><dd class="use">家中有失智者時，風險比一般長者高很多：除了問有沒有動手，也要問錢由誰管、吃飯與就醫有沒有人照顧</dd></dl></div>
   </div>
+  <p class="xs">提醒：兩篇研究的對象、定義與調查期間不同，只能粗略比較，不是精確的倍數。</p>
   <p class="plain">最常見的不是打，而是罵、羞辱、威脅。訪視時要問的是「你們最近吵架都怎麼吵」，不只問「有沒有動手」。</p>
 </div>
 </section>
@@ -334,12 +341,11 @@ button{font:inherit;color:inherit}
 <section class="slide" data-t="照顧者自陳的虐待">
 <div class="wrap">
   <span class="tag">01 研究｜照顧者自陳</span>
-  <h2>每 3 位家屬照顧者，就有 1 位承認有明顯的吼罵或威脅</h2>
+  <h2>每 3 位家屬照顧者，就有 1 位承認曾對失智家人明顯吼罵或威脅</h2>
   <div class="g g2" style="align-items:start">
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Cooper et al., 2009（英國 CARD 研究）</b><small>BMJ｜橫斷面調查</small></div></div>
-      <dl><dt>對象</dt><dd>220 位家屬照顧者，失智家人剛轉介到倫敦與 Essex 的精神科服務、住在家中</dd><dt>怎麼做</dt><dd>用「修訂版衝突策略量表」10 題，詢問照顧者過去 3 個月的心理與身體行為</dd><dt>結果</dt><dd><b>52%</b> 有某些虐待行為；<b>34%</b> 達顯著程度；最常見是吼叫、咒罵；身體虐待只有 1.4%</dd><dt>限制</dt><dd>照顧者自己回答，可能低報；樣本來自已在接受服務的家庭</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Cooper et al., 2009（英國）</b><small>BMJ｜橫斷面調查：只在一個時間點問一次</small></div></div><dl><dt>想知道</dt><dd>家屬照顧者中，有多少人會對失智家人做出虐待行為</dd><dt>對象</dt><dd>倫敦與 Essex 220 位家屬照顧者；他們照顧的失智家人住在家中，剛被轉介到精神科服務</dd><dt>怎麼做</dt><dd>照顧者填「修訂版衝突策略量表」10 題（5 題心理行為、5 題身體行為），回答過去 3 個月自己對失智家人做過幾次</dd><dt>結果</dt><dd><b>52%</b> 做過至少一項；<b>34%</b> 次數多到「顯著程度」；最常見是吼叫、咒罵；推、打等身體虐待只有 1.4%</dd><dt>限制</dt><dd>照顧者自己回答，可能少報；對象都是已在接受服務的家庭</dd><dt class="use">用在服務</dt><dd class="use">問照顧者「你們最近吵架都怎麼吵？會不會忍不住大聲罵他？」比問「你有沒有虐待他」更容易得到真實回答；照顧者願意說，是轉介支持的好時機</dd></dl></div>
     <div class="g" style="gap:.8em">
-      <div class="card t"><div class="num">34<small>%</small></div><p class="small">達「顯著程度」的照顧者</p></div>
+      <div class="card t"><div class="num">34<small>%</small></div><p class="small">對失智家人的虐待行為達「顯著程度」的照顧者</p></div>
       <div class="card"><h3>這代表什麼</h3><p class="small">這是照顧者<b>願意說出來</b>的部分。作者也提醒，最嚴重的家庭可能根本不會說。照顧者若願意承認，是開啟支持的好時機，不是指責的時機。</p></div>
     </div>
   </div>
@@ -349,19 +355,25 @@ button{font:inherit;color:inherit}
 <section class="slide" data-t="雙向暴力">
 <div class="wrap">
   <span class="tag">01 研究｜雙向暴力</span>
-  <h2>暴力常常是雙向的，配偶照顧風險最高</h2>
+  <h2>雙向暴力：照顧者會傷害失智者，失智者也會傷害照顧者</h2>
+  <p class="small">「照顧者」＝在家照顧失智家人的配偶或家屬；「失智者」＝被照顧的人。上方兩個數字來自同一份挪威研究，<b>都由照顧者本人填答</b>。</p>
   <div class="vs">
-    <div class="card t"><h3>照顧者 → 失智者</h3><div class="num">66.3<small>%</small></div><p class="small">過去 12 個月任何虐待（心理 63.5%、身體 9.4%）</p></div>
+    <div class="card t"><h3>方向一：照顧者 → 失智者</h3><p class="small">照顧者承認自己過去 12 個月<b>對失智家人做過</b>的行為</p><div class="num">66.3<small>%</small></div><ul class="l small"><li>心理虐待 63.5%：吼罵、羞辱、威脅</li><li>身體虐待 9.4%：推、打、抓、用力拉扯</li></ul></div>
     <div class="arrow">⇄</div>
-    <div class="card o"><h3>失智者 → 照顧者</h3><div class="num o">35.3<small>%</small></div><p class="small">過去 12 個月任何攻擊（心理 33.9%、身體 7.6%）</p></div>
+    <div class="card o"><h3>方向二：失智者 → 照顧者</h3><p class="small">照顧者表示自己過去 12 個月<b>被失智家人做過</b>的行為</p><div class="num o">35.3<small>%</small></div><ul class="l small"><li>心理攻擊 33.9%：罵、指控、威脅</li><li>身體攻擊 7.6%：推、打、抓、踢</li></ul></div>
   </div>
+  <p class="plain">例如：失智的先生推了太太（方向二），太太氣不過推回去或罵回去（方向一），下一次衝突更大。這種互相升高，就是親密關係暴力方案常看到的樣貌，<b>兩個人都可能同時是被害人，也是加害人</b>。</p>
+</div>
+</section>
+
+<section class="slide" data-t="雙向暴力：研究怎麼做">
+<div class="wrap">
+  <span class="tag">01 研究｜雙向暴力</span>
+  <h2>上一頁的數字，研究是怎麼做出來的</h2>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Steinsheim et al., 2022（挪威）</b><small>BMC Geriatrics｜匿名橫斷面問卷</small></div></div>
-      <dl><dt>對象</dt><dd>540 位居家失智者的家屬照顧者</dd><dt>結果</dt><dd><b>配偶或伴侶照顧者</b>在各類虐待的比例都顯著較高；失智者動手時，照顧者也比較會動手</dd><dt>限制</dt><dd>回收率約 36%；調查期間正逢 COVID-19</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Cooper et al., 2010（英國 CARD）</b><small>J Neurol Neurosurg Psychiatry｜橫斷面研究</small></div></div>
-      <dl><dt>對象</dt><dd>同上 220 位照顧者</dd><dt>結果</dt><dd><b>37.3%</b> 曾遭失智家人罵、威脅或攻擊；受攻擊越多，照顧關係的「回饋感」下降越多；用否認、自責、喝酒因應的人，關係惡化更明顯</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Steinsheim et al., 2022（挪威）</b><small>BMC Geriatrics｜橫斷面匿名問卷：只在一個時間點問一次</small></div></div><dl><dt>想知道</dt><dd>照顧者與失智者之間，兩個方向的虐待有多常見</dd><dt>對象</dt><dd>540 位在家照顧失智家人的照顧者（回收率約 36%）</dd><dt>怎麼做</dt><dd>匿名問卷，請照顧者回答過去 12 個月：自己對失智家人做過的行為，以及自己被失智家人做過的行為</dd><dt>結果</dt><dd>兩個方向的數字見上方。照顧者是配偶或伴侶時，對失智者虐待的比例比子女等其他照顧者高；失智者會對照顧者動手的家庭，照顧者也比較會對失智者動手</dd><dt>限制</dt><dd>只問一次，看不出誰先動手；調查期間正逢 COVID-19</dd><dt class="use">用在服務</dt><dd class="use">配偶照顧的個案，兩個人都要分開會談、各做一次危險評估；不要因為對方是失智者，就只把他當被害人或只把他當加害人</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Cooper et al., 2010（英國）</b><small>J Neurol Neurosurg Psychiatry｜橫斷面調查</small></div></div><dl><dt>想知道</dt><dd>照顧者被失智家人罵或攻擊的情況有多常見</dd><dt>對象</dt><dd>與 2009 年研究同一批 220 位照顧者</dd><dt>怎麼做</dt><dd>問照顧者過去 3 個月被失智家人罵、威脅或打的次數，並評估照顧關係</dd><dt>結果</dt><dd><b>37.3%</b> 至少偶爾被罵、威脅或攻擊，其中被打等身體攻擊 5.9%。被攻擊越多，照顧者越覺得照顧沒有回報，關係也越差</dd><dt>限制</dt><dd>只問一次；照顧者自己回答</dd><dt class="use">用在服務</dt><dd class="use">照顧者也可能是被害人：會談時要直接問「他有沒有打過你、罵你、威脅你？」，並把照顧者的人身安全放進安全計畫</dd></dl></div>
   </div>
-  <p class="plain">「你罵我、我回罵；你推我、我推回去」的互相升高，就是親密關係暴力方案會看到的樣貌。</p>
 </div>
 </section>
 
@@ -370,12 +382,9 @@ button{font:inherit;color:inherit}
   <span class="tag">01 研究｜晚年親密關係暴力</span>
   <h2>高齡被害人：打得少了，控制還在，而且更難離開</h2>
   <div class="g g3">
-    <div class="study"><div class="st-head"><span class="lv l2b">2a</span><div><b>Chen & Li, 2026</b><small>Trauma, Violence & Abuse｜範圍回顧＋整合分析</small></div></div>
-      <dl><dt>對象</dt><dd>37 篇老年人親密關係暴力研究</dd><dt>結果</dt><dd>過去一年任何形式 <b>10.6%</b>；以心理暴力最常見</dd><dt>限制</dt><dd>各研究定義與工具差異大</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Stöckl & Penhale, 2015（德國）</b><small>J Interpers Violence｜全國代表性調查</small></div></div>
-      <dl><dt>對象</dt><dd>10,264 名 16–86 歲女性</dd><dt>結果</dt><dd>身體或性暴力隨年齡下降（66–86 歲 1%），但<b>情緒、經濟暴力與控制行為各年齡層幾乎一樣</b></dd><dt>限制</dt><dd>自陳資料</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>SafeLives, 2016（英國）</b><small>Safe Later Lives｜家暴服務個案資料</small></div></div>
-      <dl><dt>比較</dt><dd>60 歲以上 vs 60 歲以下被害人</dd><dt>結果</dt><dd>平均受暴 <b>6.5 年 vs 4 年</b>；有身心障礙 48% vs 13%；過去一年曾試圖離開 27% vs 68%</dd><dt>限制</dt><dd>服務個案，非人口盛行率</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv lD">盛行</span><div><b>Chen & Li, 2026</b><small>Trauma, Violence & Abuse｜盛行率整合分析</small></div></div><dl><dt>想知道</dt><dd>老年人被配偶或伴侶施暴有多常見</dd><dt>對象</dt><dd>37 篇以老年人為對象的研究（男女都有），收錄到 2025 年 8 月</dd><dt>怎麼做</dt><dd>合併各研究「過去一年曾被配偶或伴侶施暴」的比例</dd><dt>結果</dt><dd><b>10.6%</b>，約每 10 位長者有 1 位；最常見的是心理暴力，例如罵、羞辱、控制</dd><dt>限制</dt><dd>各研究對「老年」的年齡與暴力的定義不同</dd><dt class="use">用在服務</dt><dd class="use">高齡個案的通報與開案，不要因為「年紀大了、打不動了」就降低危險等級</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Stöckl & Penhale, 2015（德國）</b><small>J Interpers Violence｜全國代表性調查</small></div></div><dl><dt>想知道</dt><dd>年紀變大以後，伴侶暴力會不會就消失了</dd><dt>對象</dt><dd>德國全國抽樣 10,264 名 16–86 歲女性</dd><dt>怎麼做</dt><dd>比較三個年齡層（16–49、50–65、66–86 歲）過去一年被伴侶施暴的比例</dd><dt>結果</dt><dd>被打或性暴力隨年齡下降（8% → 3% → 1%）；但被罵、被控制、被管錢等<b>情緒與經濟暴力，三個年齡層幾乎一樣多</b></dd><dt>限制</dt><dd>受訪者自己回答，可能少報</dd><dt class="use">用在服務</dt><dd class="use">評估高齡伴侶暴力時，重點放在控制與經濟暴力：問「錢誰在管？」「可以自己出門、見朋友嗎？」「他會不會威脅你？」</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>SafeLives, 2016（英國）</b><small>Safe Later Lives 報告｜家暴服務個案紀錄分析</small></div></div><dl><dt>想知道</dt><dd>高齡家暴被害人和年輕被害人有什麼不同</dd><dt>對象</dt><dd>英國家暴服務的個案，分成 60 歲以上與 60 歲以下兩組</dd><dt>怎麼做</dt><dd>分析家暴專責人員收案時的紀錄並比較兩組</dd><dt>結果</dt><dd>60 歲以上被害人：求助前平均已受暴 <b>6.5 年</b>（年輕組 4 年）；48% 有身心障礙（年輕組 13%）；過去一年曾試圖離開只有 27%（年輕組 68%）</dd><dt>限制</dt><dd>只包含有來求助的個案，不能代表所有長者</dd><dt class="use">用在服務</dt><dd class="use">高齡被害人很少主動離開，安全計畫要以「留在家中也能安全」來設計，並同時處理她放不下照顧責任的顧慮</dd></dl></div>
   </div>
   <p class="plain">高齡被害人不一定有明顯傷痕，也很少說自己「被家暴」。訪視時要問控制、經濟與威脅，並留意他可能因為要照顧對方而走不了。</p>
 </div>
@@ -386,19 +395,11 @@ button{font:inherit;color:inherit}
   <span class="tag">01 研究｜風險因子</span>
   <h2>什麼情況最容易「罵出口、動到手」</h2>
   <div class="g g3">
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Yan & Kwok, 2011（香港）</b><small>Int J Geriatric Psychiatry</small></div></div>
-      <dl><dt>對象</dt><dd>122 位華人失智家屬照顧者</dd><dt>結果</dt><dd>1 個月內言語虐待 62%、身體虐待 18%。預測因子：照顧負荷、失智者躁動、<b>同住天數</b>、<b>沒有外籍看護或幫手</b></dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l2b">2b</span><div><b>Ku et al., 2019（台灣南部）</b><small>International Psychogeriatrics</small></div></div>
-      <dl><dt>對象</dt><dd>231 對失智者與照顧者，追蹤 1 年</dd><dt>結果</dt><dd><b>精神行為症狀（BPSD）越多，照顧負荷越重</b>；經濟狀況較好的照顧者負荷較低</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Uei et al., 2013（台灣）</b><small>Social Behavior and Personality</small></div></div>
-      <dl><dt>對象</dt><dd>162 對社區失智者與家屬</dd><dt>結果</dt><dd>照顧者「覺得自己處理得來」攻擊、不合作、遊走時，負荷較輕。這種自我效能可以靠訓練提升</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Yan & Kwok, 2011（香港）</b><small>Int J Geriatric Psychiatry｜橫斷面調查</small></div></div><dl><dt>想知道</dt><dd>華人家庭中，照顧者對失智家人的虐待和照顧壓力有沒有關係</dd><dt>對象</dt><dd>香港 122 位失智者的家屬照顧者</dd><dt>怎麼做</dt><dd>問卷詢問照顧者過去 1 個月對失智家人做過的行為，並測量照顧負荷、失智者躁動程度、同住情形</dd><dt>結果</dt><dd>照顧者對失智家人言語虐待（罵、吼）<b>62%</b>、身體虐待 18%。言語虐待較常出現在：照顧負荷重、失智者躁動、同住天數多、家裡沒有外籍看護或幫手</dd><dt>限制</dt><dd>樣本小、不是隨機抽樣、照顧者自己回答</dd><dt class="use">用在服務</dt><dd class="use">訪視時盤點三件事：照顧者的負荷、失智者是否躁動、家裡有沒有替手；缺替手的家庭優先連結喘息、日照或申請外籍看護</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l2b">2b</span><div><b>Ku et al., 2019（台灣南部）</b><small>International Psychogeriatrics｜世代研究：追蹤同一群人一年</small></div></div><dl><dt>想知道</dt><dd>哪些因素會讓台灣失智照顧者的負擔變重</dd><dt>對象</dt><dd>南部一家醫院失智門診 231 對「失智者＋照顧者」，1 年後追蹤到 167 對</dd><dt>怎麼做</dt><dd>用「Zarit 照顧負荷量表」測照顧者壓力；用「神經精神量表（NPI）」評估失智者的精神行為症狀</dd><dt>結果</dt><dd>失智者的<b>精神行為症狀（BPSD，例如妄想、躁動、攻擊、日夜顛倒）越多，照顧者負荷越重</b>；家庭經濟較好的照顧者負荷較低</dd><dt>限制</dt><dd>只有一家醫院的病人</dd><dt class="use">用在服務</dt><dd class="use">照顧者抱怨妄想、躁動、日夜顛倒時，先協助回診處理症狀，症狀減少，衝突與照顧壓力也會跟著下降</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Uei et al., 2013（台灣）</b><small>Social Behavior and Personality｜橫斷面調查</small></div></div><dl><dt>想知道</dt><dd>照顧者對自己「處理得來」的信心，和照顧負荷有沒有關係</dd><dt>對象</dt><dd>台灣 162 對社區失智者與主要家屬照顧者</dd><dt>怎麼做</dt><dd>問卷測量失智者的行為問題、照顧者的負荷，以及照顧者處理行為問題的信心（自我效能）</dd><dt>結果</dt><dd>照顧者越覺得自己處理得來<b>攻擊、不合作、遊走</b>等行為，照顧負荷越輕；連同行為頻率、照顧時數等六個因素，可以解釋 36.1% 的負荷差異</dd><dt>限制</dt><dd>只問一次，看不出因果</dd><dt class="use">用在服務</dt><dd class="use">提升照顧者「處理得來」的信心：教一兩個簡單、馬上能用的方法（第 03 段），並在下次訪視時一起檢討成效</dd></dl></div>
   </div>
-  <div class="g g4">
-    <div class="card a"><b>行為症狀</b><p class="small">妄想、躁動、攻擊比「忘記」更壓垮人</p></div>
-    <div class="card a"><b>天天同住</b><p class="small">沒有喘口氣的空間</p></div>
-    <div class="card a"><b>沒有替手</b><p class="small">一個人 24 小時撐</p></div>
-    <div class="card a"><b>覺得無能為力</b><p class="small">不知道該怎麼回應</p></div>
-  </div>
+  <div class="note">四個共同警訊：<b>行為症狀</b>（妄想、躁動比「忘記」更壓垮人）、<b>天天同住</b>、<b>沒有替手</b>、<b>覺得無能為力</b>。</div>
 </div>
 </section>
 
@@ -413,10 +414,8 @@ button{font:inherit;color:inherit}
     <div class="card o"><div class="num o">65.4<small>%</small></div><p class="small">加害者為男性</p></div>
   </div>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>法務部司法官學院犯罪防治研究中心，2024</b><small>定讞判決分析（案例系列）</small></div></div>
-      <dl><dt>對象</dt><dd>1999 年至 2023 年 4 月，26 件長照殺人定讞判決</dd><dt>結果</dt><dd>上方四項數字；平均刑期 4 年 10 月</dd><dt>限制</dt><dd>只含定讞判決，未分析配偶與失智比例</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>《報導者》資料庫，2021</b><small>判決書、新聞與監察院報告彙整</small></div></div>
-      <dl><dt>對象</dt><dd>2005–2020 年 25 件照顧殺人案</dd><dt>結果</dt><dd><b>配偶加害 8 件（32%）</b>，與兒子並列最多；<b>超過一半沒有使用任何照顧服務</b>；15 件曾試圖同死</dd><dt>限制</dt><dd>不是完整統計</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>法務部司法官學院犯罪防治研究中心，2024</b><small>長照殺人定讞判決分析</small></div></div><dl><dt>想知道</dt><dd>台灣長照殺人案件有哪些共同特徵</dd><dt>對象</dt><dd>1999 年至 2023 年 4 月，26 件已定讞的長照殺人判決</dd><dt>怎麼做</dt><dd>逐件整理判決書中的加害者、照顧年數、發生時間與刑期</dd><dt>結果</dt><dd>上方四項數字；平均刑期 4 年 10 月；父母殺害子女的案件占 4 成以上</dd><dt>限制</dt><dd>只有定讞判決；沒有分析配偶與失智的比例</dd><dt class="use">用在服務</dt><dd class="use">照顧超過 10 年、照顧者自己身體也不好的家庭，要列為高風險，夜間的求助管道要事先安排好</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>《報導者》資料庫，2021</b><small>媒體整理的照顧殺人案件</small></div></div><dl><dt>想知道</dt><dd>台灣照顧殺人案的加害人是誰、有沒有用過照顧服務</dd><dt>對象</dt><dd>2005–2020 年 25 件照顧殺人案</dd><dt>怎麼做</dt><dd>記者整理判決書、新聞與監察院報告</dd><dt>結果</dt><dd>加害人是配偶 8 件、兒子 8 件，並列最多；18 名加害人是男性；<b>超過一半（14 件）沒有使用任何照顧服務</b>；15 件加害人曾試圖一起尋死</dd><dt>限制</dt><dd>媒體整理，不是完整的官方統計</dd><dt class="use">用在服務</dt><dd class="use">第一個要確認的就是這個家「有沒有在用長照服務」；沒有的話，當次訪視就協助撥 1966 申請評估</dd></dl></div>
   </div>
   <p class="note">英國政府檢討 35 份長者家庭命案報告（Benbow et al., 2019，<span class="lv l4" style="height:1.6em;min-width:1.6em;font-size:.7em">4</span>）也指出：<b>照顧壓力、加害者精神疾病、物質濫用、過去家暴史</b>是四大主題，建議第一線風險評估把「照顧壓力」放進去。</p>
 </div>
@@ -427,12 +426,9 @@ button{font:inherit;color:inherit}
   <span class="tag">01 研究｜國際資料</span>
   <h2>日本與英國：高齡家庭命案中，配偶照顧者占重要比例</h2>
   <div class="g g3">
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>英國家庭命案計畫，2022</b><small>Domestic Homicide Project｜警方案件分析</small></div></div>
-      <dl><dt>對象</dt><dd>2020.3–2021.3 共 145 件家庭命案</dd><dt>結果</dt><dd>25% 被害人 65 歲以上；高齡伴侶命案嫌犯<b>全部是現任配偶</b>，常是被害人的照顧者；7 件殺人後自殺<b>全是丈夫殺妻子</b>，多數<b>沒有家暴紀錄</b></dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>日本厚生勞動省高齡者虐待調查</b><small>依《高齡者虐待防止法》的全國調查，共同通信整理</small></div></div>
-      <dl><dt>對象</dt><dd>2006–2024 年度，家屬照顧者造成的長者死亡案件</dd><dt>結果</dt><dd>至少 <b>486 名</b>長者遭照顧家屬虐待或殺害致死，被害人女性占 7 成；2023 年度家庭內虐待 17,100 件，加害人兒子 38.7%、<b>丈夫 22.8%</b></dd><dt>限制</dt><dd>只計入行政調查掌握的案件，專家認為是冰山一角</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Bows, 2018（英國杜倫大學）</b><small>家庭命案資料分析</small></div></div>
-      <dl><dt>對象</dt><dd>2010–2015 年 221 件 60 歲以上家庭命案</dd><dt>結果</dt><dd>占家庭命案約 25%，高於人口比例 18%；加害人 46% 是配偶或伴侶</dd><dt>建議</dt><dd>現行風險評估偏重年輕伴侶，需要調整</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>英國家庭命案計畫，2022</b><small>Domestic Homicide Project｜警方案件分析</small></div></div><dl><dt>想知道</dt><dd>英國家庭命案中，高齡被害人是什麼樣的情況</dd><dt>對象</dt><dd>2020 年 3 月至 2021 年 3 月，英國警方記錄的 145 件家庭命案</dd><dt>怎麼做</dt><dd>分析警方案件資料中被害人年齡、與嫌犯的關係</dd><dt>結果</dt><dd>36 件（25%）被害人 65 歲以上；高齡被害人遭伴侶殺害的案件，<b>嫌犯全是現任配偶</b>，常是被害人的照顧者；7 件「殺人後自殺」全是丈夫殺妻子，這些夫妻多數<b>沒有家暴紀錄</b></dd><dt>限制</dt><dd>只有一年的資料，案件數不多</dd><dt class="use">用在服務</dt><dd class="use">沒有家暴紀錄的高齡夫妻，仍可能發生致命事件：聽到「我們一起走算了」或照顧者自己生病時，要立即做自殺與危險評估</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>日本高齡者虐待全國調查</b><small>厚生勞動省依《高齡者虐待防止法》每年調查，共同通信整理</small></div></div><dl><dt>想知道</dt><dd>日本有多少長者死於家屬照顧者的虐待或殺害</dd><dt>對象</dt><dd>2006–2024 年度，各地政府回報的家庭內長者虐待案件</dd><dt>怎麼做</dt><dd>整理歷年調查中，因照顧家屬虐待或殺害而死亡的長者人數</dd><dt>結果</dt><dd>至少 <b>486 名</b>長者死亡，女性占 7 成；2023 年度家庭內虐待 17,100 件，加害人是兒子 38.7%、<b>丈夫 22.8%</b></dd><dt>限制</dt><dd>只計入政府掌握的案件，專家認為是冰山一角</dd><dt class="use">用在服務</dt><dd class="use">丈夫照顧妻子的家庭，是國際資料一再出現的高風險組合，訪視時要特別留意男性照顧者的情緒與求助意願</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Bows, 2018（英國杜倫大學）</b><small>家庭命案資料分析</small></div></div><dl><dt>想知道</dt><dd>英國 60 歲以上的家庭命案有什麼特徵</dd><dt>對象</dt><dd>2010–2015 年英國 221 件被害人 60 歲以上的家庭命案</dd><dt>怎麼做</dt><dd>分析命案資料中的加害人關係與案件比例</dd><dt>結果</dt><dd>占所有家庭命案約 25%，高於 60 歲以上的人口比例 18%；加害人 46% 是配偶或伴侶、44% 是子女或孫子女</dd><dt>建議</dt><dd>現行危險評估工具以年輕伴侶為主，需要為長者調整</dd><dt class="use">用在服務</dt><dd class="use">使用台灣的危險評估工具時，要額外記錄照顧關係、照顧年數、照顧者健康狀況，彌補工具對高齡個案的不足</dd></dl></div>
   </div>
   <div class="note o">「沒有家暴紀錄」不等於安全。<b>照顧者說出想一起走、照顧者自己生病、被照顧者病況急轉</b>，都是要立即評估的訊號。</div>
 </div>
@@ -441,16 +437,21 @@ button{font:inherit;color:inherit}
 <section class="slide" data-t="介入：哪些有效">
 <div class="wrap">
   <span class="tag">01 研究｜介入證據</span>
-  <h2>哪些介入有證據</h2>
+  <h2>哪些介入有證據（一）：教家屬照顧與到家支持</h2>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Brodaty & Arasaratnam, 2012</b><small>Am J Psychiatry｜23 篇試驗整合分析</small></div></div>
-      <dl><dt>比較</dt><dd>家屬執行的非藥物介入（行為處理、溝通、環境調整）vs 一般照護</dd><dt>結果</dt><dd>失智者行為症狀效果量 <b>0.34</b>（小到中），作者指出與抗精神病藥物相當</dd><dt>有效特徵</dt><dd>9–12 次、個別化、<b>到家裡</b>、多元成分、持續 3–6 個月</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>REACH II（Belle et al., 2006）</b><small>Annals of Internal Medicine｜RCT</small></div></div>
-      <dl><dt>對象</dt><dd>美國 642 位照顧者</dd><dt>比較</dt><dd>6 個月 9 次家訪＋電話（問題解決、技巧、壓力管理）vs 衛教包</dd><dt>結果</dt><dd>臨床憂鬱 <b>12.6% vs 22.7%</b>，幾乎減半</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>溝通技巧訓練系統性回顧</b><small>Eggenberger 2013；Nguyen 2019；Morris 2018</small></div></div>
-      <dl><dt>結果</dt><dd>照顧者溝通技巧 SMD <b>0.89</b>（大效果）；照顧者壓力在追蹤時才出現小效果（0.30）</dd><dt>關鍵</dt><dd>對家屬最有效的是<b>有實際練習、有討論</b>的技巧型訓練</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Livingston et al., 2014</b><small>Br J Psychiatry｜33 篇 RCT 系統性回顧</small></div></div>
-      <dl><dt>結果</dt><dd>以人為本照護、溝通技巧訓練、音樂活動能降低激躁；芳香療法、光照治療無效</dd><dt>限制</dt><dd>多數研究在機構進行</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Brodaty & Arasaratnam, 2012</b><small>Am J Psychiatry｜整合分析：合併 23 篇試驗</small></div></div><dl><dt>想知道</dt><dd>教家屬用非藥物方法照顧，能不能減少失智者的行為症狀</dd><dt>對象</dt><dd>23 篇隨機或類隨機試驗，介入都由家屬照顧者在家執行</dd><dt>怎麼做</dt><dd>一組家屬接受訓練（行為處理、溝通、環境調整等），另一組一般照護，比較失智者行為症狀的變化</dd><dt>結果</dt><dd>訓練組失智者行為症狀明顯減少，效果量 <b>0.34</b>（屬小到中等效果；0.2 小、0.5 中、0.8 大），作者指出與抗精神病藥物的效果相當</dd><dt>有效方案</dt><dd>9–12 次、依家庭量身設計、<b>到家裡進行</b>、包含多種方法、持續 3–6 個月</dd><dt class="use">用在服務</dt><dd class="use">轉介居家服務時，選擇「到家、量身設計、持續數個月」的方案效果最好；只發衛教單張效果有限</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>REACH II（Belle et al., 2006）</b><small>Annals of Internal Medicine｜隨機對照試驗（RCT）</small></div></div><dl><dt>想知道</dt><dd>到家裡的多元支持，能不能減輕照顧者的憂鬱</dd><dt>對象</dt><dd>美國 642 位失智者家屬照顧者，西語裔、白人、非裔各 200 多人</dd><dt>怎麼做</dt><dd>隨機分兩組：介入組 6 個月內接受 9 次家訪與電話支持（問題解決、照顧技巧、壓力管理）；對照組只拿衛教資料、接 2 通電話</dd><dt>結果</dt><dd>6 個月後達臨床憂鬱的照顧者：介入組 <b>12.6%</b>、對照組 <b>22.7%</b>，幾乎少一半</dd><dt>限制</dt><dd>只追蹤 6 個月；介入密集，人力成本高</dd><dt class="use">用在服務</dt><dd class="use">有憂鬱跡象的照顧者，優先連結家照據點的個案管理或心理支持，而不是只給資源清單</dd></dl></div>
+  </div>
+</div>
+</section>
+
+<section class="slide" data-t="介入：溝通訓練">
+<div class="wrap">
+  <span class="tag">01 研究｜介入證據</span>
+  <h2>哪些介入有證據（二）：溝通訓練與非藥物方法</h2>
+  <div class="g g2">
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>溝通技巧訓練的系統性回顧</b><small>Eggenberger 2013；Nguyen 2019；Morris 2018</small></div></div><dl><dt>想知道</dt><dd>教照顧者溝通技巧，到底有沒有用</dd><dt>對象</dt><dd>三篇系統性回顧，各自整合 12–38 篇研究，對象包括專業照顧者與家屬</dd><dt>怎麼做</dt><dd>比較接受溝通訓練與沒有接受訓練的照顧者</dd><dt>結果</dt><dd>照顧者溝通技巧明顯進步（SMD 0.89，屬大效果；SMD 是比較不同研究效果大小的指標，0.8 以上算大）；照顧者壓力要到追蹤時才出現小幅下降（0.30）</dd><dt>關鍵</dt><dd>對家屬最有效的是<b>有實際練習、有討論</b>的訓練，只聽講效果有限</dd><dt>限制</dt><dd>多數研究樣本小，品質參差</dd><dt class="use">用在服務</dt><dd class="use">教照顧者技巧時要「示範＋一起練一句」，例如用第 03 段的換句話說，比單純講解有效</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Livingston et al., 2014</b><small>Br J Psychiatry｜系統性回顧：整合 33 篇隨機對照試驗</small></div></div><dl><dt>想知道</dt><dd>哪些非藥物方法能減少失智者的激躁（躁動、吼叫、攻擊）</dd><dt>對象</dt><dd>33 篇隨機對照試驗，多數在照護機構進行</dd><dt>怎麼做</dt><dd>比較各種非藥物方法與一般照護</dd><dt>結果</dt><dd>以人為本的照護、教工作人員溝通技巧、音樂活動可以降低激躁；芳香療法、光照治療沒有效果</dd><dt>限制</dt><dd>多數在機構，居家的研究少</dd><dt class="use">用在服務</dt><dd class="use">建議失智者使用日照或據點的音樂、活動課程，可以減少躁動，也讓照顧者有喘息時間</dd></dl></div>
   </div>
 </div>
 </section>
@@ -460,10 +461,8 @@ button{font:inherit;color:inherit}
   <span class="tag o">01 研究｜限制</span>
   <h2>只教技巧，不夠</h2>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>START 方案（Livingston 2013、2020；Cooper 2016）</b><small>BMJ／Br J Psychiatry／Int Psychogeriatrics｜RCT</small></div></div>
-      <dl><dt>對象</dt><dd>英國 260 位家屬照顧者</dd><dt>比較</dt><dd>8 次手冊課程（認識失智、行為處理、改變想法、自我肯定溝通、放鬆）vs 一般照護</dd><dt>結果</dt><dd>焦慮憂鬱下降，<b>效果維持 6 年</b>；但<b>虐待行為沒有減少</b>，追蹤 2 年仍約 1/4 有顯著虐待</dd></dl></div>
-    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Livingston et al., 2014</b><small>同前</small></div></div>
-      <dl><dt>結果</dt><dd>在家庭中，教家屬<b>複雜</b>的行為管理或認知行為技巧，對<b>嚴重激躁無效</b></dd><dt>作者推測</dt><dd>24 小時照顧的家屬，很難把複雜技巧用出來</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>START 方案（Livingston 2013、2020；Cooper 2016）</b><small>BMJ／Br J Psychiatry／Int Psychogeriatrics｜隨機對照試驗（RCT）</small></div></div><dl><dt>想知道</dt><dd>教家屬因應策略，能不能改善照顧者心理健康、減少虐待</dd><dt>對象</dt><dd>英國 260 位失智者家屬照顧者</dd><dt>怎麼做</dt><dd>隨機分兩組：START 組上 8 次一對一課程（認識失智、處理行為問題、改變負面想法、自我肯定溝通、放鬆練習）；對照組一般照護</dd><dt>結果</dt><dd>START 組焦慮憂鬱明顯下降，<b>效果維持到 6 年後</b>；但照顧者對失智家人的<b>虐待行為沒有減少</b>，追蹤 2 年仍約 1/4 有顯著虐待</dd><dt>限制</dt><dd>研究人員依倫理會處理兩組發現的虐待，可能讓兩組差異看不出來</dd><dt class="use">用在服務</dt><dd class="use">只上課不夠：高風險家庭要同時做三件事，教技巧、安排喘息、做保護評估</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Livingston et al., 2014</b><small>同上一頁的系統性回顧，只看居家研究</small></div></div><dl><dt>想知道</dt><dd>在家裡教家屬照顧技巧，能不能減少嚴重激躁</dd><dt>對象</dt><dd>回顧中在家庭進行的試驗，對象是家屬照顧者</dd><dt>怎麼做</dt><dd>比較接受行為管理或認知行為技巧訓練的家屬與一般照護</dd><dt>結果</dt><dd>對<b>嚴重激躁沒有效果</b></dd><dt>作者推測</dt><dd>24 小時照顧的家屬很難把複雜技巧用出來</dd><dt class="use">用在服務</dt><dd class="use">對 24 小時照顧的家屬，一次只教一個簡單方法，並搭配喘息，不要期待他學會整套技巧</dd></dl></div>
   </div>
   <h3>所以高風險家庭要三軌並行</h3>
   <div class="g g3">
@@ -480,7 +479,7 @@ button{font:inherit;color:inherit}
   <h2>把研究帶回訪視的五句話</h2>
   <div class="g" style="gap:.6em">
     <div class="card"><b>1.</b> 失智家庭的衝突以<b>言語與心理</b>為主，要主動問，不能只問有沒有動手。</div>
-    <div class="card"><b>2.</b> 暴力常常<b>雙向</b>，被照顧者也可能先動手；<b>配偶照顧</b>是高風險組合。</div>
+    <div class="card"><b>2.</b> 暴力常常<b>雙向</b>：照顧者會傷害失智者，失智者也可能先對照顧者動手；<b>配偶照顧</b>是高風險組合。</div>
     <div class="card"><b>3.</b> 壓垮照顧者的是<b>行為症狀、同住、沒有替手</b>，這三項都可以被資源改變。</div>
     <div class="card"><b>4.</b> 照顧悲劇常見於<b>照顧多年、照顧者自己也生病、夜間、沒用服務</b>的家庭。</div>
     <div class="card"><b>5.</b> 溝通訓練有效，但必須搭配<b>喘息與保護評估</b>，不能單靠上課。</div>
@@ -707,8 +706,7 @@ button{font:inherit;color:inherit}
     <div class="card a"><h3>被偷妄想</h3><p class="small">「我的錢被你拿走了」。記憶退化，自己藏的東西找不到，只好用「有人偷」來解釋。</p><ul class="l small"><li>不急著否認，先接情緒，一起找</li><li>準備兩個一樣的錢包、固定收納位置</li><li>注意：也要排除真的有財務剝削</li></ul></div>
     <div class="card o"><h3>嫉妒妄想</h3><p class="small">堅信伴侶外遇，常在晚上發作，可能伴隨跟蹤、檢查手機、攻擊。被指控的人通常是<b>主要照顧者</b>。</p><ul class="l small"><li>不辯解、不拿證據，越證明越像心虛</li><li>回應背後的害怕：「你怕我離開」</li><li>轉移到熟悉的活動或照片</li><li>屬於可治療的精神症狀，<b>交由醫師評估</b></li></ul></div>
   </div>
-  <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Hashimoto et al., 2015（日本）</b><small>J Clin Psychiatry｜連續收案的門診個案系列</small></div></div>
-    <p class="small"><b>對象</b>：208 名失智門診病人，平均 77 歲。<b>結果</b>：妄想性嫉妒 8.7%，<b>路易氏體失智 26.3%</b>、阿茲海默症 5.5%；18 位中有 <b>11 位對配偶動手</b>；83% 治療 12 個月內緩解。<b>限制</b>：樣本少。</p></div>
+  <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Hashimoto et al., 2015（日本）</b><small>J Clin Psychiatry｜個案系列：連續收案的門診病人</small></div></div><dl><dt>想知道</dt><dd>失智者有多少人出現妄想性嫉妒（堅信伴侶外遇），會不會傷害配偶</dd><dt>對象</dt><dd>日本一家失智門診連續收案的 208 位病人，平均 77 歲</dd><dt>怎麼做</dt><dd>醫師診斷並記錄有妄想性嫉妒的病人，追蹤治療 12 個月</dd><dt>結果</dt><dd>18 位（8.7%）有妄想性嫉妒；路易氏體失智最多（26.3%），阿茲海默症 5.5%；這 18 位中 <b>11 位曾對配偶動手</b>；83% 在治療 12 個月內改善</dd><dt>限制</dt><dd>單一醫院、樣本少</dd><dt class="use">用在服務</dt><dd class="use">照顧者說「他一直懷疑我外遇，還會動手」時，要當成高危機處理，同時協助就醫，因為這個症狀多數可以治療改善</dd></dl></div>
   <div class="note o">嫉妒妄想出現威脅、掐脖、持械時，要當成<b>高危機</b>處理：安全計畫與醫療評估同時進行。好消息是多數可以治療改善。</div>
 </div>
 </section>
@@ -738,8 +736,8 @@ button{font:inherit;color:inherit}
   <span class="tag">03 技巧｜親密與性</span>
   <h2>失智伴侶的性需求與性同意：訪視時不能跳過的話題</h2>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Lane et al., 2025</b><small>J Am Geriatr Soc｜系統性回顧（多為個案報告）</small></div></div><p class="small">不當性行為最多見於約 <b>25%</b> 的失智者；非藥物介入有幫助，常需合併醫療處理。</p></div>
-    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Ahmed et al., 2015</b><small>J Alzheimers Dis｜照顧者問卷</small></div></div><p class="small">49 位失智者（含額顳葉失智）中，主要變化其實是<b>性慾與親密降低</b>，異常性行為只占少數。不要把失智直接等同性慾亢進。</p></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Lane et al., 2025</b><small>J Am Geriatr Soc｜系統性回顧（多數是個案報告）</small></div></div><dl><dt>想知道</dt><dd>失智者出現不當性行為有多常見、怎麼處理</dd><dt>對象</dt><dd>74 篇文獻，多數是個案報告與個案系列</dd><dt>怎麼做</dt><dd>整理各研究中不當性行為的比例與處理方式</dd><dt>結果</dt><dd>最多約 <b>25%</b> 的失智者出現不當性行為（例如不適當碰觸、公開裸露、強求性行為）；非藥物方法有幫助，但常需合併醫療處理</dd><dt>限制</dt><dd>多為個案報告，參考價值較低</dd><dt class="use">用在服務</dt><dd class="use">會談時要主動、平常地詢問親密與性方面的困擾，必要時協助就醫評估，並在安全計畫中加入分房等做法</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l4">4</span><div><b>Ahmed et al., 2015</b><small>J Alzheimers Dis｜照顧者問卷</small></div></div><dl><dt>想知道</dt><dd>失智後，性行為會怎麼改變</dd><dt>對象</dt><dd>49 位失智者的照顧者（含額顳葉失智 32 位、阿茲海默症 17 位）</dd><dt>怎麼做</dt><dd>照顧者填問卷，比較失智者生病前後的性行為</dd><dt>結果</dt><dd>額顳葉失智者最主要的變化是<b>性慾和親密行為減少</b>，異常性行為只有少數</dd><dt>代表什麼</dt><dd>不要把失智直接等同「性慾亢進」，要個別評估</dd><dt>限制</dt><dd>樣本小</dd><dt class="use">用在服務</dt><dd class="use">失智者出現性方面的改變時，先由醫師評估，不要直接貼上「性慾亢進」的標籤</dd></dl></div>
   </div>
   <div class="g g3">
     <div class="card o"><h3>兩個方向都要問</h3><p class="small">失智者對伴侶強求性行為；或伴侶對已無法表達同意的失智者進行性行為。兩者都可能構成性暴力。</p></div>
@@ -760,8 +758,7 @@ button{font:inherit;color:inherit}
     <div class="card t"><div class="num">R</div><h3>安撫</h3><p class="small">給安全感<br>「我在這裡，我只是去倒水。」</p></div>
     <div class="card t"><div class="num">A</div><h3>轉向活動</h3><p class="small">轉到具體、安定的事<br>「我們一起喝杯溫水再睡。」</p></div>
   </div>
-  <div class="study"><div class="st-head"><span class="lv l5">5</span><div><b>Blackhall et al., 2011；Hawkes et al., 2015</b><small>Nursing Standard｜實務架構與質性評估</small></div></div>
-    <p class="small">由英國護理師提出。精神科病房的工作人員覺得實用、好上手，但只有質性回饋，沒有成效數據。好用，但屬於經驗建議。</p></div>
+  <div class="study"><div class="st-head"><span class="lv l5">5</span><div><b>Blackhall et al., 2011；Hawkes et al., 2015</b><small>Nursing Standard｜實務架構與使用經驗訪談</small></div></div><dl><dt>是什麼</dt><dd>英國護理師提出的四步溝通架構（VERA）</dd><dt>怎麼評估</dt><dd>訪談精神科病房工作人員的使用經驗</dd><dt>結果</dt><dd>工作人員覺得實用、好上手</dd><dt>限制</dt><dd>只有使用感受，沒有測量失智者或照顧者的改變，屬於經驗建議</dd><dt class="use">用在服務</dt><dd class="use">VERA 可以當作教照顧者「情緒來時先做什麼」的簡單口訣，但要說明這是經驗建議</dd></dl></div>
 </div>
 </section>
 
@@ -776,7 +773,7 @@ button{font:inherit;color:inherit}
     <div class="card t"><div class="num">E</div><h3>評估</h3><p class="small">一兩週後看次數有沒有變少，沒效就換方法</p></div>
   </div>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>Gitlin et al., 2026（WeCareAdvisor）</b><small>J Am Geriatr Soc｜RCT</small></div></div><p class="small">比較「馬上使用」與「延後使用」依 DICE 設計的線上工具。3 個月時，照顧者苦惱小幅但顯著下降，行為症狀也較少。DICE 原為專家共識（Kales 2014、2015，等級 5）。</p></div>
+    <div class="study"><div class="st-head"><span class="lv l1b">1b</span><div><b>Gitlin et al., 2026（WeCareAdvisor）</b><small>J Am Geriatr Soc｜隨機對照試驗（RCT）</small></div></div><dl><dt>想知道</dt><dd>依 DICE 步驟設計的線上工具，能不能幫助家屬照顧者</dd><dt>對象</dt><dd>美國失智者家屬照顧者</dd><dt>怎麼做</dt><dd>隨機分兩組：一組馬上使用 WeCareAdvisor 網頁工具，另一組延後使用</dd><dt>結果</dt><dd>3 個月時，馬上使用的照顧者苦惱小幅但明顯下降，失智者的行為症狀與照顧者因此產生的困擾也較少</dd><dt>背景</dt><dd>DICE 原本是 2014 年的專家共識（等級 5），這篇研究提供了較高等級的支持</dd><dt>限制</dt><dd>追蹤時間短（3 個月）</dd><dt class="use">用在服務</dt><dd class="use">遇到反覆出現的衝突時，請照顧者記錄一週「時間、發生什麼、怎麼回應」，下次訪視一起找原因（DICE）</dd></dl></div>
     <div class="card"><h3>訪視時怎麼用</h3><p class="small">請照顧者用手機記錄一週：「幾點、發生什麼、我怎麼回應」。下次訪視一起看規律，常會發現衝突集中在<b>洗澡、吃藥、傍晚</b>。</p></div>
   </div>
 </div>
@@ -840,8 +837,7 @@ button{font:inherit;color:inherit}
   <span class="tag">03 技巧｜照顧者</span>
   <h2>照顧者也是需要被評估的人</h2>
   <div class="g g2" style="align-items:start">
-    <div class="study"><div class="st-head"><span class="lv l2b">2b</span><div><b>國家衛生研究院團隊，2026</b><small>JAMA Network Open｜健保資料庫世代研究</small></div></div>
-      <dl><dt>對象</dt><dd>約 95.5 萬名已婚者</dd><dt>比較</dt><dd>配偶有失智 vs 配偶沒有失智</dd><dt>結果</dt><dd>配偶失智後，另一半日後失智的相對風險約增加 <b>7 成</b>；絕對值約為 5 年內每 100 人多 3–4 人</dd><dt>限制</dt><dd>觀察性研究，只能看出關聯，不能證明照顧導致失智</dd></dl></div>
+    <div class="study"><div class="st-head"><span class="lv l2b">2b</span><div><b>國家衛生研究院團隊，2026</b><small>JAMA Network Open｜世代研究：用健保資料長期追蹤</small></div></div><dl><dt>想知道</dt><dd>配偶失智，另一半是不是也比較容易失智</dd><dt>對象</dt><dd>台灣健保資料庫約 95.5 萬名已婚者</dd><dt>怎麼做</dt><dd>比較「配偶有失智」和「配偶沒有失智」的人，之後自己罹患失智的比例</dd><dt>結果</dt><dd>配偶失智的人，自己日後失智的風險約<b>高 7 成</b>；換算成人數，約 5 年內每 100 人多 3–4 人</dd><dt>限制</dt><dd>只能看出關聯，不能證明是照顧造成，也可能受夫妻共同生活習慣等因素影響</dd><dt class="use">用在服務</dt><dd class="use">照顧者也需要健康評估：鼓勵照顧者自己定期回診，並在計畫中安排照顧者生病時的替代照顧者</dd></dl></div>
     <div class="card t"><h3>建立「照顧備援計畫」</h3><ul class="l small"><li>緊急聯絡人：照顧者突然生病、住院時，誰會知道、誰來接手</li><li>定期關懷：鄰里、據點或社工的固定聯繫</li><li>照顧者自己的健康：回診、睡眠、憂鬱與飲酒</li><li>事先談好：日照、機構或分開居住的選項，不要等到危機</li></ul></div>
   </div>
   <p class="note">老老照顧家庭中，照顧者常是唯一的安全網。照顧者本身的病，也是被照顧者的風險。</p>
@@ -860,8 +856,7 @@ button{font:inherit;color:inherit}
     <div class="card t"><div class="num">S</div><h3>摘要</h3><p class="small">把對方說過的改變理由串起來，還給他聽</p></div>
   </div>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Rubak et al., 2005</b><small>British Journal of General Practice｜72 篇 RCT 系統性回顧與整合分析</small></div></div>
-      <p class="small"><b>結果</b>：約 3/4 的研究顯示 MI 有效，涵蓋生理與心理問題；15 分鐘短談也有約 64% 有效，接觸次數越多效果越穩定。<b>限制</b>：效果多見於半年內；用在家暴情境的研究少、樣本小。</p></div>
+    <div class="study"><div class="st-head"><span class="lv l1a">1a</span><div><b>Rubak et al., 2005</b><small>British Journal of General Practice｜整合分析：合併 72 篇隨機對照試驗</small></div></div><dl><dt>想知道</dt><dd>動機式晤談能不能幫助人改變行為</dd><dt>對象</dt><dd>72 篇隨機對照試驗，涵蓋飲酒、體重、血壓等生理與心理問題</dd><dt>怎麼做</dt><dd>比較接受動機式晤談與接受一般建議的人</dd><dt>結果</dt><dd>約 <b>3/4</b> 的研究顯示有效；只談 15 分鐘也有約 64% 的研究有效；談的次數越多，效果越穩定</dd><dt>限制</dt><dd>效果多出現在半年內；用在家暴情境的研究少、樣本小</dd><dt class="use">用在服務</dt><dd class="use">照顧者拒絕喘息、拒絕資源時，用動機式晤談的方法引出他自己的改變理由，而不是說服他</dd></dl></div>
     <div class="note o"><b>安全先於動機。</b>有立即危險、受虐或高危機時，不等對方「準備好」：通報、危險評估、保護令照常進行。MI 用在「怎麼談」，不取代法定程序。</div>
   </div>
 </div>
@@ -900,7 +895,7 @@ button{font:inherit;color:inherit}
     <div class="card t"><div class="num">P</div><h3>合作</h3><p class="small">一起決定下一步：「先找醫師談睡眠，好嗎？」</p></div>
   </div>
   <div class="g g2">
-    <div class="study"><div class="st-head"><span class="lv l5">5</span><div><b>Amador, LEAP 架構</b><small>臨床實務方法</small></div></div><p class="small">由臨床心理學家依病識感研究發展的溝通架構，廣泛用於家屬教育，但缺乏大型隨機試驗。</p></div>
+    <div class="study"><div class="st-head"><span class="lv l5">5</span><div><b>Amador，LEAP 架構</b><small>臨床實務方法</small></div></div><dl><dt>是什麼</dt><dd>臨床心理學家依「病識感」研究發展的溝通架構，用在病人不認為自己生病、拒絕治療時</dd><dt>證據</dt><dd>廣泛用於家屬教育，但缺乏大型隨機對照試驗</dd><dt>參考價值</dt><dd>屬於經驗建議，好用但未經嚴格驗證</dd><dt class="use">用在服務</dt><dd class="use">伴侶有精神疾病、拒絕服藥時，可以用 LEAP 的步驟協助家屬溝通；有傷人或自傷之虞時，仍要啟動精神衛生法程序</dd></dl></div>
     <div class="card a"><h3>不跟妄想辯論</h3><p class="small">說「我聽到你很害怕」，不說「那是你想像的」。有傷人或自傷之虞時，回到精神衛生法程序。</p></div>
   </div>
 </div>
@@ -911,10 +906,10 @@ button{font:inherit;color:inherit}
   <span class="tag o">03 技巧｜辨識</span>
   <h2>失智與家暴的四種組合，處理方向不同</h2>
   <div class="g g2">
-    <div class="card o"><h3>1. 長期家暴，加害人後來失智</h3><p class="small">控制可能更失序、更難預測。被害人更怕不被相信。<b>重點：安全計畫優先，不因診斷降低危險等級。</b></p></div>
-    <div class="card o"><h3>2. 長期家暴，被害人後來失智</h3><p class="small">被害人更孤立、更難求助，加害人同時是照顧者。<b>重點：老人與身障保護通報、替代照顧者。</b></p></div>
-    <div class="card t"><h3>3. 關係原本良好，失智後才出現攻擊</h3><p class="small">多屬症狀。突然出現的新行為要先排除<b>譫妄</b>（感染、脫水、藥物）。<b>重點：醫療評估與照顧技巧，但仍要做安全評估。</b></p></div>
-    <div class="card a"><h3>4. 照顧者過去沒有暴力，照顧後才施暴</h3><p class="small">照顧耗竭、照顧者本身生病或憂鬱。<b>重點：高負荷初篩、喘息、家照據點，同時評估同死意念。</b></p></div>
+    <div class="card o"><h3>1. 長期對伴侶施暴的人，後來自己失智</h3><p class="small">控制可能更失序、更難預測。被害人更怕不被相信。<b>重點：安全計畫優先，不因診斷降低危險等級。</b></p></div>
+    <div class="card o"><h3>2. 長期被伴侶施暴的人，後來失智</h3><p class="small">被害人更孤立、更難求助，加害人同時是照顧者。<b>重點：老人與身障保護通報、替代照顧者。</b></p></div>
+    <div class="card t"><h3>3. 關係原本良好，失智的一方生病後才開始攻擊伴侶</h3><p class="small">多屬症狀。突然出現的新行為要先排除<b>譫妄</b>（感染、脫水、藥物）。<b>重點：醫療評估與照顧技巧，但仍要做安全評估。</b></p></div>
+    <div class="card a"><h3>4. 照顧者過去沒有暴力，照顧失智伴侶後才開始施暴</h3><p class="small">照顧耗竭、照顧者本身生病或憂鬱。<b>重點：高負荷初篩、喘息、家照據點，同時評估同死意念。</b></p></div>
   </div>
   <p class="src">依據：英國 Aberystwyth 大學老年、性別與社會正義中心個案研究；英國地方政府失智與家暴實務指引（<span class="lv l5" style="height:1.5em;min-width:1.5em;font-size:.8em">5</span> 專家觀點）。會談時要問「確診前後，你們的關係有什麼不同？」</p>
 </div>
@@ -940,7 +935,7 @@ button{font:inherit;color:inherit}
 
 <!-- ===== 04 處置 ===== -->
 <section class="slide divider" data-t="04 處置流程與法規" data-sec="1">
-<div class="wrap"><div class="big">04</div><h2>處置：法規、程序與辦理流程</h2><p>法條以全國法規資料庫現行條文為準（查核至 2026 年 10 月）。實際作業請以新北市家防中心最新 SOP 為準。</p></div>
+<div class="wrap"><div class="big">04</div><h2>處置：法規、程序與辦理流程</h2><p>法條以全國法規資料庫現行條文為準（查核至 2026 年 10 月）。實際作業請以臺北市（及個案所在縣市）家防中心最新 SOP 為準。</p></div>
 </section>
 
 <section class="slide" data-t="處置總流程">
@@ -990,6 +985,7 @@ button{font:inherit;color:inherit}
     <div class="note t">失智配偶同時符合多部法律時，<b>一案可能有多重身分</b>：婚暴被害人、老人保護、身障保護。通報時一併勾選，以利網絡分工。</div>
     <div class="note">未通報的罰則不同：家暴法第 62 條對未通報的責任通報人員處 <b>6,000 至 30,000 元</b>罰鍰；老人福利法對個人未通報沒有罰則（機構另有罰則）。長期照顧服務法沒有專門的通報條文，仍回到上述三部法律。</div>
   </div>
+  <div class="note o"><b>用在服務：</b>訪視發現疑似暴力，24 小時內完成通報；個案是 65 歲以上或持身障證明時，在同一張通報表一併勾選老人或身障保護，讓社政、衛政能同時接手。不確定要不要通報時，先通報再由篩派案評估，社工本人不需要先查證屬實。</div>
 </div>
 </section>
 
@@ -1009,6 +1005,7 @@ button{font:inherit;color:inherit}
     <div class="card"><b>違反保護令罪（第 61 條）</b><p class="small">3 年以下有期徒刑、拘役，或科或併科 10 萬元以下罰金</p></div>
   </div>
   <p class="small">未同居的親密伴侶（年滿 16 歲），依第 63 條之 1 準用多數保護令規定。聲請保護令免徵裁判費。</p>
+  <div class="note o"><b>用在服務：</b>和被害人一起逐款看要聲請哪些內容：要不要遷出、要不要遠離、要不要命對方接受處遇或精神治療評估。高危機或被害人無力聲請時，由主管機關或警察代為聲請；核發後的 6 個月內是高風險期，要排定追蹤。</div>
 </div>
 </section>
 
@@ -1042,6 +1039,7 @@ button{font:inherit;color:inherit}
     <div class="card"><h3>保護人</h3><p class="small">嚴重病人應設保護人 1 人，順序為法定代理人、監護人或輔助人，其次為配偶、家屬（第 34 條）</p></div>
   </div>
   <p class="src">來源：精神衛生法（2022.12.14 修正）；衛福部新聞稿 2026.7.30。</p>
+  <div class="note o"><b>用在服務：</b>伴侶有精神疾病且出現傷人或自傷之虞時，先打 110 或 119 由警消護送就醫；平日則連結社區心理衛生中心與心衛社工共同服務。2026 年 8 月起強制住院由法院審理，家屬可能需要出庭說明，社工可先向家屬說明流程，並提醒可申請法律扶助。</div>
 </div>
 </section>
 
@@ -1054,6 +1052,7 @@ button{font:inherit;color:inherit}
     <div class="card t"><h3>身心障礙者權益保障法</h3><ul class="l small"><li>第 75 條：禁止遺棄、身心虐待、限制自由、留置危險環境等</li><li>第 78、80 條：情況危急時緊急保護安置，<b>不得超過 72 小時</b>；需繼續時聲請法院裁定</li><li>第 95 條：罰 3 萬至 15 萬元並得公告姓名；家庭照顧者違反時，接受 <b>8 至 50 小時家庭教育及輔導</b></li></ul></div>
   </div>
   <p class="note t">家庭教育及輔導的設計精神是「教會照顧」，適合用在照顧技巧不足引發的不當對待；但不能取代危險評估。</p>
+  <div class="note o"><b>用在服務：</b>照顧者疏忽、約束或照顧不當時，除了通報，可建議主管機關安排家庭教育及輔導（老福法 4–20 小時、身權法 8–50 小時），讓照顧者學會照顧方法；失智者有立即危險時，可請主管機關緊急保護安置。</div>
 </div>
 </section>
 
@@ -1069,6 +1068,7 @@ button{font:inherit;color:inherit}
     <tr><td>預立醫療決定<br>（病人自主權利法）</td><td>經預立醫療照護諮商並註記健保卡</td><td>適用條件包含「極重度失智」</td><td>及早讓本人表達醫療意願</td></tr>
   </table></div>
   <p class="small">聲請監護或輔助宣告者：本人、配偶、四親等內親屬、最近一年有同居事實的其他親屬、檢察官、主管機關、社會福利機構等。</p>
+  <div class="note o"><b>用在服務：</b>失智初期、還能表達意見時，鼓勵本人及早辦理意定監護與預立醫療決定，可以避免日後由施暴的配偶決定財產與醫療。發現財務被控制時，協助家屬或主管機關聲請輔助或監護宣告。</div>
 </div>
 </section>
 
@@ -1086,6 +1086,7 @@ button{font:inherit;color:inherit}
     <tr><td>第 19 條 責任能力</td><td>行為時不能辨識違法：不罰；顯著減低：得減輕</td><td>失智者或精神疾病者為加害人時，需精神鑑定</td></tr>
   </table></div>
   <div class="note">約束的替代方案：門口感應鈴、愛心手鍊、指紋建檔、白天活動與日照、夜間照明。照顧者「為了安全」而約束時，先問<b>他缺的是哪一種幫手</b>。</div>
+  <div class="note o"><b>用在服務：</b>看到用鐵鍊、繩子綁人或反鎖房間時，要清楚告訴照顧者這可能觸法，同時協助找替代方法（門鈴、手鍊、日照、喘息），重點是解決他缺幫手的問題。照顧者說出「一起走」時，立即評估自殺與同死風險。</div>
 </div>
 </section>
 
@@ -1160,8 +1161,8 @@ button{font:inherit;color:inherit}
   <span class="tag">05 福利｜失智資源</span>
   <h2>失智症家庭專屬資源</h2>
   <div class="g g3">
-    <div class="card t"><div class="num">133<small>處</small></div><h3>失智共同照護中心</h3><p class="small">個案管理、協助確診、照顧諮詢；新北 14 處</p></div>
-    <div class="card t"><div class="num">580<small>處</small></div><h3>失智社區服務據點</h3><p class="small">認知促進、照顧者支持團體；新北 65 處</p></div>
+    <div class="card t"><div class="num">133<small>處</small></div><h3>失智共同照護中心</h3><p class="small">個案管理、協助確診、照顧諮詢；臺北市 11 處</p></div>
+    <div class="card t"><div class="num">580<small>處</small></div><h3>失智社區服務據點</h3><p class="small">認知促進、照顧者支持團體；臺北市 49 處</p></div>
     <div class="card o"><div class="num o">34.26<small>%</small></div><h3>走失長者中失智者的比例</h3><p class="small">愛的手鍊至 2025 年 7 月已協助 8,997 個家庭團聚</p></div>
   </div>
   <div class="g g2">
@@ -1215,6 +1216,7 @@ button{font:inherit;color:inherit}
     <div class="card t"><div class="phone">0800-507-272</div><p class="small">家庭照顧者關懷專線（家總）</p></div>
     <div class="card t"><div class="phone">1925</div><p class="small">安心專線，24 小時心理諮詢與自殺防治</p></div>
     <div class="card t"><div class="phone">0800-474-580</div><p class="small">失智症關懷專線（台灣失智症協會）</p></div>
+    <div class="card t"><div class="phone">1999</div><p class="small">臺北市民當家熱線，可查詢臺北市失智服務資源（外縣市請撥 02-2720-8889 轉 1875）</p></div>
   </div>
 </div>
 </section>
@@ -1244,16 +1246,16 @@ button{font:inherit;color:inherit}
   <span class="tag">06 縣市｜相異</span>
   <h2>六都的做法：點選城市</h2>
   <div class="tabs" id="cityTabs">
-    <button class="tabbtn sel" data-c="ct1">新北市</button>
-    <button class="tabbtn" data-c="ct2">臺北市</button>
+    <button class="tabbtn sel" data-c="ct2">臺北市</button>
+    <button class="tabbtn" data-c="ct1">新北市</button>
     <button class="tabbtn" data-c="ct3">桃園市</button>
     <button class="tabbtn" data-c="ct4">臺中市</button>
     <button class="tabbtn" data-c="ct5">臺南市</button>
     <button class="tabbtn" data-c="ct6">高雄市</button>
   </div>
   <div class="panel">
-    <div id="ct1"><h3>新北市</h3><ul class="l small"><li>失智共照中心 14 處、失智據點 65 處，共照中心服務人數全國最多（11,500 人）</li><li>2023 年中和照顧悲劇後，社會局與衛生局推動「高照顧負荷喘息方案」，並強化里長通報與社區守門員</li><li>家防中心辦理「老人暨身心障礙者保護預防性關懷服務方案」與「以家庭為中心之整合性服務方案」</li><li>失智守護站大幅擴增；2026 年推出年輕型失智就業再設計方案</li></ul></div>
-    <div id="ct2" hidden><h3>臺北市</h3><ul class="l small"><li>失智共照中心 11 處、失智據點 49 處</li><li>老人保護採「<b>一主責多協力</b>」三級預防：社福中心主責脆弱家庭，家防中心主責保護案件</li><li>照管專員在長照初評與複評時都使用高負荷初篩指標</li><li>主動盤點「<b>雙老、雙障</b>」家庭，寄送照顧壓力自評表，由里幹事核對名冊後安排社工訪視</li><li>老人保護通報中，照顧負荷類約占 45%</li></ul></div>
+    <div id="ct1" hidden><h3>新北市</h3><ul class="l small"><li>失智共照中心 14 處、失智據點 65 處，共照中心服務人數全國最多（11,500 人）</li><li>2023 年中和照顧悲劇後，社會局與衛生局推動「高照顧負荷喘息方案」，並強化里長通報與社區守門員</li><li>家防中心辦理「老人暨身心障礙者保護預防性關懷服務方案」與「以家庭為中心之整合性服務方案」</li><li>失智守護站大幅擴增；2026 年推出年輕型失智就業再設計方案</li></ul></div>
+    <div id="ct2"><h3>臺北市</h3><ul class="l small"><li>失智共照中心 11 處、失智據點 49 處</li><li>老人保護採「<b>一主責多協力</b>」三級預防：社福中心主責脆弱家庭，家防中心主責保護案件</li><li>照管專員在長照初評與複評時都使用高負荷初篩指標</li><li>主動盤點「<b>雙老、雙障</b>」家庭，寄送照顧壓力自評表，由里幹事核對名冊後安排社工訪視</li><li>老人保護通報中，照顧負荷類約占 45%</li></ul></div>
     <div id="ct3" hidden><h3>桃園市</h3><ul class="l small"><li>失智共照中心 9 處、失智據點 34 處</li><li>社會局 2023 年辦理高照顧負荷家庭盤點</li></ul></div>
     <div id="ct4" hidden><h3>臺中市</h3><ul class="l small"><li>失智共照中心 10 處、失智據點 47 處</li><li>衛生局訂有「長期照顧高負荷家庭照顧者通報及服務機制」與通報單</li><li>愛心手鍊由市府全額補助</li></ul></div>
     <div id="ct5" hidden><h3>臺南市</h3><ul class="l small"><li>失智共照中心 7 處、失智據點 40 處</li><li>以失智友善社區推動為主，本次未查得市級高負荷專屬機制</li></ul></div>
@@ -1268,13 +1270,13 @@ button{font:inherit;color:inherit}
   <span class="tag">06 縣市｜總表</span>
   <h2>主動找出高負荷家庭的方式，各市不同</h2>
   <div class="tscroll"><table class="tb">
-    <tr><th>面向</th><th>全國共通</th><th>新北</th><th>臺北</th><th>高雄</th></tr>
-    <tr><td>高負荷篩檢</td><td>10 項初篩指標＋負荷量表</td><td>喘息方案、里長通報、社區守門員</td><td>照專初複評都篩；雙老雙障主動盤點</td><td>區公所普訪體系外家庭</td></tr>
-    <tr><td>老人保護分工</td><td>家暴法與老福法雙軌</td><td>家防中心處理家內老人虐待</td><td>一主責多協力，家防中心主責保護</td><td>依市府分工</td></tr>
-    <tr><td>失智資源</td><td>共照 133／據點 580</td><td>14／65</td><td>11／49</td><td>12／65</td></tr>
+    <tr><th>面向</th><th>全國共通</th><th>臺北</th><th>新北</th><th>高雄</th></tr>
+    <tr><td>高負荷篩檢</td><td>10 項初篩指標＋負荷量表</td><td>照專初複評都篩；雙老雙障主動盤點</td><td>喘息方案、里長通報、社區守門員</td><td>區公所普訪體系外家庭</td></tr>
+    <tr><td>老人保護分工</td><td>家暴法與老福法雙軌</td><td>一主責多協力，家防中心主責保護</td><td>家防中心處理家內老人虐待</td><td>依市府分工</td></tr>
+    <tr><td>失智資源</td><td>共照 133／據點 580</td><td>11／49</td><td>14／65</td><td>12／65</td></tr>
     <tr><td>精神合併家暴</td><td>心衛社工 1:25</td><td>社區心衛中心</td><td>社區心衛中心</td><td>社區心衛中心</td></tr>
   </table></div>
-  <div class="note t">對新北社工的實務提醒：被照顧者住新北、子女住臺北的跨縣市家庭，<b>兩地資源與窗口不同</b>，轉介前先確認服務所在地的申請規定。</div>
+  <div class="note t">跨縣市的實務提醒：服務單位在臺北、個案住新北，或被照顧者與子女分住兩市的家庭，<b>兩地資源與窗口不同</b>，轉介前先確認服務所在地的申請規定。</div>
 </div>
 </section>
 
@@ -1358,7 +1360,7 @@ button{font:inherit;color:inherit}
     <li>全國法規資料庫：家庭暴力防治法、老人福利法、身心障礙者權益保障法、精神衛生法、長期照顧服務法、民法、刑法、病人自主權利法。</li>
     <li>衛福部〈直轄市、縣（市）政府集中篩派案機制處理原則〉，2025.3.13 修正；〈台灣親密關係暴力危險評估工作手冊〉。</li>
     <li>衛福部長照 3.0 核定本、1966 長照服務專區、高負荷家庭照顧者初篩指標、失智共照中心及據點統計表。</li>
-    <li>新北市家防中心〈113 年家庭暴力、性侵害案量統計〉；臺北市、高雄市、臺中市、桃園市相關計畫文件。</li>
+    <li>臺北市政府社會局〈113 年臺北市老人生活狀況調查〉（2025）；臺北市衛生局 2026 失智月資料；臺北市、新北市、高雄市、臺中市、桃園市相關計畫文件。</li>
   </ol>
 </div>
 </section>
